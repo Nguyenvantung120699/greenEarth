@@ -99,11 +99,11 @@
                             <p>
                             Nhằm bảo tồn các loài động - thực vật hoang dã và hệ sinh thái thông qua các bằng chứng khoa học;
 
-Nhằm cung cấp những chương trình giáo dục bảo tồn cho trẻ em Việt Nam ở thành phố và các khu vực miền núi;
+                            Nhằm cung cấp những chương trình giáo dục bảo tồn cho trẻ em Việt Nam ở thành phố và các khu vực miền núi;
 
-Nhằm thay đổi nhận thức và thái độ của người dân Việt Nam trong việc tiêu thụ sản phẩm từ động vật hoang dã thông qua các chứng cứ khoa học và tạo kế sinh nhai cho người dân địa phương;
+                            Nhằm thay đổi nhận thức và thái độ của người dân Việt Nam trong việc tiêu thụ sản phẩm từ động vật hoang dã thông qua các chứng cứ khoa học và tạo kế sinh nhai cho người dân địa phương;
 
-Nhằm hợp tác với những tổ chức bảo tồn trong và ngoài nước, các trường đại học, viện nghiên cứu để chống lại tội ác động vật hoang dã.</p>
+                            Nhằm hợp tác với những tổ chức bảo tồn trong và ngoài nước, các trường đại học, viện nghiên cứu để chống lại tội ác động vật hoang dã.</p>
                         </div>
                     </div>
                 </div>
@@ -117,8 +117,7 @@ Nhằm hợp tác với những tổ chức bảo tồn trong và ngoài nước
             </div>
         </div>
     </div>
-
-    
+   
     <!-- popular_destination_area_start  -->
     <div class="popular_destination_area">
         <div class="container">
@@ -131,19 +130,19 @@ Nhằm hợp tác với những tổ chức bảo tồn trong và ngoài nước
                 </div>
             </div>
             <div class="row">
-
+            @foreach($categories as $c)
                 <div class="col-lg-4 col-md-6">
                     <div class="single_destination">
                         <div class="thumb">
-                            <img src="" alt="">
+                            <img src="{{asset($c->image)}}" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center"></p>
+                            <p class="d-flex align-items-center">{{$c->category_name}}</p>
                             
                         </div>
                     </div>
                 </div>
-
+               @endforeach
             </div>
         </div>
     </div>

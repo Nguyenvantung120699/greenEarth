@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/","WebController@index");
+Route::get("/adminn","AdminController@index");

@@ -5,64 +5,76 @@
       Tip 2: you can also add an image using data-image tag
   -->
     <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            Creative Tim
+          Admin
         </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item active  ">
-                <a class="nav-link" href="./dashboard.html">
+                <a class="nav-link" href="{{url("admin/home")}}">
                     <i class="material-icons">dashboard</i>
-                    <p>Dashboard</p>
+                    <p>Quản trị Website</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./user.html">
-                    <i class="material-icons">person</i>
-                    <p>User Profile</p>
+                <a class="nav-link"  >
+                    <i class="material-icons">edit</i>
+                    <p>Bài viết</p>
                 </a>
+
+            <li class="nav-item has-treeview ">
+                <a href="http://127.0.0.1:8000/admin/#" class="nav-link text-capitalize">
+                    <i class="nav-icon far fa-edit"></i>
+                    <p>
+                        Bài viết
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/post/create" class="nav-link text-capitalize">
+                            <i class="far fa-circle text-info nav-icon"></i>
+                            <p>Viết bài mới</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/post" class="nav-link text-capitalize">
+                            <i class="far fa-circle text-info nav-icon"></i>
+                            <p>Tất cả bài viết</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/comment" class="nav-link text-capitalize">
+                            <i class="far fa-circle text-info nav-icon"></i>
+                            <p>Tất cả bình luận</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./tables.html">
+                <a class="nav-link" href="{{url("admin/category")}}">
                     <i class="material-icons">content_paste</i>
-                    <p>Table List</p>
+                    <p>Quản lý chuyên mục</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./typography.html">
                     <i class="material-icons">library_books</i>
-                    <p>Typography</p>
+                    <p>Tin tức</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./icons.html">
                     <i class="material-icons">bubble_chart</i>
-                    <p>Icons</p>
+                    <p>Slide</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./map.html">
-                    <i class="material-icons">location_ons</i>
-                    <p>Maps</p>
+                    <i class="material-icons">person</i>
+                    <p>Tài khoản</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./notifications.html">
-                    <i class="material-icons">notifications</i>
-                    <p>Notifications</p>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./rtl.html">
-                    <i class="material-icons">language</i>
-                    <p>RTL Support</p>
-                </a>
-            </li>
-            <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li>
+
         </ul>
     </div>
 </div>

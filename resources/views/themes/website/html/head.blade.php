@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{asset("css/gijgo.css")}}">
     <link rel="stylesheet" href="{{asset("css/animate.css")}}">
     <link rel="stylesheet" href="{{asset("css/slick.css")}}">
+    <link rel="stylesheet" href="{{asset("css/app.css")}}">
     <link rel="stylesheet" href="{{asset("css/slicknav.css")}}">
     <link rel="stylesheet" href="{{asset("https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css")}}">
 

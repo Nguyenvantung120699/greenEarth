@@ -1,5 +1,7 @@
 <?php
-
+Route::prefix("admin")->group(function (){
+    include_once ("admin.php");
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,4 +14,4 @@
 */
 
 Route::get("/","WebController@index");
-Route::get("/adminn","AdminController@index");
+

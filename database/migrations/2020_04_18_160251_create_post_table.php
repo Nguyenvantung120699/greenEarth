@@ -15,11 +15,14 @@ class CreatePostTable extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('post_title',191)->unique();
-            $table->text('post_content');
+            $table->string('title',191)->unique();
+            $table->string('author');
+            $table->string('slug');
+            $table->text("short_desc");
+            $table->text('content');
             $table->tinyInteger('status')->default(1);   
-            $table->unsignedInteger('views')->default(0);
-            $table->unsignedInteger('like')->default(0);
+            $table->unsignedInteger('count_views')->default(0);
+            $table->unsignedInteger('count_like')->default(0);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
 

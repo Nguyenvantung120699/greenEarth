@@ -12,4 +12,9 @@ class Post extends Model
 
     const SHOW = 1;
     const HIDE = 0;
+
+    public function Category(){
+        return $this->belongsTo("\App\Category");
+    }
+
 }

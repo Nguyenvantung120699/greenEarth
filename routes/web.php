@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,3 +12,17 @@
 
 Route::get("/","WebController@index");
 Route::get("/adminn","AdminController@index");
+
+Route::get('/logout',function (){
+   \Illuminate\Support\Facades\Auth::logout();
+   return redirect()->to("/login");
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get("categorypost",'WebController@categoryPost');
+Route::get("viewpost",'WebController@viewPost');
+
+Route::get("search",'WebController@search');
+Route::post("postLogin","WebController@postLogin");

@@ -140,8 +140,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="serch_form">
-            <input type="text" placeholder="Search" >
+        <form class="form-inline " method="get" action="{{asset('search')}}">
+            <input type="text" name="key" placeholder="Search" >
             <button type="submit">search</button>
+        </form>
         </div>
       </div>
     </div>

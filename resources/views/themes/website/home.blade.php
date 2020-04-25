@@ -10,9 +10,9 @@
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
-                                <h3>Indonesia</h3>
-                                <p>Pixel perfect design with awesome contents</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
+                                <h5>Forest protection</h5>
+                                <p>Protecting the forest is protecting the green lungs of the earth</p>
+                                <a href="#" class="boxed-btn3">See Activities</a>
                             </div>
                         </div>
                     </div>
@@ -23,9 +23,9 @@
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
-                                <h3>Australia</h3>
-                                <p>Pixel perfect design with awesome contents</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
+                                <h5>Wildlife Protection</h5>
+                                <p>Protecting wildlife balances the ecosystem that preserves our habitat</p>
+                                <a href="#" class="boxed-btn3">See Activities</a>
                             </div>
                         </div>
                     </div>
@@ -36,43 +36,35 @@
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
-                                <h3>Switzerland</h3>
-                                <p>Pixel perfect design with awesome contents</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
+                                <h5>Climate Change Protection</h5>
+                                <p>Fighting climate change is an urgent task. Climate change is making the environment more harsh</p>
+                                <a href="#" class="boxed-btn3">See Activities</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     <!-- slider_area_end -->
     
-    <div class="popular_places_area">
+    <div class="popular_places_area" style="padding-bottom:3%;">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb_70">
-                        <h3>Popular Places</h3>
-                        <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="single_place" style="height:90%;border-radius:3%;">
                         <div class="place_info">
                         <div class="text-center"><h2>WHO WE ARE</h2></div>
-                            <p>WildAct is a conservation charity and non-governmental organisation based in Vietnam. Our works dedicated to raise Vietnamese people awareness on conservation issue by providing information and education program for Vietnamese children.We also are a memeber of Rhino Alliance.</p>
+                            <p>"Green Earth is a non-profit organization that always contributes to organizing campaigns to improve the environment and clean the earth.
+                                In addition, there are celebrities and organizations, companies supporting green work for the earth.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="single_place" style="height:90%;border-radius:3%;">
                     <div class="place_info">
-                    <div class="text-center"><h2>WILDACT LÀ AI?</h2></div>
-                            <p>WildAct là tổ chức phi chính phủ hoạt động trong lĩnh vực bảo tồn động vật hoang dã và môi trường tại Việt Nam. Nhiệm vụ chính của WildAct là nâng cao nhận thức của người dân Việt Nam về vấn đề bảo tồn bằng cách phổ biến thông tin khoa học cho cộng đồng và thông qua các chương trình giáo dục bảo tồn cho trẻ em Việt Nam.</p>
+                    <div class="text-center"><h2>GREEN EARTH LÀ AI?</h2></div>
+                            <p>"Green Earth" là tổ chức phi chính phủ hoạt động trong lĩnh vực bảo tồn động vật hoang dã và môi trường tại Việt Nam. Nhiệm vụ chính của "Green Earth" là nâng cao nhận thức của người dân Việt Nam về vấn đề bảo tồn bằng cách phổ biến thông tin khoa học cho cộng đồng và thông qua các chương trình giáo dục bảo tồn cho trẻ em Việt Nam.</p>
                         </div>
                     </div> 
                 </div>
@@ -111,43 +103,91 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="more_place_btn text-center">
-                        <a class="boxed-btn4" href="#">Donate</a>
+                        <a href="#" class="login boxed-btn4" data-toggle="modal" data-target="#donate">
+                            Donate
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
    
-    <!-- popular_destination_area_start  -->
-    <div class="popular_destination_area">
+    <div class="popular_places_area" style="padding-top:0px;padding-bottom:0px;">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb_70">
-                        <h3>Popular Destination</h3>
-                        <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
-                    </div>
-                </div>
+        <div class="text-center text-uppercase" style="padding-bottom:2%;">
+                <h2>Các tin tiêu biểu dành cho bạn</h2>
             </div>
             <div class="row">
-            @foreach($categories as $c)
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="{{asset($c->image)}}" alt="">
+                <h4 class="">Bảo Vệ Rừng</h4>
+                <div class="col-lg-12 border-top inset" style="padding-bottom:2%;">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6" style="padding-top:2%;">
+                            <div class="img">
+                                <img style="width:100%" src="img/place/1.png" alt="">
+                            </div>
+                            <div class="img">   
+                                <h4>title</h4>
+                            </div>
                         </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">{{$c->category_name}}</p>
-                            
+                        <div class="col-lg-6 col-md-6" style="padding-top:2%;">
+                           <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                    <div class="img">
+                                        <img style="width:100%;" src="img/place/1.png" alt="">
+                                    </div>
+                                    <div class="img">
+                                        <h5>title</h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="img">
+                                        <img style="width:100%" src="img/place/1.png" alt="">
+                                    </div>
+                                    <div class="img">
+                                        <h5>title</h5>
+                                    </div>
+                                </div>
+                           </div>
                         </div>
                     </div>
                 </div>
-               @endforeach
             </div>
         </div>
     </div>
-    <!-- popular_destination_area_end  -->
 
+    <div class="travel_variation_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <img src="img/svg_icon/1.svg" alt="">
+                        </div>
+                        <h3>Comfortable Journey</h3>
+                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <img src="img/svg_icon/2.svg" alt="">
+                        </div>
+                        <h3>Luxuries Hotel</h3>
+                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <img src="img/svg_icon/3.svg" alt="">
+                        </div>
+                        <h3>Travel Guide</h3>
+                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- testimonial_area  -->
     <div class="testimonial_area">
         <div class="container">
@@ -205,41 +245,4 @@
         </div>
     </div>
     <!-- /testimonial_area  -->
-
-
-    
-
-    <div class="travel_variation_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/1.svg" alt="">
-                        </div>
-                        <h3>Comfortable Journey</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/2.svg" alt="">
-                        </div>
-                        <h3>Luxuries Hotel</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/3.svg" alt="">
-                        </div>
-                        <h3>Travel Guide</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     @endsection

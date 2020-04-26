@@ -31,19 +31,19 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="http://127.0.0.1:8000/admin/post/create" class="nav-link text-capitalize">
+                        <a href="{{url("admin/post/create")}}" class="nav-link text-capitalize">
                             <i class="far fa-circle text-info nav-icon"></i>
                             <p>Viết bài mới</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="http://127.0.0.1:8000/admin/post" class="nav-link text-capitalize">
+                        <a href="{{url("admin/post")}}" class="nav-link text-capitalize">
                             <i class="far fa-circle text-info nav-icon"></i>
                             <p>Tất cả bài viết</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="http://127.0.0.1:8000/admin/comment" class="nav-link text-capitalize">
+                        <a href="{{url("admin/comment")}}" class="nav-link text-capitalize">
                             <i class="far fa-circle text-info nav-icon"></i>
                             <p>Tất cả bình luận</p>
                         </a>

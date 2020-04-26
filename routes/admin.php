@@ -19,3 +19,9 @@ Route::get("/post/edit/{id}","AdminController@postEdit");
 Route::post("/post/store","AdminController@postStore");
 Route::post("/post/update/{id}","AdminController@postUpdate");
 Route::get("/post/delete/{id}","AdminController@postDestroy");
+
+//{{--comment--}}
+Route::get("/comment","AdminController@comment");
+
+//{{--account--}}
+Route::get("/account","AdminController@account");

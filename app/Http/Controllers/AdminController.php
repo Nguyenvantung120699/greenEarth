@@ -148,5 +148,12 @@ class AdminController extends Controller
         }
         return redirect()->to("admin/post");
     }
-
+        //{{--comment--}}
+    public function comment(){
+        return view("themes.admin.comment.index");
+    }
+//        {{--account--}}
+    public function account(){
+        return view("themes.admin.account.index");
+    }
 }

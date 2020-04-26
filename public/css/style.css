@@ -1343,11 +1343,11 @@ h3 {
 
 .header-area .header_bottom_border .logo h4 {
   font-family: "Nothing You Could Do", cursive;
-  font-size: 50px;
+  font-size: 20px;
   text-transform: capitalize;
   font-weight: 400;
   line-height: .5;
-  color:green;
+  color:  #FF4000;
   margin-bottom: 0;
 }
 

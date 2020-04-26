@@ -1,4 +1,8 @@
 <?php
+Route::prefix("admin")->group(function (){
+    include_once ("admin.php");
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +15,6 @@
 */
 
 Route::get("/","WebController@index");
-Route::get("/adminn","AdminController@index");
 
 Route::get('/logout',function (){
    \Illuminate\Support\Facades\Auth::logout();
@@ -21,8 +24,11 @@ Route::get('/logout',function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("categorypost",'WebController@categoryPost');
-Route::get("viewpost",'WebController@viewPost');
+Route::get("categorypost/{id}",'WebController@categoryPost');
+Route::get("viewpost/{id}",'WebController@viewPost');
 
 Route::get("search",'WebController@search');
 Route::post("postLogin","WebController@postLogin");
+
+Route::post("postcomment","WebController@postcomment");
+

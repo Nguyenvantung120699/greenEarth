@@ -117,41 +117,51 @@
         <div class="text-center text-uppercase" style="padding-bottom:2%;">
                 <h2>Các tin tiêu biểu dành cho bạn</h2>
             </div>
+            @foreach($categories as $c)
             <div class="row">
-                <h4 class="">Bảo Vệ Rừng</h4>
-                <div class="col-lg-12 border-top inset" style="padding-bottom:2%;">
+                <h4 class="">{{$c->category_name}}</h4>
+                <div class="col-lg-12 border-top inset single_place" style="padding-bottom:2%;border-radius:1%;">
                     <div class="row">
+                    @foreach($post as $p)
                         <div class="col-lg-6 col-md-6" style="padding-top:2%;">
                             <div class="img">
-                                <img style="width:100%" src="img/place/1.png" alt="">
+                                <img style="width:100%" src="https://kenh14cdn.com/thumb_w/640/2017/h1-1488172543693-7-4-313-599-crop-1488173064446.jpg" alt="">
                             </div>
-                            <div class="img">   
-                                <h4>title</h4>
+                            <div class="">   
+                                <a href="{{url("/viewpost/{$p->id}")}}"><h5 class="text-black">{{$p->title}}</h5></a>
+                            </div>
+                            <div class="">   
+                                <p>{{$p->short_desc}}</p>
+                            </div>
+                            <div class="">   
+                                <b class="text-black">Tác Giả : {{$p->author}}</b>
                             </div>
                         </div>
+                        @endforeach
                         <div class="col-lg-6 col-md-6" style="padding-top:2%;">
                            <div class="row">
+                           @foreach($posts as $pp)
                             <div class="col-lg-6 col-md-6">
                                     <div class="img">
-                                        <img style="width:100%;" src="img/place/1.png" alt="">
+                                        <img style="width:100%;" src="https://kenh14cdn.com/thumb_w/640/2017/h1-1488172543693-7-4-313-599-crop-1488173064446.jpg" alt="">
                                     </div>
                                     <div class="img">
-                                        <h5>title</h5>
+                                        <a href="{{url("/viewpost/{$pp->id}")}}"><h5 class="text-black">{{$pp->title}}</h5></a>
+                                    </div>
+                                    <div class="">   
+                                        <p>{{$pp->short_desc}}</p>
+                                    </div>
+                                    <div class="">   
+                                        <b class="text-black">Tác Giả : {{$pp->author}}</b>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="img">
-                                        <img style="width:100%" src="img/place/1.png" alt="">
-                                    </div>
-                                    <div class="img">
-                                        <h5>title</h5>
-                                    </div>
-                                </div>
+                            @endforeach
                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 

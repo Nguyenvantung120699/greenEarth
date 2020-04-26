@@ -51,11 +51,8 @@
                     @forelse($category as $c)
                         <div class="col-lg-4 col-md-6">
                             <div class="single_destination">
-                                <div class="thumb">
-                                    <img src="img/destination/1.png" alt="">
-                                </div>
                                 <div class="content">
-                                    <p class="d-flex align-items-center">Bảo vệ động vật hoang dã</p>
+                                    <h5 class="d-flex align-items-center">{{$c->category_name}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -104,19 +101,11 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="single_place">
                                         <div class="place_info">
-                                            <a href="destination_details.html"><h3>post title</h3></a>
-                                            <p>post body.....</p>
+                                            <a href="destination_details.html"><h3>{{$p->title}}</h3></a>
+                                            <p>{{$p->short_desc}}</p>
                                         </div>
                                         <div class="thumb">
-                                            <img src="img/place/1.png" alt="">
-                                        </div>
-                                        <div class="place_info">
-                                            <a href="destination_details.html"><h5>Commnet</h5></a>
-                                            <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Viết Bình Luận..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-info" type="button">Send</button>
-                                            </div>
+                                            <img src="https://kenh14cdn.com/thumb_w/640/2017/h1-1488172543693-7-4-313-599-crop-1488173064446.jpg" alt="">
                                         </div>
                                     </div>
                                 </div>

@@ -7,7 +7,9 @@
 @include('themes.admin.html.aside')
     <div class="main-panel">
        @include('themes.admin.html.header')
-       @yield('content')
+
+         @yield('content')
+
        @include('themes.admin.html.footer')
     </div>
 </div>

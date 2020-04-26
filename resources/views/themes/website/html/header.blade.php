@@ -17,7 +17,7 @@
                                         <ul id="navigation">
                                             <li><a class="" href="{{url("/")}}">home</a></li>
                                             @foreach(\App\Category::all() as $c)
-                                                <li><a href="contact.html">{{$c->category_name}}</a></li>
+                                                <li><a href="{{url("/categorypost/{$c->id}")}}">{{$c->category_name}}</a></li>
                                             @endforeach
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
@@ -29,7 +29,7 @@
                                     <div class="number">
                                         <p> <i class="fa fa-phone"></i> 10(256)-928 256</p>
                                     </div>
-                                    <div class="main-menu  d-none d-lg-block">
+                                    <div class="main-menu  d-none d-lg-block">  
                                     <ul>
                                         @if(!Auth::check())
                                             <li><a href="#" class="login" data-toggle="modal" data-target="#myModal">

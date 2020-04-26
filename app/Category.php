@@ -8,7 +8,7 @@ class Category extends Model
 {
     protected $table = 'category';
 
-    protected $fillable =['id','image','category_name'];
+    protected $fillable =['id','category_name','path','status'];
 
     public function Post(){
         return $this->hasOne("\App\Post");
@@ -17,5 +17,5 @@ class Category extends Model
     public function Posts(){
         return $this->hasMany("\App\Post");
     }
-    
+
 }

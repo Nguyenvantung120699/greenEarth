@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{asset("css/slicknav.css")}}">
     <link rel="stylesheet" href="{{asset("https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css")}}">
 
-    <link rel="stylesheet" href="{{asset("css/style.css")}}">
+    <link rel="stylesheet" href="{{asset("style.css")}}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 
 
@@ -48,8 +48,17 @@
     <script src="{{asset("js/plugins.js")}}"></script>
     <script src="{{asset("js/gijgo.min.js")}}"></script>
     <script src="{{asset("js/slick.min.js")}}"></script>
-   
 
+    <!-- jQuery-2.2.4 js -->
+    <script src="{{asset("js/jquery/jquery-2.2.4.min.js")}}"></script>
+    <!-- Popper js -->
+    <script src="{{asset("js/bootstrap/popper.min.js")}}"></script>
+    <!-- Bootstrap js -->
+    <script src="{{asset("js/bootstrap/bootstrap.min.js")}}"></script>
+    <!-- All Plugins js -->
+    <script src="{{asset("js/plugins/plugins.js")}}"></script>
+    <!-- Active js -->
+    <script src="{{asset("js/active.js")}}"></script>
     
     <!--contact js-->
     <script src="{{asset("js/contact.js")}}"></script>

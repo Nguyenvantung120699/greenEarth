@@ -7,14 +7,7 @@
 
 	<!-- Start Header Area -->
 @include('themes.website.html.header')
-<!-- Header section end -->
-
-<!-- Product section -->
-
-<section class="product-section">
-        @yield('content')
-</section>
-<!-- Product section end -->
+    @yield("content")
 @include('themes.website.html.footer')
 
 @yield('popup')

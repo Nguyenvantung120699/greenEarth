@@ -15,6 +15,9 @@ Route::prefix("admin")->group(function (){
 */
 
 Route::get("/","WebController@index");
+Route::get("/layout",function (){
+    return view("themes.website.layout.layout");
+});
 
 Route::get('/logout',function (){
    \Illuminate\Support\Facades\Auth::logout();
@@ -24,8 +27,8 @@ Route::get('/logout',function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("categorypost/{id}",'WebController@categoryPost');
-Route::get("viewpost/{id}",'WebController@viewPost');
+Route::get("chuyenmuc",'WebController@categoryPost');
+Route::get("baiviet",'WebController@viewPost');
 
 Route::get("search",'WebController@search');
 Route::post("postLogin","WebController@postLogin");

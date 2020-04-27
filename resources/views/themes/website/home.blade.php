@@ -3,256 +3,455 @@
 
 
 @section('content')
-<div class="slider_area">
-        <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h5>Forest protection</h5>
-                                <p>Protecting the forest is protecting the green lungs of the earth</p>
-                                <a href="#" class="boxed-btn3">See Activities</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h5>Wildlife Protection</h5>
-                                <p>Protecting wildlife balances the ecosystem that preserves our habitat</p>
-                                <a href="#" class="boxed-btn3">See Activities</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_3 overlay">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h5>Climate Change Protection</h5>
-                                <p>Fighting climate change is an urgent task. Climate change is making the environment more harsh</p>
-                                <a href="#" class="boxed-btn3">See Activities</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="hero-area">
+
     </div>
-    <!-- slider_area_end -->
-    
-    <div class="popular_places_area" style="padding-bottom:3%;">
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Featured Post Area Start ##### -->
+    <div class="featured-post-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place" style="height:90%;border-radius:3%;">
-                        <div class="place_info">
-                        <div class="text-center"><h2>WHO WE ARE</h2></div>
-                            <p>"Green Earth is a non-profit organization that always contributes to organizing campaigns to improve the environment and clean the earth.
-                                In addition, there are celebrities and organizations, companies supporting green work for the earth.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place" style="height:90%;border-radius:3%;">
-                    <div class="place_info">
-                    <div class="text-center"><h2>GREEN EARTH LÀ AI?</h2></div>
-                            <p>"Green Earth" là tổ chức phi chính phủ hoạt động trong lĩnh vực bảo tồn động vật hoang dã và môi trường tại Việt Nam. Nhiệm vụ chính của "Green Earth" là nâng cao nhận thức của người dân Việt Nam về vấn đề bảo tồn bằng cách phổ biến thông tin khoa học cho cộng đồng và thông qua các chương trình giáo dục bảo tồn cho trẻ em Việt Nam.</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place" style="height:90%;border-radius:3%;">
-                    <div class="place_info">
-                    <div class="text-center"><h2>OUR AIMS</h2></div>
-                            <p>Building national capacity for effective conservation;
-
-                                To conserve threatened species and ecosystems based on sound science;
-
-                                To provide conservation education program for young children in both rural areas and cities across the country;
-
-                                To change Vietnamese people minds through scientific evidences and local people needs;
-
-                                To cooperate with other sectors to tackle conservation issues.</p>
-                        </div>
-                    </div>  
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_place" style="height:90%;border-radius:3%;">
-                    <div class="place_info">
-                    <div class="text-center"><h2>MỤC ĐÍCH</h2></div>
-                            <p>
-                            Nhằm bảo tồn các loài động - thực vật hoang dã và hệ sinh thái thông qua các bằng chứng khoa học;
-
-                            Nhằm cung cấp những chương trình giáo dục bảo tồn cho trẻ em Việt Nam ở thành phố và các khu vực miền núi;
-
-                            Nhằm thay đổi nhận thức và thái độ của người dân Việt Nam trong việc tiêu thụ sản phẩm từ động vật hoang dã thông qua các chứng cứ khoa học và tạo kế sinh nhai cho người dân địa phương;
-
-                            Nhằm hợp tác với những tổ chức bảo tồn trong và ngoài nước, các trường đại học, viện nghiên cứu để chống lại tội ác động vật hoang dã.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="more_place_btn text-center">
-                        <a href="#" class="login boxed-btn4" data-toggle="modal" data-target="#donate">
-                            Donate
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   
-    <div class="popular_places_area" style="padding-top:0px;padding-bottom:0px;">
-        <div class="container">
-        <div class="text-center text-uppercase" style="padding-bottom:2%;">
-                <h2>Các tin tiêu biểu dành cho bạn</h2>
-            </div>
-            @foreach($categories as $c)
-            <div class="row">
-                <h4 class="">{{$c->category_name}}</h4>
-                <div class="col-lg-12 border-top inset single_place" style="padding-bottom:2%;border-radius:1%;">
+                <div class="col-12 col-md-6 col-lg-8">
                     <div class="row">
-                    @foreach($post as $p)
-                        <div class="col-lg-6 col-md-6" style="padding-top:2%;">
-                            <div class="img">
-                                <img style="width:100%" src="https://kenh14cdn.com/thumb_w/640/2017/h1-1488172543693-7-4-313-599-crop-1488173064446.jpg" alt="">
-                            </div>
-                            <div class="">   
-                                <a href="{{url("/viewpost/{$p->id}")}}"><h5 class="text-black">{{$p->title}}</h5></a>
-                            </div>
-                            <div class="">   
-                                <p>{{$p->short_desc}}</p>
-                            </div>
-                            <div class="">   
-                                <b class="text-black">Tác Giả : {{$p->author}}</b>
+
+                        <!-- Single Featured Post -->
+                        <div class="col-12 col-lg-12">
+                            <div class="single-blog-post featured-post">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="img/bg-img/16.jpg" alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="#" class="post-catagory">Finance</a>
+                                    <h3 href="#" class="post-title">
+                                        <span>Financial news: A new company is born today at the stock market</span>
+                                        <a class="rmore" href="{{url('bai-viet')}}">Xem chi tiết <i class="fa fa-arrow-right"></i></a>
+                                    </h3>
+{{--                                    <a class="rmore" href="{{url('bai-viet')}}">Xem chi tiết <i class="fa fa-arrow-right"></i></a>--}}
+                                </div>
                             </div>
                         </div>
-                        @endforeach
-                        <div class="col-lg-6 col-md-6" style="padding-top:2%;">
-                           <div class="row">
-                           @foreach($posts as $pp)
-                            <div class="col-lg-6 col-md-6">
-                                    <div class="img">
-                                        <img style="width:100%;" src="https://kenh14cdn.com/thumb_w/640/2017/h1-1488172543693-7-4-313-599-crop-1488173064446.jpg" alt="">
-                                    </div>
-                                    <div class="img">
-                                        <a href="{{url("/viewpost/{$pp->id}")}}"><h5 class="text-black">{{$pp->title}}</h5></a>
-                                    </div>
-                                    <div class="">   
-                                        <p>{{$pp->short_desc}}</p>
-                                    </div>
-                                    <div class="">   
-                                        <b class="text-black">Tác Giả : {{$pp->author}}</b>
-                                    </div>
-                                </div>
-                            @endforeach
-                           </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Featured Post -->
+                    <h4><span>Bài được đọc nhiều nhất</span></h4>
+                    <div class="single-blog-post small-featured-post d-flex">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-catagory">Finance</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-title">
+                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Featured Post -->
+                    <div class="single-blog-post small-featured-post d-flex">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/21.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-catagory">Health</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-title">
+                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
+                                </a>
+                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Featured Post -->
+                    <div class="single-blog-post small-featured-post d-flex">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/22.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-catagory">Finance</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-title">
+                                    <h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>
+                                </a>
+                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Featured Post -->
+                    <div class="single-blog-post small-featured-post d-flex">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/23.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-catagory">Travel</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-title">
+                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
+                                </a>
+                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Featured Post -->
+                    <div class="single-blog-post small-featured-post d-flex">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/24.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-catagory">Politics</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-title">
+                                    <h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>
+                                </a>
+                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
+        </div>
+    </div>
+    <!-- ##### Featured Post Area End ##### -->
+
+    <!-- ##### Popular News Area Start ##### -->
+    <div class="popular-news-area section-padding-80-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="section-heading">
+                        <h6>Popular News</h6>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Single Post -->
+                        <div class="col-12 col-md-6">
+                            <div class="single-blog-post style-3">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="img/bg-img/12.jpg" alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="#" class="post-catagory">Finance</a>
+                                    <a href="#" class="post-title">
+                                        <h6>
+
+                                            Thủ tướng chỉ thị tiếp tục các biện pháp phòng, chống dịch COVID-19 trong tình hình mới</h6>
+                                    </a>
+                                    <div class="post-meta d-flex align-items-center">
+                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
+                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Post -->
+                        <div class="col-12 col-md-6">
+                            <div class="single-blog-post style-3">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="img/bg-img/13.jpg" alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="#" class="post-catagory">Finance</a>
+                                    <a href="#" class="post-title">
+                                        <h6>
+
+                                            Thủ tướng chỉ thị tiếp tục các biện pháp phòng, chống dịch COVID-19 trong tình hình mới</h6>
+                                    </a>
+                                    <div class="post-meta d-flex align-items-center">
+                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
+                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Post -->
+                        <div class="col-12 col-md-6">
+                            <div class="single-blog-post style-3">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="img/bg-img/14.jpg" alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="#" class="post-catagory">Finance</a>
+                                    <a href="#" class="post-title">
+                                        <h6>
+
+                                            Thủ tướng chỉ thị tiếp tục các biện pháp phòng, chống dịch COVID-19 trong tình hình mới</h6>
+                                    </a>
+                                    <div class="post-meta d-flex align-items-center">
+                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
+                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Post -->
+                        <div class="col-12 col-md-6">
+                            <div class="single-blog-post style-3">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="img/bg-img/15.jpg" alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="#" class="post-catagory">Finance</a>
+                                    <a href="#" class="post-title">
+                                        <h6>
+
+                                            Thủ tướng chỉ thị tiếp tục các biện pháp phòng, chống dịch COVID-19 trong tình hình mới</h6>
+                                    </a>
+                                    <div class="post-meta d-flex align-items-center">
+                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
+                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="section-heading">
+                        <h6>Info</h6>
+                    </div>
+                    <!-- Popular News Widget -->
+                    <div class="popular-news-widget mb-30">
+                        <h3>4 Most Popular News</h3>
+
+                        <!-- Single Popular Blog -->
+                        <div class="single-popular-post">
+                            <a href="#">
+                                <h6><span>1.</span> Amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales.</h6>
+                            </a>
+                            <p>April 14, 2018</p>
+                        </div>
+
+                        <!-- Single Popular Blog -->
+                        <div class="single-popular-post">
+                            <a href="#">
+                                <h6><span>2.</span> Consectetur adipiscing elit. Nam eu metus sit amet odio sodales placer.</h6>
+                            </a>
+                            <p>April 14, 2018</p>
+                        </div>
+
+                        <!-- Single Popular Blog -->
+                        <div class="single-popular-post">
+                            <a href="#">
+                                <h6><span>3.</span> Adipiscing elit. Nam eu metus sit amet odio sodales placer. Sed varius leo.</h6>
+                            </a>
+                            <p>April 14, 2018</p>
+                        </div>
+
+                        <!-- Single Popular Blog -->
+                        <div class="single-popular-post">
+                            <a href="#">
+                                <h6><span>4.</span> Eu metus sit amet odio sodales placer. Sed varius leo ac...</h6>
+                            </a>
+                            <p>April 14, 2018</p>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="newsletter-widget">
+                        <h4>Newsletter</h4>
+                        <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        <form action="#" method="post">
+                            <input type="text" name="text" placeholder="Name">
+                            <input type="email" name="email" placeholder="Email">
+                            <button type="submit" class="btn w-100">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Popular News Area End ##### -->
+
+    <!-- ##### Video Post Area Start ##### -->
+    <div class="video-post-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Video Post -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single-video-post">
+                        <img src="img/bg-img/video1.jpg" alt="">
+                        <!-- Video Button -->
+                        <div class="videobtn">
+                            <a href="https://www.youtube.com/watch?v=5BQr-j3BBzU" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Video Post -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single-video-post">
+                        <img src="img/bg-img/video2.jpg" alt="">
+                        <!-- Video Button -->
+                        <div class="videobtn">
+                            <a href="https://www.youtube.com/watch?v=5BQr-j3BBzU" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Video Post -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single-video-post">
+                        <img src="img/bg-img/video3.jpg" alt="">
+                        <!-- Video Button -->
+                        <div class="videobtn">
+                            <a href="https://www.youtube.com/watch?v=5BQr-j3BBzU" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Video Post Area End ##### -->
+
+    <!-- ##### Editorial Post Area Start ##### -->
+    <div class="editors-pick-post-area section-padding-80-50">
+        <div class="container">
+            <div class="row">
+                <!-- Editors Pick -->
+                <div class="col-12 col-md-7 col-lg-9">
+                    <div class="section-heading">
+                        <h6>Mới nhất & dành cho bạn đọc</h6>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Single Post -->
+                        <div class="col-12 col-lg-12">
+                            <div class="b-grid">
+                                <div class="b-grid__img col-md-4" style="float: left"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html"><img src="https://btnmt.onecmscdn.com/thumbs/562x331/2020/04/26/2.jpg" alt="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" title="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" /></a></div>
+                                <div class="b-grid__content col-md-8" style="float: left">
+                                    <div class="b-grid__row"><h3 class="b-grid__title"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html">Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ</a></h3></div>
+                                    <div class="b-grid__row">
+                                        <a class="b-grid__cat" href="https://baotainguyenmoitruong.vn/moi-truong">M&#244;i trường</a><span class="b-grid__time"> - Phạm Ho&#224;ng H&#224; - 07:40 26/04/2020</span>
+                                    </div>
+                                    <div class="b-grid__row b-grid__desc">
+                                        (TN&amp;MT) - Theo Trung t&#226;m Dự b&#225;o KTTV Quốc gia, khu vực Bắc Bộ trời nhiều m&#226;y, c&#243; mưa rải r&#225;c v&#224; c&#243; d&#244;ng ở v&#224;i nơi, trời r&#233;t.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Post -->
+                        <div class="col-12 col-lg-12">
+                            <div class="single-blog-post">
+                                <div class="b-grid">
+                                    <div class="b-grid__img col-md-4" style="float: left"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html"><img src="https://btnmt.onecmscdn.com/thumbs/562x331/2020/04/26/2.jpg" alt="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" title="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" /></a></div>
+                                    <div class="b-grid__content col-md-8" style="float: left">
+                                        <div class="b-grid__row"><h3 class="b-grid__title"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html">Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ</a></h3></div>
+                                        <div class="b-grid__row">
+                                            <a class="b-grid__cat" href="https://baotainguyenmoitruong.vn/moi-truong">M&#244;i trường</a><span class="b-grid__time"> - Phạm Ho&#224;ng H&#224; - 07:40 26/04/2020</span>
+                                        </div>
+                                        <div class="b-grid__row b-grid__desc">
+                                            (TN&amp;MT) - Theo Trung t&#226;m Dự b&#225;o KTTV Quốc gia, khu vực Bắc Bộ trời nhiều m&#226;y, c&#243; mưa rải r&#225;c v&#224; c&#243; d&#244;ng ở v&#224;i nơi, trời r&#233;t.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- World News -->
+                <div class="col-12 col-md-5 col-lg-3">
+                    <div class="section-heading">
+                        <h6>Đọc nhiều</h6>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="single-blog-post style-2">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/7.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-title">
+                                <h6>Orci varius natoque penatibus et magnis</h6>
+                            </a>
+                            <div class="post-meta">
+                                <div class="post-date"><a href="#">February 11, 2018</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="single-blog-post style-2">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/8.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-title">
+                                <h6>Orci varius natoque penatibus et magnis</h6>
+                            </a>
+                            <div class="post-meta">
+                                <div class="post-date"><a href="#">February 11, 2018</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="single-blog-post style-2">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/9.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-title">
+                                <h6>Orci varius natoque penatibus et magnis</h6>
+                            </a>
+                            <div class="post-meta">
+                                <div class="post-date"><a href="#">February 11, 2018</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="single-blog-post style-2">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/10.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-title">
+                                <h6>Orci varius natoque penatibus et magnis</h6>
+                            </a>
+                            <div class="post-meta">
+                                <div class="post-date"><a href="#">February 11, 2018</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="single-blog-post style-2">
+                        <div class="post-thumb">
+                            <a href="#"><img src="img/bg-img/11.jpg" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <a href="#" class="post-title">
+                                <h6>Orci varius natoque penatibus et magnis</h6>
+                            </a>
+                            <div class="post-meta">
+                                <div class="post-date"><a href="#">February 11, 2018</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="travel_variation_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/1.svg" alt="">
-                        </div>
-                        <h3>Comfortable Journey</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/2.svg" alt="">
-                        </div>
-                        <h3>Luxuries Hotel</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/3.svg" alt="">
-                        </div>
-                        <h3>Travel Guide</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- testimonial_area  -->
-    <div class="testimonial_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="testmonial_active owl-carousel">
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Micky Mouse</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Tom Mouse</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Jerry Mouse</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /testimonial_area  -->
     @endsection

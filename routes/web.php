@@ -27,10 +27,11 @@ Route::get('/logout',function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get("chuyenmuc",'WebController@categoryPost');
-Route::get("baiviet",'WebController@viewPost');
+Route::get("chuyenmuc/{id}",'WebController@categoryPost');
+Route::get("baiviet/{id}",'WebController@viewPost');
 
 Route::get("search",'WebController@search');
+
 Route::post("postLogin","WebController@postLogin");
 
 Route::post("postcomment","WebController@postcomment");

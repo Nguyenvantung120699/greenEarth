@@ -26,9 +26,10 @@ class WebController extends Controller
 {
     public function index(){
         $categories = Category::all();
-        $post = Post::orderBy('count_views','desc')->take(1)->get();
-        $posts = Post::orderBy('id','desc')->take(2)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'posts'=>$posts]);
+        $post = Post::orderBy('count_views','desc')->take(10)->get();
+        $posts = Post::orderBy('id','desc')->take(1)->get();
+        $like = Post::orderBy('count_like','desc')->take(4)->get();
+        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'posts'=>$posts,'like'=>$like]);
     }
 
     public function categoryPost(){
@@ -41,6 +42,7 @@ class WebController extends Controller
     }
     //ajax login
     public function postLogin(Request $request){
+
                 $validator = Validator::make($request->all(),[
                     "email" => 'required|email',
                     "password"=> "required|min:8"
@@ -54,43 +56,12 @@ class WebController extends Controller
                 if(Auth::attempt(['email'=>$email,'password'=>$pass])){
                     return response()->json(['status'=>true,'message'=>"Login successfully!"]);
                 }
-                return response()->json(['status'=>false,'message'=>"User account or password is incorrect. Please try again"]);
+                return response()->json(['status'=>false,'message'=>"login failure"]);
             }
-
-            //ajax comment
-//            public function postcomment(Request $request){
-//                $request->validate([
-//                    'content'=>'required',
-//                    'post_id'=>'required',
-//                    'name' => 'required',
-//                    'email' => 'required|max:191',
-//                ],
-//                [
-//                    'content.required' => 'content is required.',
-//                    'post_id.required' => 'post_id is required',
-//                    'name.required' => 'name is required.',
-//                    'email.required' => 'email is required.',
-//                ]);
-//                try {
-//                    DB::table("comment")->insert([
-//                        "content" => $request->get('content'),
-//                        "post_id" => $request->get($categories->id),
-//                        "name" => $request->get("name"),
-//                        "email" => $request->get('email'),
-//                    ]);
-//                } catch (\Throwable $th) {
-//                    return response()->json([
-//                        'status' => false, 'message' => "Get survey success",
-//                    ], 200);
-//                }
-//                return response()->json([
-//                    'status' => true, 'message' => "Get survey success",
-//                ], 200);
-//            }
+    
 
             
     public function search(Request $request){
-
         $category = Category::where('category_name','like','%'.$request->get("key").'%')->get();
         $post = Post::where('title','like','%'.$request->get("key").'%')->get();
         $user = User::where('name','like','%'.$request->get("key").'%')->get();

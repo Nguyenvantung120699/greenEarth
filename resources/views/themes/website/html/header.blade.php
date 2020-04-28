@@ -8,7 +8,7 @@
                 <div class="top-header-content d-flex align-items-center justify-content-between">
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="{{url("/")}}"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="{{url("/")}}"><img src="{{asset("img/core-img/logo.png")}}" alt=""></a>
                     </div>
 
                     <!-- Login Search Area -->
@@ -16,7 +16,7 @@
                         <!-- Login -->
                         <div class="login d-flex">
                                 @if(!Auth::check())
-                                    <a href="#" class="login nav-link" data-toggle="modal" data-target="#myModal">
+                                    <a href="#" class="login btn btn-default" data-toggle="modal" data-target="#myModal">
                                         Login
                                     </a>
                                     <a href="{{url("/register")}}">Register</a>
@@ -52,7 +52,7 @@
 
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="index.html"><img src="{{asset("img/core-img/logo.png")}}" alt=""></a>
                 </div>
 
                 <!-- Navbar Toggler -->
@@ -73,7 +73,7 @@
                         <ul>
                             <li class="#"><a href="{{url("/")}}">Home</a></li>
                             @foreach(\App\Category::all() as $c)
-                                <li><a href="#">{{$c->category_name}}</a></li>
+                                <li><a href="{{url("/chuyenmuc/{$c->id}")}}">{{$c->category_name}}</a></li>
                             @endforeach
                             <li><a href="contact.html">Contact</a></li>
                         </ul>

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
+
 use App\Feedback;
 use App\Comment;
 use App\Category;
@@ -32,12 +33,13 @@ class WebController extends Controller
         return view("themes.website.home",['categories'=>$categories,'post'=>$post,'posts'=>$posts,'like'=>$like]);
     }
 
-    public function categoryPost(){
-
-        return view("themes.website.categoryPost");
+    public function categoryPost($id){
+        $category = Category::find($id);
+        $postc= $category->Posts()->paginate(9);
+        $postn= Post::orderBy('id','desc')->take(10)->get();
+        return view("themes.website.categoryPost",['postc'=>$postc,'postn'=>$postn]);
     }
     public function viewPost(){
-
         return view("themes.website.post_view");
     }
     //ajax login
@@ -47,7 +49,7 @@ class WebController extends Controller
                     "email" => 'required|email',
                     "password"=> "required|min:8"
                 ]);
-    
+        
                 if($validator->fails()){
                     return response()->json(["status"=>false,"message"=>$validator->errors()->first()]);
                 }

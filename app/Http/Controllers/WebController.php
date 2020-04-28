@@ -35,9 +35,9 @@ class WebController extends Controller
 
     public function categoryPost($id){
         $category = Category::find($id);
-        $postc= $category->Posts()->paginate(9);
+        $postc= $category->Posts()->paginate(1);
         $postn= Post::orderBy('id','desc')->take(10)->get();
-        return view("themes.website.categoryPost",['postc'=>$postc,'postn'=>$postn]);
+        return view("themes.website.categoryPost",['postc'=>$postc,'postn'=>$postn,'category'=>$category]);
     }
     public function viewPost(){
         return view("themes.website.post_view");

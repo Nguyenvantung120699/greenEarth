@@ -8,7 +8,7 @@
                 <div class="top-header-content d-flex align-items-center justify-content-between">
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="{{url("/")}}"><img src="{{asset("img/core-img/logo.png")}}" alt=""></a>
+                        <a href="{{url("/")}}"><h1 class="text-white">Green Earth</h1></a>
                     </div>
 
                     <!-- Login Search Area -->
@@ -16,15 +16,19 @@
                         <!-- Login -->
                         <div class="login d-flex">
                                 @if(!Auth::check())
+                                   <div>
                                     <a href="#" class="login btn btn-default" data-toggle="modal" data-target="#myModal">
-                                        Login
+                                        <i style="font-size:100%" class="fa fa-sign-in"></i> Login
+                                        </a>
+                                    <a href="{{url("/register")}}" class="login nav-link" >
+                                        <i style="font-size:100%" class="fa fa-user-plus"></i> Register
                                     </a>
-                                    <a href="{{url("/register")}}">Register</a>
+                                   </div>
                                 @else
                                 <a href="#" class="login nav-link" >
-                                    {{Auth::user()->name}}
+                                    <i style="font-size:100%" class="fa fa-user-circle"></i> {{Auth::user()->name}}
                                 </a>
-                                <a href="{{url("/logout")}}">Logout</a>
+                                <a href="{{url("/logout")}}"><i class="fa fa-arrow-right"></i>Logout</a>
                             @endif
 
                         </div>

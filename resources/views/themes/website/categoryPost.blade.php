@@ -8,30 +8,9 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-8">
                     <!-- Breaking News Widget -->
-                    <div class="breaking-news-area d-flex align-items-center">
+                    <div class="breaking-news-area d-flex align-items-center border-bottom">
                         <div class="news-title">
-                            <p>Breaking News</p>
-                        </div>
-                        <div id="breakingNewsTicker" class="ticker">
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Breaking News Widget -->
-                    <div class="breaking-news-area d-flex align-items-center mt-15">
-                        <div class="news-title title2">
-                            <p>International</p>
-                        </div>
-                        <div id="internationalTicker" class="ticker">
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
-                            </ul>
+                            <p>{{$category->category_name}}</p>
                         </div>
                     </div>
                 </div>
@@ -53,10 +32,10 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="blog-posts-area">
-
                         <!-- Single Featured Post -->
-                        @foreach($postc as $p)
-                        <div class="single-blog-post featured-post mb-30">
+                        @forelse($postc as $p)
+                        
+                        <div class="single-blog-post featured-post mb-30 border-bottom">
                             <div class="post-thumb">
                                 <a href="#"><img src="{{asset("img/bg-img/25.jpg")}}" alt=""></a>
                             </div>
@@ -66,8 +45,8 @@
                                     <h3>{{$p->short_desc}}</h3>
                                 </a>
                                 <div class="post-meta">
-                                    <p class="post-excerp">{{$p->content}}</p>
                                     <!-- Post Like & Post Comment -->
+
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="post-like"><img src="{{asset("img/core-img/like.png")}}" alt=""> <span>392</span></a>
                                         <a href="#" class="post-comment"><img src="{{asset("img/core-img/chat.png")}}" alt=""> <span>10</span></a>
@@ -75,21 +54,13 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+                        <P>Không Có Bài Viết Nào</P>
+                        @endforelse 
                     </div>
-
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination mt-50">
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">10</a></li>
-                        </ul>
-                    </nav>
+                    {!! $postc->links() !!}
                 </div>
+
                 <div class="col-12 col-lg-4">
                     <div class="blog-sidebar-area">
 

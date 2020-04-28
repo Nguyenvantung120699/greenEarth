@@ -16,7 +16,8 @@
                     <div class="row">
 
                         <!-- Single Featured Post -->
-                        <div class="col-12 col-lg-12">
+                        <div class="col-12 col-lg-12 border-bottom">
+                        <h4 class="border-bottom"><span>Bài viết nổi bật nhất</span></h4>
                             @foreach($posts as $ps)
                             <div class="single-blog-post featured-post">
                                 <div class="post-thumb">
@@ -37,9 +38,9 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 border-bottom">
                     <!-- Single Featured Post -->
-                    <h4><span>Bài được đọc nhiều nhất</span></h4>
+                    <h4 class="border-bottom"><span>Bài được đọc nhiều nhất</span></h4>
                    @foreach($post as $p)
                    <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
@@ -75,17 +76,19 @@
 
                         <!-- Single Post -->
                         @foreach($like as $l)
-                        <div class="col-12 col-md-6">
-                            <div class="single-blog-post style-3">
+                        <div class="col-12 col-md-6">   
+                            <div class="single-blog-post style-3 border">
                                 <div class="post-thumb">
                                     <a href="#"><img src="img/bg-img/12.jpg" alt=""></a>
                                 </div>
-                                <div class="post-data">
+                                <div class="post-data" style="padding:2%;">
+                                   <div class="text-post" style="height:180px;padding:2%;">
                                     <a href="#" class="post-catagory">{{$l->title}}</a>
-                                    <a href="#" class="post-title">
-                                    <h6>{{$l->short_desc}}</h6>
-                                    </a>
-                                    <div class="post-meta d-flex align-items-center">
+                                        <p href="#" class="post-title">
+                                        <h6>{{$l->short_desc}}</h6>
+                                        </p>
+                                   </div>
+                                    <div class="post-meta d-flex align-items-center" style="padding:2%;">
                                         <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
                                         <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
                                     </div>
@@ -159,7 +162,7 @@
         <div class="container">
             <div class="row">
                 <!-- Editors Pick -->
-                <div class="col-12 col-md-7 col-lg-9">
+                <div class="col-12 col-md-7 col-lg-8">
                     <div class="section-heading">
                         <h6>Mới nhất & dành cho bạn đọc</h6>
                     </div>
@@ -184,24 +187,25 @@
                 </div>
 
                 <!-- World News -->
-                <div class="col-12 col-md-5 col-lg-3">
+                <div class="col-12 col-md-5 col-lg-4">
                     <div class="section-heading">
                         <h6>Đọc nhiều</h6>
                     </div>
 
                     <!-- Single Post -->
                     @foreach($post as $pr)
-                    <div class="single-blog-post style-2">
+                    <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/8.jpg" alt=""></a>
+                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">
-                                <h6>{{$pr->title}}</h6>
-                            </a>
-                            <!-- <div class="post-meta">
-                                <div class="post-date"><a href="#">{{$pr->short_desc}}</a></div>
-                            </div> -->
+                            <a href="{{url("bai-viet/{$pr->id}")}}" class="post-catagory">{{$pr->title}}</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-title">
+                                    <p>{{$pr->short_desc}}</p>
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                     @endforeach

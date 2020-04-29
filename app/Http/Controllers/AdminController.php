@@ -98,6 +98,7 @@ class AdminController extends Controller
             "short_desc"=>"required",
             "content"=>"required",
         ]);
+
         try {
             Post::create([
                 "title"=>$request->get("title"),
@@ -120,17 +121,18 @@ class AdminController extends Controller
             $posts = Post::find($id);
             $request->validate([
                 "title"=> "required|string|unique:post,title,".$id,
-                "category_id"=>"required|integer",
-                "short_desc"=>"required|string",
-                "content"=>"required|string",  
+                "category_id"=>"required",
+                "short_desc"=>"required",
+                "content"=>"required",
             ]);
-
         try {
+
             $posts->update([
                 "title"=>$request->get("title"),
                 "category_id"=>$request->get("category_id"),
+                "slug"=>str_slug($request->get("title")),
                 "short_desc"=>$request->get("short_desc"),
-                "content"=>$request->get("content"),
+                "content"=>$request->get("content")
             ]);
 
         }catch (\Exception $e){

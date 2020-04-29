@@ -3,8 +3,7 @@
 
 
 @section('content')
-    <div class="hero-area">
-
+    <div class="hero-area text-center text-info" style="padding:20px">
     </div>
     <!-- ##### Hero Area End ##### -->
 

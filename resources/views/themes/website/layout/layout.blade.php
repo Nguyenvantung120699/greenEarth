@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html lang="en">
 
 
 @include('themes.website.html.head')

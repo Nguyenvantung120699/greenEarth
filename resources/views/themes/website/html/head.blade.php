@@ -14,27 +14,23 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{asset("style.css")}}">
     <!-- Syntax Highlighter -->
-    <link rel="stylesheet" type="text/css" href="{{asset("syntax-highlighter/styles/shCore.css")}}" media="all">
-    <link rel="stylesheet" type="text/css" href="{{asset("syntax-highlighter/styles/shThemeDefault.css")}}" media="all">
 
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
-    <!-- Normalize/Reset CSS-->
-    <link rel="stylesheet" href="{{asset("css/normalize.min.css")}}">
-    <!-- Main CSS-->
-    <link rel="stylesheet" href="{{asset("css/main.css")}}">
 
-    <script type="text/javascript" src="{{asset("js/jquery/jquery-2.2.4.min.js")}}"></script>
-    <script type="text/javascript" src="{{asset("js/jquery/jquery-3.4.1.js")}}"></script>
-
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{{asset("js/jquery/jquery-2.2.4.min.js")}}"></script>
     <!-- Popper js -->
     <script src="{{asset("js/bootstrap/popper.min.js")}}"></script>
     <!-- Bootstrap js -->
     <script src="{{asset("js/bootstrap/bootstrap.min.js")}}"></script>
     <!-- All Plugins js -->
-    <scrip type="text/javascript"t src="{{asset("js/plugins/plugins.js")}}"></script>
+    <script src="{{asset("js/plugins/plugins.js")}}"></script>
     <!-- Active js -->
-    <script type="text/javascript" src="{{asset("js/active.js")}}"></script>
+    <script src="{{asset("js/active.js")}}"></script>
 
+    <script src="{{asset("https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s")}}"></script>
+    <script src="{{asset("js/google-map/map-active.js")}}"></script>
 
 </head>

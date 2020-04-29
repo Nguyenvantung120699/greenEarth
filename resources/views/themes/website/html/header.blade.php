@@ -8,7 +8,7 @@
                 <div class="top-header-content d-flex align-items-center justify-content-between">
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="{{url("/")}}"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="{{url("/")}}"><h1 class="text-white">Green Earth</h1></a>
                     </div>
 
                     <!-- Login Search Area -->
@@ -16,15 +16,19 @@
                         <!-- Login -->
                         <div class="login d-flex">
                                 @if(!Auth::check())
-                                    <a href="#" class="login nav-link" data-toggle="modal" data-target="#myModal">
-                                        Login
+                                   <div>
+                                    <a href="#" class="login btn btn-default" data-toggle="modal" data-target="#myModal">
+                                        <i style="font-size:100%" class="fa fa-sign-in"></i> Login
+                                        </a>
+                                    <a href="{{url("/register")}}" class="login nav-link" >
+                                        <i style="font-size:100%" class="fa fa-user-plus"></i> Register
                                     </a>
-                                    <a href="{{url("/register")}}">Register</a>
+                                   </div>
                                 @else
                                 <a href="#" class="login nav-link" >
-                                    {{Auth::user()->name}}
+                                    <i style="font-size:100%" class="fa fa-user-circle"></i> {{Auth::user()->name}}
                                 </a>
-                                <a href="{{url("/logout")}}">Logout</a>
+                                <a href="{{url("/logout")}}"><i class="fa fa-arrow-right"></i>Logout</a>
                             @endif
 
                         </div>
@@ -52,7 +56,7 @@
 
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="index.html"><img src="{{asset("img/core-img/logo.png")}}" alt=""></a>
                 </div>
 
                 <!-- Navbar Toggler -->
@@ -73,7 +77,7 @@
                         <ul>
                             <li class="#"><a href="{{url("/")}}">Home</a></li>
                             @foreach(\App\Category::all() as $c)
-                                <li><a href="#">{{$c->category_name}}</a></li>
+                                <li><a href="{{url("/chuyenmuc/{$c->id}")}}">{{$c->category_name}}</a></li>
                             @endforeach
                             <li><a href="contact.html">Contact</a></li>
                         </ul>

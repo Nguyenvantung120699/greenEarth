@@ -4,6 +4,7 @@
 
     </div>
 
+    <!-- ##### Featured Post Area Start ##### -->
     <div class="featured-post-area">
         <div class="container">
             <div class="row">
@@ -27,13 +28,14 @@
                             </div>
                             @endforeach
                         </div>
+
+
                     </div>
                 </div>
 
-                <div class="aside col-12 col-md-6 col-lg-4" >
-                    <div class="section-heading" >
-                        <h6>Bài được đọc nhiều nhất</h6>
-                    </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Featured Post -->
+                    <h4><span>Bài được đọc nhiều nhất</span></h4>
                    @foreach($post as $p)
                    <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">

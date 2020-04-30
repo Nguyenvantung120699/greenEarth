@@ -10,12 +10,11 @@ class Category extends Model
 
     protected $fillable =['id','category_name','path','status'];
 
-    public function Post(){
-        return $this->hasOne("\App\Post");
-    }
+//    public function Post(){
+//        return $this->hasOne("\App\Post");
+//    }
 
     public function Posts(){
         return $this->hasMany("\App\Post");
     }
-
 }

@@ -1,11 +1,8 @@
 @extends('themes.website.layout.layout')
-
-
-
 @section('content')
-    <div class="hero-area text-center text-info" style="padding:20px">
+    <div class="hero-area">
+
     </div>
-    <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Featured Post Area Start ##### -->
     <div class="featured-post-area">
@@ -15,18 +12,17 @@
                     <div class="row">
 
                         <!-- Single Featured Post -->
-                        <div class="col-12 col-lg-12 border-bottom">
-                        <h4 class="border-bottom"><span>Bài viết nổi bật nhất</span></h4>
+                        <div class="col-12 col-lg-12">
                             @foreach($posts as $ps)
                             <div class="single-blog-post featured-post">
                                 <div class="post-thumb">
                                     <a href="#"><img src="img/bg-img/16.jpg" alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="{{url("bai-viet/{$ps->id}")}}" class="post-catagory">{{$ps->title}}</a>
+                                    <a href="{{url("baiviet",["cat_path"=>$ps->Category->path,"slug"=>$ps->slug])}}" class="post-catagory">{{$ps->Category->category_name}}</a>
                                     <h3 href="#" class="post-title">
                                         <span>{{$ps->short_desc}}</span>
-                                        <a class="rmore" href="{{url("bai-viet/{$ps->id}")}}">Xem chi tiết <i class="fa fa-arrow-right"></i></a>
+                                        <a class="rmore"  href="{{url("baiviet",["cat_path"=>$ps->Category->path,"slug"=>$ps->slug])}}">Xem chi tiết <i class="fa fa-arrow-right"></i></a>
                                     </h3>
                                 </div>
                             </div>
@@ -37,19 +33,19 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4 border-bottom">
+                <div class="col-12 col-md-6 col-lg-4">
                     <!-- Single Featured Post -->
-                    <h4 class="border-bottom"><span>Bài được đọc nhiều nhất</span></h4>
+                    <h4><span>Bài được đọc nhiều nhất</span></h4>
                    @foreach($post as $p)
                    <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
                             <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="{{url("bai-viet/{$ps->id}")}}" class="post-catagory">{{$p->title}}</a>
+                            <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="post-catagory">{{$p->Category->category_name}}</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>{{$p->short_desc}}</h6>
+                                    <h6>{{$p->title}}</h6>
                                 </a>
 
                             </div>
@@ -68,26 +64,24 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="section-heading">
-                        <h6>Popular News</h6>
+                        <h6>Bài nổi bật</h6>
                     </div>
 
                     <div class="row">
 
                         <!-- Single Post -->
                         @foreach($like as $l)
-                        <div class="col-12 col-md-6">   
-                            <div class="single-blog-post style-3 border">
+                        <div class="col-12 col-md-6">
+                            <div class="single-blog-post style-3">
                                 <div class="post-thumb">
                                     <a href="#"><img src="img/bg-img/12.jpg" alt=""></a>
                                 </div>
-                                <div class="post-data" style="padding:2%;">
-                                   <div class="text-post" style="height:180px;padding:2%;">
-                                    <a href="#" class="post-catagory">{{$l->title}}</a>
-                                        <p href="#" class="post-title">
-                                        <h6>{{$l->short_desc}}</h6>
-                                        </p>
-                                   </div>
-                                    <div class="post-meta d-flex align-items-center" style="padding:2%;">
+                                <div class="post-data">
+                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="post-catagory">{{$l->title}}</a>
+                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="post-title">
+                                    <h6>{{str_limit($l->short_desc),150}}</h6>
+                                    </a>
+                                    <div class="post-meta d-flex align-items-center">
                                         <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
                                         <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
                                     </div>
@@ -100,7 +94,7 @@
 
                 <div class="col-12 col-lg-4">
                     <div class="section-heading">
-                        <h6>Celebrity activities</h6>
+                        <h6>Tin tức phổ biến</h6>
                     </div>
                     <!-- Popular News Widget -->
                     <div class="popular-news-widget mb-30">
@@ -188,25 +182,25 @@
                 <!-- World News -->
                 <div class="col-12 col-md-5 col-lg-4">
                     <div class="section-heading">
-                        <h6>Đọc nhiều</h6>
+                        <h6>Bình luận mới nhất</h6>
                     </div>
 
                     <!-- Single Post -->
-                    @foreach($post as $pr)
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="{{url("bai-viet/{$pr->id}")}}" class="post-catagory">{{$pr->title}}</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <p>{{$pr->short_desc}}</p>
-                                </a>
+                    @foreach($post as $p)
+                        <div class="single-blog-post small-featured-post d-flex">
+                            <div class="post-thumb">
+                                <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
+                            </div>
+                            <div class="post-data">
+                                <a href="{{url("bai-viet/{$ps->id}")}}" class="post-catagory">{{$p->Category->category_name}}</a>
+                                <div class="post-meta">
+                                    <a href="#" class="post-title">
+                                        <h6>{{$p->title}}</h6>
+                                    </a>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>

@@ -31,14 +31,21 @@ class WebController extends Controller
         return view("themes.website.home",['categories'=>$categories,'post'=>$post,'posts'=>$posts,'like'=>$like]);
     }
 
-    public function categoryPost($id){
-        $category = Category::find($id);
-        $postc= $category->Posts()->paginate(1);
-        $postn= Post::orderBy('id','desc')->take(10)->get();
-        return view("themes.website.categoryPost",['postc'=>$postc,'postn'=>$postn,'category'=>$category]);
+    public function categoryPost($path){
+        $category = Category::where("path","=",$path)->first();
+
+        $posts = $category->Posts()->paginate(1);
+//        $cat_id = [];
+//        $cat_id[] =$category->getId();
+//        $posts = Post::whereIn("category_id",$cat_id)->with("Category")->orderBy("created_at","desc")->paginate(10);
+        return view("themes.website.categoryPost",["categories"=>$category,"posts"=>$posts]);
     }
-    public function viewPost(){
-        return view("themes.website.post_view");
+    public function viewPost($cat_path,$slug){
+        $posts = Post::where("slug",$slug)->first();
+        $post = Post::orderBy('count_views','desc')->take(10)->get();
+//        $comment = $posts->Comment->where("status",1);
+
+        return view("themes.website.post_view",["posts"=>$posts,'post'=>$post]);
     }
     //ajax login
 
@@ -47,7 +54,7 @@ class WebController extends Controller
                     "email" => 'required|email',
                     "password"=> "required|min:8"
                 ]);
-        
+    
                 if($validator->fails()){
                     return response()->json(["status"=>false,"message"=>$validator->errors()->first()]);
                 }
@@ -65,5 +72,25 @@ class WebController extends Controller
         $post = Post::where('title','like','%'.$request->get("key").'%')->get();
         $user = User::where('name','like','%'.$request->get("key").'%')->get();
         return view("themes.website.search",['category'=>$category,'post'=>$post,'user'=>$user]);
+    }
+
+    public function commentPost(Request $request,$post_id){
+            $request->validate([
+                "user_name"=>"required",
+                "email"=>"required",
+                "message"=>"required"
+            ]);
+        try {
+                $comment = Comment::create([
+                    "post_id"=>$post_id,
+                    "user_name"=>$request->get("user_name"),
+                    "email"=>$request->get("email"),
+                    "content"=>$request->get("message"),
+                    "created_at"=>Carbon::now()->toDateTimeString()
+                ]);
+        }catch (\Throwable $th){
+            throw  $th;
+        }
+        return back();
     }
 }

@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,14 +14,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
-
 use App\Feedback;
-use App\Comment;
-use App\Category;
-use App\User;
 use App\Post;
-use Illuminate\Support\Facades\Session;
-
+use App\Category;
+use App\Comment;
+use App\User;
+use App\Brand;
 
 class WebController extends Controller
 {
@@ -43,8 +41,8 @@ class WebController extends Controller
         return view("themes.website.post_view");
     }
     //ajax login
-    public function postLogin(Request $request){
 
+    public function postLogin(Request $request){
                 $validator = Validator::make($request->all(),[
                     "email" => 'required|email',
                     "password"=> "required|min:8"
@@ -60,7 +58,6 @@ class WebController extends Controller
                 }
                 return response()->json(['status'=>false,'message'=>"login failure"]);
             }
-    
 
             
     public function search(Request $request){

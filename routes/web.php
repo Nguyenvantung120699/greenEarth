@@ -32,7 +32,7 @@ Route::get("baiviet/{id}",'WebController@viewPost');
 
 Route::get("search",'WebController@search');
 
-Route::post("postLogin","WebController@postLogin");
+Route::post("postLogin",'WebController@postLogin');
 
 Route::post("postcomment","WebController@postcomment");
 

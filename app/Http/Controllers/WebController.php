@@ -45,9 +45,10 @@ class WebController extends Controller
     public function viewPost($cat_path,$slug){
         $posts = Post::where("slug",$slug)->first();
         $post = Post::orderBy('count_views','desc')->take(10)->get();
-//        $comment = $posts->Comment->where("status",1);
+        $comment = $posts->Comments->where('status',0);
 
-        return view("themes.website.post_view",["posts"=>$posts,'post'=>$post]);
+
+        return view("themes.website.post_view",["posts"=>$posts,'post'=>$post,'comments'=>$comment]);
     }
     //ajax login
     public function postLogin(Request $request){
@@ -89,6 +90,7 @@ class WebController extends Controller
                     "user_name"=>$request->get("user_name"),
                     "email"=>$request->get("email"),
                     "content"=>$request->get("message"),
+                    "comment_id"=>$request->get("comment_id"),
                     "created_at"=>Carbon::now()->toDateTimeString()
                 ]);
         }catch (\Throwable $th){

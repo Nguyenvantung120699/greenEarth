@@ -26,16 +26,12 @@
                                             {!! $posts->content!!}
                                         </div>
                                     </div>
-                                    <div class="newspaper-post-like d-flex align-items-center justify-content-between">
-                                        <!-- Tags -->
-{{--                                        <div class="newspaper-tags d-flex">--}}
-{{--                                            <span>Tags:</span>--}}
-{{--                                            <ul class="d-flex">--}}
-{{--                                                <li><a href="#">finacial,</a></li>--}}
-{{--                                                <li><a href="#">politics,</a></li>--}}
-{{--                                                <li><a href="#">stock market</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
+                                    <div class="section-heading d-flex align-items-center justify-content-between">
+                                        {{--                                        <!-- Tags -->--}}
+                                        <div class="newspaper-tags d-flex">
+                                            <?php $date = new DateTime($post->get('date'));?>
+                                            {{$date->format('d').' tháng '.$date->format('m').' năm '.$date->format('Y H:i')}} GMT+7 &nbsp;&nbsp;
+                                        </div>
 
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center post-like--comments">
@@ -50,9 +46,14 @@
                         </div>
                         <!-- Comment Area Start -->
                         <div class="comment_area clearfix">
-                            <h5 class="title">Comments</h5>
-{{--                            @if(isset($comments))--}}
-                            <ol>
+
+                            <h5 class="title">Bình luận ({{$comments->count()}})</h5>
+
+
+                            <div class="clearfix"></div>
+                            <ol id="comments" class="margin-top-20">
+                                @foreach($comments  as $comment)
+                                    @if(!$comment->hasParent())
                                 <!-- Single Comment Area -->
                                 <li class="single_comment_area">
                                     <!-- Comment Content -->
@@ -63,59 +64,70 @@
                                         </div>
                                         <!-- Comment Meta -->
                                         <div class="comment-meta">
-                                            <a href="#" class="post-author">Christian Williams</a>
-                                            <a href="#" class="post-date">April 15, 2018</a>
-                                            <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
+                                           <h6>{{$comment->user_name}}</h6>
+                                            <p>{!! $comment->content !!} </p>
+                                            <span style="float:left;">{{$comment->created_at}}</span>
+                                            <a href="#" style="float:right;"  class="toggle-comment" data-id="{{$comment->id}}">Trả lời</a>
                                         </div>
                                     </div>
+
                                     <ol class="children">
+                                        @if($comment->hasChildren())
+{{--                                            <pre>{{var_dump($comment->children )}}</pre>--}}
+                                        @foreach($comment->children as $child)
                                         <li class="single_comment_area">
                                             <!-- Comment Content -->
                                             <div class="comment-content d-flex">
                                                 <!-- Comment Author -->
                                                 <div class="comment-author">
-                                                    <img src="img/bg-img/31.jpg" alt="author">
+                                                    <img src="{{asset("img/bg-img/31.jpg")}}" alt="author">
                                                 </div>
                                                 <!-- Comment Meta -->
                                                 <div class="comment-meta">
-                                                    <a href="#" class="post-author">Sandy Doe</a>
-                                                    <a href="#" class="post-date">April 15, 2018</a>
-                                                    <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
+                                                   <h6>{{$child->user_name}}</h6>
+                                                    <p>{!! $child->content !!} </p>
+                                                    <span>{{$child->created_at}}</span>
                                                 </div>
                                             </div>
                                         </li>
+                                        @endforeach
+                                        @endif
+
+                                        <li class="reply-comment single_comment_area d-none" data-id="{{$comment->id}}">
+                                            <form class="contact-form-area" action="{{ url("commentPost/{$posts->id}") }}" method="post">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <input type="text" class="form-control"  name="user_name" placeholder="{{__("Name *")}}">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <input type="text" class="form-control" name="email" placeholder="{{__("Email *")}}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="message" class="form-control" rows="2" placeholder="{{__("Comment ")}}"></textarea>
+                                                </div>
+                                                <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                                                <button type="submit" class="btn newspaper-btn">Submit</button>
+                                            </form>
+                                        </li>
                                     </ol>
                                 </li>
-
-                                <!-- Single Comment Area -->
-                                <li class="single_comment_area">
-                                    <!-- Comment Content -->
-                                    <div class="comment-content d-flex">
-                                        <!-- Comment Author -->
-                                        <div class="comment-author">
-                                            <img src="img/bg-img/32.jpg" alt="author">
-                                        </div>
-                                        <!-- Comment Meta -->
-                                        <div class="comment-meta">
-                                            <a href="#" class="post-author">Christian Williams</a>
-                                            <a href="#" class="post-date">April 15, 2018</a>
-                                            <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                        @endif
+                                @endforeach
                             </ol>
-{{--                                @endif--}}
+
                         </div>
 
                         <div class="post-a-comment-area section-padding-80-0">
                             <h4>Leave a comment</h4>
-
                             <!-- Reply Form -->
                             <div class="contact-form-area">
                                 <form action="{{url("commentPost",["post_id"=>$posts->id])}}" id="comment" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12 col-lg-6">
+                                            <input type="hidden" name="comment_id" value="0">
                                             <input type="text" name="user_name" class="form-control" id="name" placeholder="{{__("Name *")}}">
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -275,5 +287,6 @@
                  });
             });
         }
+
     </script>
     @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -151,7 +152,8 @@ class AdminController extends Controller
     }
         //{{--comment--}}
     public function comment(){
-        return view("themes.admin.comment.index");
+        $comments = Comment::all();
+        return view("themes.admin.comment.index",["comments"=>$comments]);
     }
 //        {{--account--}}
     public function account(){

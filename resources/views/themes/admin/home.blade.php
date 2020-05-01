@@ -9,7 +9,7 @@
                             <div class="" style="float: left;padding-top: 10px">
                                 <i class="material-icons" style="color:	#148a9d;">forum</i>
                             </div>
-                            <h2 class="card-title">49 </h2>
+                            <h2 class="card-title">{{\App\Category::count()}} </h2>
                             <p class="card-category">Chuyên mục</p>
 
                         </div>

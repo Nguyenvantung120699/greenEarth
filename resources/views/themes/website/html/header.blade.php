@@ -17,7 +17,7 @@
                         <div class="login d-flex">
                                 @if(!Auth::check())
                                    <div>
-                                    <a href="#" class="login btn btn-default" data-toggle="modal" data-target="#myModal">
+                                    <a href="#" class="login btn btn-default" data-toggle="modal" data-target="#loginModal">
                                         <i style="font-size:100%" class="fa fa-sign-in"></i> Login
                                         </a>
                                     <a href="{{url("/register")}}" class="login nav-link" >
@@ -73,13 +73,13 @@
                     </div>
 
                     <!-- Nav Start -->
-                    <div class="classynav">
+                    <div class="classynav">  
                         <ul>
                             <li class="#"><a href="{{url("/")}}">Home</a></li>
                             @foreach(\App\Category::all() as $c)
                                 <li><a href="{{url("/chuyenmuc",["path"=>$c->path])}}">{{$c->category_name}}</a></li>
                             @endforeach
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{url("/")}}">Contact</a></li>
                         </ul>
                     </div>
                     <!-- Nav End -->

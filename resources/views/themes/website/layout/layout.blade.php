@@ -12,8 +12,9 @@
 
 @yield('popup')
 <!-- Modal -->
+<!-- Modal -->
 @if(!Auth::check())
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 			<div class="newsletter-widget">
@@ -50,5 +51,17 @@
         });
     </script>
 @endif
+
+    <!-- jQuery-2.2.4 js -->
+    <script src="{{asset("js/jquery/jquery-2.2.4.min.js")}}"></script>
+    <!-- Popper js -->
+    <script src="{{asset("js/bootstrap/popper.min.js")}}"></script>
+    <!-- Bootstrap js -->
+    <script src="{{asset("js/bootstrap/bootstrap.min.js")}}"></script>
+    <!-- All Plugins js -->
+    <script src="{{asset("js/plugins/plugins.js")}}"></script>
+    <!-- Active js -->
+    <script src="{{asset("js/active.js")}}"></script>
+
 </body>
 </html>

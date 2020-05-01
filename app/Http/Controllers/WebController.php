@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
@@ -16,12 +15,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 use App\Feedback;
-use App\Comment;
-use App\Category;
-use App\User;
 use App\Post;
-use Illuminate\Support\Facades\Session;
-
+use App\Category;
+use App\Comment;
+use App\User;
+use App\Brand;
 
 class WebController extends Controller
 {
@@ -36,7 +34,7 @@ class WebController extends Controller
     public function categoryPost($path){
         $category = Category::where("path","=",$path)->first();
 
-        $posts = $category->Posts()->paginate(1);
+        $posts = $category->Posts()->paginate(3);
 //        $cat_id = [];
 //        $cat_id[] =$category->getId();
 //        $posts = Post::whereIn("category_id",$cat_id)->with("Category")->orderBy("created_at","desc")->paginate(10);
@@ -51,8 +49,8 @@ class WebController extends Controller
         return view("themes.website.post_view",["posts"=>$posts,'post'=>$post,'comments'=>$comment]);
     }
     //ajax login
-    public function postLogin(Request $request){
 
+    public function postLogin(Request $request){
                 $validator = Validator::make($request->all(),[
                     "email" => 'required|email',
                     "password"=> "required|min:8"
@@ -68,7 +66,6 @@ class WebController extends Controller
                 }
                 return response()->json(['status'=>false,'message'=>"login failure"]);
             }
-    
 
             
     public function search(Request $request){

@@ -9,7 +9,7 @@
                     <div class="blog-posts-area">
 
                         <!-- Single Featured Post -->
-                        <div class="single-blog-post featured-post single-post">
+                        <div class="single-blog-post featured-post single-post border-bottom">
                             <div class="section-heading" >
                                 <h6>{{$posts->Category->category_name}}</h6>
                             </div>
@@ -26,12 +26,16 @@
                                             {!! $posts->content!!}
                                         </div>
                                     </div>
-                                    <div class="section-heading d-flex align-items-center justify-content-between">
-                                        {{--                                        <!-- Tags -->--}}
-                                        <div class="newspaper-tags d-flex">
-                                            <?php $date = new DateTime($post->get('date'));?>
-                                            {{$date->format('d').' tháng '.$date->format('m').' năm '.$date->format('Y H:i')}} GMT+7 &nbsp;&nbsp;
-                                        </div>
+                                    <div class="newspaper-post-like d-flex align-items-center justify-content-between">
+                                        <!-- Tags -->
+{{--                                        <div class="newspaper-tags d-flex">--}}
+{{--                                            <span>Tags:</span>--}}
+{{--                                            <ul class="d-flex">--}}
+{{--                                                <li><a href="#">finacial,</a></li>--}}
+{{--                                                <li><a href="#">politics,</a></li>--}}
+{{--                                                <li><a href="#">stock market</a></li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
 
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center post-like--comments">
@@ -121,13 +125,13 @@
 
                         <div class="post-a-comment-area section-padding-80-0">
                             <h4>Leave a comment</h4>
+
                             <!-- Reply Form -->
                             <div class="contact-form-area">
                                 <form action="{{url("commentPost",["post_id"=>$posts->id])}}" id="comment" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12 col-lg-6">
-                                            <input type="hidden" name="comment_id" value="0">
                                             <input type="text" name="user_name" class="form-control" id="name" placeholder="{{__("Name *")}}">
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -288,5 +292,13 @@
             });
         }
 
+
+        function colorlike() {
+        document.getElementById("like").style.color = "#FE2E2E";
+        }
+
+        function colorshare() {
+        document.getElementById("share").style.color = "#FE2E2E";
+        }
     </script>
     @endsection

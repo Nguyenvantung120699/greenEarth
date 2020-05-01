@@ -9,4 +9,8 @@ class Comment extends Model
     protected $table = 'comment';
 
     protected $fillable =['id','content','post_id','user_name','email'];
+
+    public function Post(){
+        return $this->belongsTo("\App\Post");
+    }
 }

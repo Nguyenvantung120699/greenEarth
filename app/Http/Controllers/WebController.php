@@ -34,7 +34,7 @@ class WebController extends Controller
     public function categoryPost($path){
         $category = Category::where("path","=",$path)->first();
 
-        $posts = $category->Posts()->paginate(1);
+        $posts = $category->Posts()->paginate(3);
 //        $cat_id = [];
 //        $cat_id[] =$category->getId();
 //        $posts = Post::whereIn("category_id",$cat_id)->with("Category")->orderBy("created_at","desc")->paginate(10);

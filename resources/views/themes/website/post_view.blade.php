@@ -38,27 +38,9 @@
 {{--                                        </div>--}}
 
                                         <!-- Post Like & Post Comment -->
-                                        <div class="like_share_icon col-md-12" style="padding:0;padding-top:10%;">
-                                            <div class="row">
-                                                <div class="col-md-7 col-sm-12 text-left">
-                                                    <p>{{$posts->created_at}}</p>
-                                                </div>
-
-                                                <div class="col-md-5 col-sm-12">
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-sm-6" style="padding:0;">
-                                                                <a href="#" class="icon-like">
-                                                                    <button id="like" onclick="colorlike()" type="button" class="btn btn-primary btn-sm" style="width:90%;"><i style="font-size:100%" class="fa fa-heart"></i> Thích {{$posts->count_like}}</button>
-                                                                </a>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6" style="padding:0;">
-                                                            <a href="#" class="icon-share">
-                                                                <button id="share" onclick="colorshare()" type="button" class="btn btn-primary btn-sm" style="width:90%;"><i style="font-size:100%" class="fa fa-share"></i> Share {{$posts->count_like}}</button>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="d-flex align-items-center post-like--comments">
+                                            <a href="#" class="post-like"><img src="{{asset("img/core-img/like.png")}}" alt=""> </a><span> {{$posts->count_like}}</span>
+                                            <a href="#" class="post-comment"><img src="{{asset("img/core-img/chat.png")}}" alt=""> </a><span>10</span>
                                         </div>
                                     </div>
                                 </div>
@@ -68,8 +50,14 @@
                         </div>
                         <!-- Comment Area Start -->
                         <div class="comment_area clearfix">
-                            <h5 class="title">Comments</h5>
-                            <ol>
+
+                            <h5 class="title">Bình luận ({{$comments->count()}})</h5>
+
+
+                            <div class="clearfix"></div>
+                            <ol id="comments" class="margin-top-20">
+                                @foreach($comments  as $comment)
+                                    @if(!$comment->hasParent())
                                 <!-- Single Comment Area -->
                                 <li class="single_comment_area">
                                     <!-- Comment Content -->
@@ -80,13 +68,59 @@
                                         </div>
                                         <!-- Comment Meta -->
                                         <div class="comment-meta">
-                                            <a href="#" class="post-author"></a>
-                                            <a href="#" class="post-date"></a>
-                                            <p></p>
+                                           <h6>{{$comment->user_name}}</h6>
+                                            <p>{!! $comment->content !!} </p>
+                                            <span style="float:left;">{{$comment->created_at}}</span>
+                                            <a href="#" style="float:right;"  class="toggle-comment" data-id="{{$comment->id}}">Trả lời</a>
                                         </div>
                                     </div>
+
+                                    <ol class="children">
+                                        @if($comment->hasChildren())
+{{--                                            <pre>{{var_dump($comment->children )}}</pre>--}}
+                                        @foreach($comment->children as $child)
+                                        <li class="single_comment_area">
+                                            <!-- Comment Content -->
+                                            <div class="comment-content d-flex">
+                                                <!-- Comment Author -->
+                                                <div class="comment-author">
+                                                    <img src="{{asset("img/bg-img/31.jpg")}}" alt="author">
+                                                </div>
+                                                <!-- Comment Meta -->
+                                                <div class="comment-meta">
+                                                   <h6>{{$child->user_name}}</h6>
+                                                    <p>{!! $child->content !!} </p>
+                                                    <span>{{$child->created_at}}</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                        @endif
+
+                                        <li class="reply-comment single_comment_area d-none" data-id="{{$comment->id}}">
+                                            <form class="contact-form-area" action="{{ url("commentPost/{$posts->id}") }}" method="post">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <input type="text" class="form-control"  name="user_name" placeholder="{{__("Name *")}}">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <input type="text" class="form-control" name="email" placeholder="{{__("Email *")}}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="message" class="form-control" rows="2" placeholder="{{__("Comment ")}}"></textarea>
+                                                </div>
+                                                <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                                                <button type="submit" class="btn newspaper-btn">Submit</button>
+                                            </form>
+                                        </li>
+                                    </ol>
                                 </li>
-                                </ol>
+                                        @endif
+                                @endforeach
+                            </ol>
+
                         </div>
 
                         <div class="post-a-comment-area section-padding-80-0">
@@ -257,6 +291,7 @@
                  });
             });
         }
+
 
         function colorlike() {
         document.getElementById("like").style.color = "#FE2E2E";

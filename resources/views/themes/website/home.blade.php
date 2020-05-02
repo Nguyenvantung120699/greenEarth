@@ -186,19 +186,16 @@
                     </div>
 
                     <!-- Single Post -->
-                    @foreach($post as $p)
+                    @foreach(\App\Comment::where("status",\App\Comment::ACTIVE)->with("Post")->orderBy("created_at","DESC")->take(5)->get() as $comment)
                         <div class="single-blog-post small-featured-post d-flex">
                             <div class="post-thumb">
                                 <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
                             </div>
-                            <div class="post-data">
-                                <a href="{{url("bai-viet/{$ps->id}")}}" class="post-catagory">{{$p->Category->category_name}}</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>{{$p->title}}</h6>
-                                    </a>
+                            <div class="swt-inner">
+                                <span><strong>{{$comment->user_name}}</strong></span>
 
-                                </div>
+                                <p>{!!str_limit($comment->content) !!}
+                                    <a class="color-primary" href="{{url("baiviet",["cat_path"=>$comment->Post->Category->path,"slug"=>$comment->Post->slug])}}"><br>[Xem bình luận]</a></p>
                             </div>
                         </div>
                     @endforeach

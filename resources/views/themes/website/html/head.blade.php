@@ -8,9 +8,14 @@
     <!-- Title -->
     <title>The Green Earth</title>
 
+    <!-- Favicon -->
     <link rel="icon" href="{{asset("img/core-img/favicon.ico")}}">
-    <link rel="stylesheet" href="{{asset("style.css")}}">
-    <script type="text/javascript" src="{{asset("js/jquery/jquery.js")}}"></script>
 
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{{asset("style.css")}}">
+    <!-- Syntax Highlighter -->
+
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
 
 </head>

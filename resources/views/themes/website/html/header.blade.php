@@ -77,7 +77,7 @@
                         <ul>
                             <li class="#"><a href="{{url("/")}}">Home</a></li>
                             @foreach(\App\Category::all() as $c)
-                                <li><a href="{{url("/chuyenmuc/{$c->id}")}}">{{$c->category_name}}</a></li>
+                                <li><a href="{{url("/chuyenmuc",["path"=>$c->path])}}">{{$c->category_name}}</a></li>
                             @endforeach
                             <li><a href="{{url("/")}}">Contact</a></li>
                         </ul>

@@ -21,30 +21,30 @@
                     <p>Bài viết</p>
                 </a>
 
-            <li class="nav-item has-treeview ">
+                <li class="nav-item has-treeview ">
                 <a href="http://127.0.0.1:8000/admin/#" class="nav-link text-capitalize">
-                    <i class="nav-icon far fa-edit"></i>
+                    <i class="nav-icon fa fa-edit"></i>
                     <p>
                         Bài viết
-                        <i class="right fas fa-angle-left"></i>
+                        <i class="fa fa-angle-left"></i>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url("admin/post/create")}}" class="nav-link text-capitalize">
-                            <i class="far fa-circle text-info nav-icon"></i>
+                            <i class="fa fa-file"></i>
                             <p>Viết bài mới</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{url("admin/post")}}" class="nav-link text-capitalize">
-                            <i class="far fa-circle text-info nav-icon"></i>
+                            <i class="fa fa-th-list"></i>
                             <p>Tất cả bài viết</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{url("admin/comment")}}" class="nav-link text-capitalize">
-                            <i class="far fa-circle text-info nav-icon"></i>
+                            <i class="fa fa-comments"></i>
                             <p>Tất cả bình luận</p>
                         </a>
                     </li>

@@ -9,7 +9,7 @@
                     <div class="blog-posts-area">
 
                         <!-- Single Featured Post -->
-                        <div class="single-blog-post featured-post single-post border-bottom">
+                        <div class="single-blog-post featured-post single-post">
                             <div class="section-heading" >
                                 <h6>{{$posts->Category->category_name}}</h6>
                             </div>
@@ -38,10 +38,27 @@
 {{--                                        </div>--}}
 
                                         <!-- Post Like & Post Comment -->
-                                        <div class="d-flex align-items-center post-like--comments">
-                                            <a href="#" class="post-like"><img src="{{asset("img/core-img/like.png")}}" alt=""> </a><span> {{$posts->count_like}}</span>
-                                            <a href="#" class="post-comment"><img src="{{asset("img/core-img/chat.png")}}" alt=""> </a><span>10</span>
-                                        </div>
+                                       <div class="col-md-12" style="padding-top:10%;">  
+                                            <div class="row">
+                                                <div class="col-md-6 border-top text-left" style="padding-top:5%;">
+                                                    <p>Time : {{$posts->created_at}} </p>
+                                                </div>
+                                                <div class="col-md-6 border-top text-right" style="padding-top:5%;">
+                                                    <div class="row">
+                                                        <div class="col-md-6" style="padding:0">
+                                                            <a href="#">
+                                                                <button style="width:85%" type="button" class="btn btn-primary btn-sm"><i class="fa fa-thumbs-up"></i> Like {{$posts->count_like}}</button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-6" style="padding:0">
+                                                            <a href="#">
+                                                                <button style="width:85%" type="button" class="btn btn-primary btn-sm"><i class="fa fa-share"></i> share {{$posts->count_like}}</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       </div>
                                     </div>
                                 </div>
                             </div>

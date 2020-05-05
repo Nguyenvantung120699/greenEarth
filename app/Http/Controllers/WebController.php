@@ -95,4 +95,25 @@ class WebController extends Controller
         }
         return back();
     }
+    public function joinGroup(Request $request){
+
+            $request->validate([
+                "name"=>"required",
+                "email"=>"required",
+                "telephone"=>"required",
+                "address"=>"required"
+            ]);
+
+        try {
+              $member = Member::create([
+                  "name"=>$request->get("name"),
+                  "email"=>$request->get("email"),
+                  "telephone"=>$request->get("telephone"),
+                  "address"=>$request->get("address"),
+              ]);
+        }catch (\Throwable $th){
+            throw $th;
+        }
+        return back();
+    }
 }

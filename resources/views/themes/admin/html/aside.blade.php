@@ -15,18 +15,12 @@
                     <p>Quản trị Website</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link"  >
-                    <i class="material-icons">edit</i>
-                    <p>Bài viết</p>
-                </a>
-
             <li class="nav-item has-treeview ">
-                <a href="http://127.0.0.1:8000/admin/#" class="nav-link text-capitalize">
+                <a href="" class="nav-link text-capitalize">
                     <i class="nav-icon far fa-edit"></i>
                     <p>
                         Bài viết
-                        <i class="right fas fa-angle-left"></i>
+                        <i class="material-icons">edit</i>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -57,17 +51,30 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./typography.html">
+                <a href="" class="nav-link text-capitalize">
                     <i class="material-icons">library_books</i>
-                    <p>Tin tức</p>
+                    <p>
+                        Quản lý thành viên
+
+                    </p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{url("admin/member")}}" class="nav-link text-capitalize">
+                            <i class="far fa-circle text-info nav-icon"></i>
+                            <p>Tất cả thành viên</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url("admin/member/pending")}}" class="nav-link text-capitalize">
+                            <i class="far fa-circle text-info nav-icon"></i>
+                            <p>Thành viên chờ duyệt</p>
+                        </a>
+                    </li>
+
+                </ul>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./icons.html">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>Slide</p>
-                </a>
-            </li>
+
             <li class="nav-item ">
                 <a class="nav-link" href="./map.html">
                     <i class="material-icons">person</i>

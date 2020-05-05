@@ -1,294 +1,168 @@
 @extends('themes.website.layout.layout')
 @section('content')
-    <!-- ##### Featured Post Area Start ##### -->
-    <div class="hero-area"> </div>
-    <div class="blog-area section-padding-0-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-8">
-                    <div class="blog-posts-area">
 
-                        <!-- Single Featured Post -->
-                        <div class="single-blog-post featured-post single-post">
-                            <div class="section-heading" >
-                                <h6>{{$posts->Category->category_name}}</h6>
-                            </div>
-                            <div class="post-thumb">
-                                <a href="#"><img src="{{asset("img/bg-img/25.jpg")}}" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                              <span><h4>{{$posts->title}}</h4></span>
-
-
-                                <div class="post-meta">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            {!! $posts->content!!}
-                                        </div>
-                                    </div>
-                                    <div class="newspaper-post-like d-flex align-items-center justify-content-between">
-                                        <!-- Tags -->
-{{--                                        <div class="newspaper-tags d-flex">--}}
-{{--                                            <span>Tags:</span>--}}
-{{--                                            <ul class="d-flex">--}}
-{{--                                                <li><a href="#">finacial,</a></li>--}}
-{{--                                                <li><a href="#">politics,</a></li>--}}
-{{--                                                <li><a href="#">stock market</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
-
-                                        <!-- Post Like & Post Comment -->
-                                       <div class="col-md-12" style="padding-top:10%;">  
-                                            <div class="row">
-                                                <div class="col-md-6 border-top text-left" style="padding-top:5%;">
-                                                    <p>Time : {{$posts->created_at}} </p>
-                                                </div>
-                                                <div class="col-md-6 border-top text-right" style="padding-top:5%;">
-                                                    <div class="row">
-                                                        <div class="col-md-6" style="padding:0">
-                                                            <a href="#">
-                                                                <button style="width:85%" type="button" class="btn btn-primary btn-sm"><i class="fa fa-thumbs-up"></i> Like {{$posts->count_like}}</button>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-md-6" style="padding:0">
-                                                            <a href="#">
-                                                                <button style="width:85%" type="button" class="btn btn-primary btn-sm"><i class="fa fa-share"></i> share {{$posts->count_like}}</button>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
+<div class="slider-area ">
+      <!-- Mobile Menu -->
+      <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{asset("img/hero/contact_hero.jpg")}}">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xl-12">
+                      <div class="hero-cap text-center">
+                          <h2>{{$posts->Category->category_name}}</h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+   </div>
+   <!-- slider Area End-->
+   <!--================Blog Area =================-->
+   <section class="blog_area single-post-area section-padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 posts-list">
+               <div class="single-post">
+                  <div class="feature-img">
+                     <img class="img-fluid" src="{{asset("img/blog/single_blog_1.png")}}" alt="">
+                  </div>
+                  <div class="blog_details">
+                     <h2>{{$posts->title}}</h2>
+                     <ul class="blog-info-link mt-3 mb-4">
+                        <li><a href="#"><i class="fa fa-user"></i> {{$posts->created_at}}</a></li>
+                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                     </ul>
+                     <div class="quote-wrapper">
+                        <div class="quotes">
+                        {{$posts->short_desc}}
                         </div>
-                        <!-- Comment Area Start -->
-                        <div class="comment_area clearfix">
-
-                            <h5 class="title">Bình luận ({{$comments->count()}})</h5>
-
-
-                            <div class="clearfix"></div>
-                            <ol id="comments" class="margin-top-20">
-                                @foreach($comments  as $comment)
-                                    @if(!$comment->hasParent())
-                                <!-- Single Comment Area -->
-                                <li class="single_comment_area">
-                                    <!-- Comment Content -->
-                                    <div class="comment-content d-flex">
-                                        <!-- Comment Author -->
-                                        <div class="comment-author">
-                                            <img src="{{asset("img/bg-img/31.jpg")}}" alt="author">
-                                        </div>
-                                        <!-- Comment Meta -->
-                                        <div class="comment-meta">
-                                           <h6>{{$comment->user_name}}</h6>
-                                            <p>{!! $comment->content !!} </p>
-                                            <span style="float:left;">{{$comment->created_at}}</span>
-                                            <a href="#" style="float:right;"  class="toggle-comment" data-id="{{$comment->id}}">Trả lời</a>
-                                        </div>
-                                    </div>
-
-                                    <ol class="children">
-                                        @if($comment->hasChildren())
-{{--                                            <pre>{{var_dump($comment->children )}}</pre>--}}
-                                        @foreach($comment->children as $child)
-                                        <li class="single_comment_area">
-                                            <!-- Comment Content -->
-                                            <div class="comment-content d-flex">
-                                                <!-- Comment Author -->
-                                                <div class="comment-author">
-                                                    <img src="{{asset("img/bg-img/31.jpg")}}" alt="author">
-                                                </div>
-                                                <!-- Comment Meta -->
-                                                <div class="comment-meta">
-                                                   <h6>{{$child->user_name}}</h6>
-                                                    <p>{!! $child->content !!} </p>
-                                                    <span>{{$child->created_at}}</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        @endforeach
-                                        @endif
-
-                                        <li class="reply-comment single_comment_area d-none" data-id="{{$comment->id}}">
-                                            <form class="contact-form-area" action="{{ url("commentPost/{$posts->id}") }}" method="post">
-                                                @csrf
-                                                <div class="row">
-                                                    <div class="form-group col-sm-6">
-                                                        <input type="text" class="form-control"  name="user_name" placeholder="{{__("Name *")}}">
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <input type="text" class="form-control" name="email" placeholder="{{__("Email *")}}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <textarea name="message" class="form-control" rows="2" placeholder="{{__("Comment ")}}"></textarea>
-                                                </div>
-                                                <input type="hidden" name="comment_id" value="{{ $comment->id }}">
-                                                <button type="submit" class="btn newspaper-btn">Submit</button>
-                                            </form>
-                                        </li>
-                                    </ol>
-                                </li>
-                                        @endif
-                                @endforeach
-                            </ol>
-
-                        </div>
-
-                        <div class="post-a-comment-area section-padding-80-0">
-                            <h4>Leave a comment</h4>
-
-                            <!-- Reply Form -->
-                            <div class="contact-form-area">
-                                <form action="{{url("commentPost",["post_id"=>$posts->id])}}" id="comment" method="post">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-12 col-lg-6">
-                                            <input type="text" name="user_name" class="form-control" id="name" placeholder="{{__("Name *")}}">
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <input type="email" name="email" class="form-control" id="email" placeholder="{{__("Email *")}}">
-                                        </div>
-                                        <div class="col-12">
-                                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="{{__("Message")}}"></textarea>
-                                        </div>
-                                        <div class="col-12 text-center">
-                                            <button class="btn newspaper-btn mt-30 w-100" type="submit">Submit Comment</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                     </div>
+                     <p>
+                     {!! $posts->content!!}
+                     </p>
+                  </div>
+               </div>
+               <div class="comments-area">
+                  <h4>05 Comments</h4>
+                  @foreach($comments  as $comment)
+                    @if(!$comment->hasParent())
+                    <div class="comment-list">
+                     <div class="single-comment justify-content-between d-flex">
+                        <div class="user justify-content-between d-flex">
+                           <div class="thumb">
+                              <img src="{{asset("img/comment/comment_1.png")}}" alt="">
+                           </div>
+                           <div class="desc">
+                              <p class="comment">
+                                {!! $comment->content !!}
+                              </p>
+                              <div class="d-flex justify-content-between">
+                                 <div class="d-flex align-items-center">
+                                    <h5>
+                                       <a href="#">{{$comment->user_name}}</a>
+                                    </h5>
+                                    <p class="date">{{$comment->created_at}}</p>
+                                 </div>
+                                 <div class="reply-btn">
+                                    <a href="#" class="btn-reply text-uppercase">reply</a>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="aside col-12 col-md-6 col-lg-4" >
-                    <div class="section-heading" >
-                        <h6>Bài được đọc nhiều nhất</h6>
-                    </div>
-                    @foreach($post as $p)
-                        <div class="single-blog-post small-featured-post d-flex">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="post-catagory">{{$p->Category->category_name}}</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>{{$p->title}}</h6>
-                                    </a>
-
-                                </div>
-                            </div>
+                @endif
+                @endforeach
+               </div>
+               <div class="comment-form">
+                  <h4>Leave a Reply</h4>
+                  <form class="form-contact comment_form" action="#" id="commentForm">
+                     <div class="row">
+                        <div class="col-12">
+                           <div class="form-group">
+                              <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                 placeholder="Write Comment"></textarea>
+                           </div>
                         </div>
-                    @endforeach
-                    <div class="section-heading"></div>
-{{--                    <div class="col-12 col-lg-4">--}}
-                        <div class="section-heading">
-                            <h6>Tin tức phổ biến</h6>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                           </div>
                         </div>
-                        <!-- Popular News Widget -->
-                        <div class="popular-news-widget mb-30">
-                            <h3>4 Most Popular News</h3>
-
-                            <!-- Single Popular Blog -->
-                            <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>1.</span> Amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales.</h6>
-                                </a>
-                                <p>April 14, 2018</p>
-                            </div>
-
-                            <!-- Single Popular Blog -->
-                            <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>2.</span> Consectetur adipiscing elit. Nam eu metus sit amet odio sodales placer.</h6>
-                                </a>
-                                <p>April 14, 2018</p>
-                            </div>
-
-                            <!-- Single Popular Blog -->
-                            <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>3.</span> Adipiscing elit. Nam eu metus sit amet odio sodales placer. Sed varius leo.</h6>
-                                </a>
-                                <p>April 14, 2018</p>
-                            </div>
-
-                            <!-- Single Popular Blog -->
-                            <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>4.</span> Eu metus sit amet odio sodales placer. Sed varius leo ac...</h6>
-                                </a>
-                                <p>April 14, 2018</p>
-                            </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                           </div>
                         </div>
-
-                        <!-- Newsletter Widget -->
-                        <div class="newsletter-widget">
-                            <h4>Join a group</h4>
-                            <p>You can join us or support us to join hands for a green earth</p>
-                            <form action="#" method="post">
-                                <input type="text" name="name" placeholder="Name">
-                                <input type="email" name="email" placeholder="Email">
-                                <input type="text" name="telephone" placeholder="Telephone">
-                                <input type="text" name="address" placeholder="Address">
-                                <button type="submit" class="btn w-100">Join</button>
-                            </form>
+                        <div class="col-12">
+                           <div class="form-group">
+                              <input class="form-control" name="website" id="website" type="text" placeholder="Website">
+                           </div>
                         </div>
-{{--                    </div>--}}
-
-                </div>
-{{--                <div class="col-12 col-lg-8">--}}
-{{--                    <div class="blog-sidebar-area">--}}
-{{--                        <div class="section-heading" style="margin-top: 40px">--}}
-{{--                            <h6>Bài viết cùng chuyên mục</h6>--}}
-{{--                        </div>--}}
-
-{{--                            <!-- Single Post -->--}}
-{{--                            <div class="col-12 col-lg-12" style="padding-bottom:3%;">--}}
-{{--                                <div class="b-grid">--}}
-{{--                                    <div class="b-grid__img col-md-4" style="float: left"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html"><img src="https://btnmt.onecmscdn.com/thumbs/562x331/2020/04/26/2.jpg" alt="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" title="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" /></a></div>--}}
-{{--                                    <div class="b-grid__content col-md-8" style="float: left">--}}
-{{--        --}}{{--                                <div class="b-grid__row"><h3 class="b-grid__title"><a class="post-catagory" href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html">{{$p->title}}</a></h3></div>--}}
-{{--                                        <div class="b-grid__row b-grid__desc">--}}
-{{--        --}}{{--                                    {{$p->short_desc}}--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-12 col-lg-12" style="padding-bottom:3%;">--}}
-{{--                                <div class="b-grid">--}}
-{{--                                    <div class="b-grid__img col-md-4" style="float: left"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html"><img src="https://btnmt.onecmscdn.com/thumbs/562x331/2020/04/26/2.jpg" alt="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" title="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" /></a></div>--}}
-{{--                                    <div class="b-grid__content col-md-8" style="float: left">--}}
-{{--        --}}{{--                                <div class="b-grid__row"><h3 class="b-grid__title"><a class="post-catagory" href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html">{{$p->title}}</a></h3></div>--}}
-{{--                                        <div class="b-grid__row b-grid__desc">--}}
-{{--        --}}{{--                                    {{$p->short_desc}}--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-12 col-lg-8" style="padding-bottom:3%;">--}}
-{{--                                <div class="b-grid">--}}
-{{--                                    <div class="b-grid__img col-md-4" style="float: left"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html"><img src="https://btnmt.onecmscdn.com/thumbs/562x331/2020/04/26/2.jpg" alt="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" title="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" /></a></div>--}}
-{{--                                    <div class="b-grid__content col-md-8" style="float: left">--}}
-{{--        --}}{{--                                <div class="b-grid__row"><h3 class="b-grid__title"><a class="post-catagory" href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html">{{$p->title}}</a></h3></div>--}}
-{{--                                        <div class="b-grid__row b-grid__desc">--}}
-{{--        --}}{{--                                    {{$p->short_desc}}--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-                </div>
+                     </div>
+                     <div class="form-group">
+                        <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Comment</button>
+                     </div>
+                  </form>
+               </div>
             </div>
-        </div>
+            <div class="col-lg-4">
+               <div class="blog_right_sidebar">
+                  <aside class="single_sidebar_widget post_category_widget">
+                     <h4 class="widget_title">Category</h4>
+                     <ul class="list cat-list">
+                        @foreach(\App\Category::all() as $c)
+                        <li>
+                           <a href="{{url("/chuyenmuc",["path"=>$c->path])}}" class="d-flex">
+                              <p>{{$c->category_name}}</p>
+                           </a>
+                        </li>
+                        @endforeach
+                     </ul>
+                  </aside>
+                  <aside class="single_sidebar_widget popular_post_widget">
+                     <h3 class="widget_title">Recent Post</h3>
+                     @foreach($post as $p)
+                     <div class="media post_item">
+                        <img src="{{asset("img/post/post_1.png")}}" alt="post">
+                        <div class="media-body">
+                           <a href="single-blog.html">
+                              <h3>{{$p->title}}</h3>
+                           </a>
+                           <p>{{$p->created_at}}</p>
+                        </div>
+                     </div>
+                     @endforeach
+                  </aside>
+                  <aside class="single_sidebar_widget search_widget">
+                     <form action="#">
+                        <div class="form-group">
+                        <h3 class="text-center">Donate</h3>
+                           <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder='Name'
+                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
+                           </div>
+                           <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder='Email'
+                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                           </div>
+                           <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder='Telephone'
+                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'">
+                           </div>
+                           <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder='Address'
+                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
+                           </div>
+                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                           type="submit">Donate</button>
+                     </form>
+                  </aside>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--================ Blog Area end =================-->
 
     <!-- ##### Featured Post Area End ##### -->
     <script>

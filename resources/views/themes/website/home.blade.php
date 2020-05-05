@@ -1,207 +1,287 @@
 @extends('themes.website.layout.layout')
 @section('content')
-    <div class="hero-area">
 
-    </div>
-
-    <!-- ##### Featured Post Area Start ##### -->
-    <div class="featured-post-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-8">
+<main>
+    <div class="slider-area ">
+            <!-- Mobile Menu -->
+        <div class="slider-active">
+            <div class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="{{asset("img/hero/h1_hero.jpg")}}">
+                <div class="container">
                     <div class="row">
-
-                        <!-- Single Featured Post -->
-                        <div class="col-12 col-lg-12">
-                            @foreach($posts as $ps)
-                            <div class="single-blog-post featured-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/16.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="{{url("baiviet",["cat_path"=>$ps->Category->path,"slug"=>$ps->slug])}}" class="post-catagory">{{$ps->Category->category_name}}</a>
-                                    <h3 href="#" class="post-title">
-                                        <span>{{$ps->short_desc}}</span>
-                                        <a class="rmore"  href="{{url("baiviet",["cat_path"=>$ps->Category->path,"slug"=>$ps->slug])}}">Xem chi tiết <i class="fa fa-arrow-right"></i></a>
-                                    </h3>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <!-- Single Featured Post -->
-                    <h4><span>Bài được đọc nhiều nhất</span></h4>
-                   @foreach($post as $p)
-                   <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="post-catagory">{{$p->Category->category_name}}</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <h6>{{$p->title}}</h6>
-                                </a>
-
+                        <div class="col-xl-9 col-lg-9 col-md-9">
+                            <div class="hero__caption">
+                                <h1>Green Earth <span>Who Is?</span> </h1>
+                                <p>"Green Earth is a non-profit organization, always contributing to the campaign to improve the environment and clean the earth"</p>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    <!-- Search Box -->
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <!-- form -->
+                            <form action="#" class="search-box">
+                                <div class="input-form mb-30">
+                                    <input type="text" placeholder="Green Earth Search">
+                                </div>
+                                <div class="search-form mb-30">
+                                    <a href="#">Search</a>
+                                </div>	
+                            </form>	
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Featured Post Area End ##### -->
 
-    <!-- ##### Popular News Area Start ##### -->
-    <div class="popular-news-area section-padding-80-50">
+    <div class="our-services servic-padding">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-8">
-                    <div class="section-heading">
-                        <h6>Bài nổi bật</h6>
+            <div class="row d-flex justify-contnet-center">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="single-services text-center mb-30">
+                        <div class="services-ion">
+                            <span class="flaticon-tour"></span>
+                        </div>
+                        <div class="services-cap">
+                            <h5>8000+ People<br>Join</h5>
+                        </div>
                     </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="single-services text-center mb-30">
+                        <div class="services-ion">
+                            <span class="flaticon-pay"></span>
+                        </div>
+                        <div class="services-cap">
+                            <h5>We Always Need<br>Donate</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="single-services text-center mb-30">
+                        <div class="services-ion">
+                            <span class="flaticon-experience"></span>
+                        </div>
+                        <div class="services-cap">
+                            <h5>Organize Activities To Be Necessary<br>Necessary</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="single-services text-center mb-30">
+                        <div class="services-ion">
+                            <span class="flaticon-good"></span>
+                        </div>
+                        <div class="services-cap">
+                            <h5>Join Hands Together For A<br>Green Earth</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <div class="row">
+    <div class="favourite-place place-padding">
+        <div class="container">
+            <!-- Section Tittle -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle text-center">
+                        <span>activities</span>
+                        <h2>Our typical</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            @foreach($post as $p)
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-place mb-30">
+                        <div class="place-img">
+                            <img src="https://qcvn.com.vn/wp-content/uploads/2019/07/anh-huong-cua-nuoc-thai-sinh-hoat-den-moi-truong-va-cuoc-song.jpg" alt="">
+                        </div>
+                        <div class="place-cap">
+                            <div class="place-cap-top">
+                                <h3><a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}">{{$p->Category->category_name}}</a></h3>
+                                <p class="dolor">{{$p->title}}</p>
+                            </div>
+                            <div class="place-cap-bottom">
+                                <ul>
+                                    <li><i class="fa fa-eye"></i>Preview</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            </div>
+        </div>
 
-                        <!-- Single Post -->
-                        @foreach($like as $l)
-                        <div class="col-12 col-md-6">
-                            <div class="single-blog-post style-3">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/12.jpg" alt=""></a>
+        <div class="video-area video-bg pt-200 pb-200"  data-background="{{asset("img/service/video-bg.jpg")}}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="video-caption text-center">
+                            <div class="video-icon">
+                                <a class="popup-video" href="https://www.youtube.com/watch?v=1aP-TXUpNoU" tabindex="0"><i class="fas fa-play"></i></a>
+                            </div>
+                            <p class="pera1">Love where you're going in the perfect time</p>
+                            <p class="pera2">Tripo is a World Leading Online</p>
+                            <p class="pera3"> Tour Booking Platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="support-company-area support-padding fix">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="support-location-img mb-50">
+                            <img src="{{asset("img/service/support-img.jpg")}}" alt="">
+                            <div class="support-img-cap">
+                                <span>Since 1992</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="right-caption">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle section-tittle2">
+                                <span>About Our Company</span>
+                                <h2>We are Go Trip <br>Ravels Support Company</h2>
+                            </div>
+                            <div class="support-caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                                <div class="select-suport-items">
+                                    <label class="single-items">Lorem ipsum dolor sit amet
+                                        <input type="checkbox" checked="checked active">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="single-items">Consectetur adipisicing sed do
+                                        <input type="checkbox" checked="checked active">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="single-items">Eiusmod tempor incididunt
+                                        <input type="checkbox" checked="checked active">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="single-items">Ad minim veniam, quis nostrud.
+                                        <input type="checkbox" checked="checked active">
+                                        <span class="checkmark"></span>
+                                    </label>
                                 </div>
-                                <div class="post-data">
-                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="post-catagory">{{$l->title}}</a>
-                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="post-title">
-                                    <h6>{{str_limit($l->short_desc),150}}</h6>
-                                    </a>
-                                    <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                                <a href="#" class="btn border-btn">About us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-area testimonial-padding" data-background="{{asset("img/testmonial/testimonial_bg.jpg")}}">
+            <div class="container ">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xl-11 col-lg-11 col-md-9">
+                        <div class="h1-testimonial-active">
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                <!-- Testimonial Content -->
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <img src="{{asset("img/icon/testimonial.png")}}" alt="">
+                                        <p>Logisti Group is a representative logistics operator providing full range of ser
+                                            of customs clearance and transportation worl.</p>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                        <div class="founder-img">
+                                            <img src="{{asset("img/testmonial/Homepage_testi.png")}}" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>Jessya Inn</span>
+                                            <p>Co Founder</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                <!-- Testimonial Content -->
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <img src="{{asset("img/icon/testimonial.png")}}" alt="">
+                                        <p>Logisti Group is a representative logistics operator providing full range of ser
+                                            of customs clearance and transportation worl.</p>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                        <div class="founder-img">
+                                            <img src="{{asset("img/testmonial/Homepage_testi.png")}}" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>Jessya Inn</span>
+                                            <p>Co Founder</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-4">
-                    <div class="section-heading">
-                        <h6>Tin tức phổ biến</h6>
-                    </div>
-                    <!-- Popular News Widget -->
-                    <div class="popular-news-widget mb-30">
-                        <h3>4 Most Popular News</h3>
-
-                        <!-- Single Popular Blog -->
-                        <div class="single-popular-post">
-                            <a href="#">
-                                <h6><span>1.</span> Amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales.</h6>
-                            </a>
-                            <p>April 14, 2018</p>
-                        </div>
-
-                        <!-- Single Popular Blog -->
-                        <div class="single-popular-post">
-                            <a href="#">
-                                <h6><span>2.</span> Consectetur adipiscing elit. Nam eu metus sit amet odio sodales placer.</h6>
-                            </a>
-                            <p>April 14, 2018</p>
-                        </div>
-
-                        <!-- Single Popular Blog -->
-                        <div class="single-popular-post">
-                            <a href="#">
-                                <h6><span>3.</span> Adipiscing elit. Nam eu metus sit amet odio sodales placer. Sed varius leo.</h6>
-                            </a>
-                            <p>April 14, 2018</p>
-                        </div>
-
-                        <!-- Single Popular Blog -->
-                        <div class="single-popular-post">
-                            <a href="#">
-                                <h6><span>4.</span> Eu metus sit amet odio sodales placer. Sed varius leo ac...</h6>
-                            </a>
-                            <p>April 14, 2018</p>
-                        </div>
-                    </div>
-
-                    <!-- Newsletter Widget -->
-                    <div class="newsletter-widget">
-                        <h4>Join a group</h4>
-                        <p>You can join us or support us to join hands for a green earth</p>
-                        <form action="#" method="post">
-                            <input type="text" name="name" placeholder="Name">
-                            <input type="email" name="email" placeholder="Email">
-                            <input type="text" name="telephone" placeholder="Telephone">
-                            <input type="text" name="address" placeholder="Address">
-                            <button type="submit" class="btn w-100">Join</button>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ##### Popular News Area End ##### -->
-    <!-- ##### Editorial Post Area Start ##### -->
-    <div class="editors-pick-post-area section-padding-80-50">
-        <div class="container">
-            <div class="row">
-                <!-- Editors Pick -->
-                <div class="col-12 col-md-7 col-lg-8">
-                    <div class="section-heading">
-                        <h6>Mới nhất & dành cho bạn đọc</h6>
+    <!-- Testimonial End -->
+        <div class="home-blog-area section-padding2">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <span>Our Recent news</span>
+                            <h2>Tourist Blog</h2>
+                        </div>
                     </div>
-
-                    <div class="row">
-
-                        <!-- Single Post -->
-                        @foreach($post as $p)
-                        <div class="col-12 col-lg-12" style="padding-bottom:3%;">
-                            <div class="b-grid">
-                                <div class="b-grid__img col-md-4" style="float: left"><a href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html"><img src="https://btnmt.onecmscdn.com/thumbs/562x331/2020/04/26/2.jpg" alt="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" title="Thời tiết 26/4: Bắc Bộ tiếp tục mưa r&#233;t, c&#243; nơi dưới 15 độ" /></a></div>
-                                <div class="b-grid__content col-md-8" style="float: left">
-                                    <div class="b-grid__row"><h3 class="b-grid__title"><a class="post-catagory" href="https://baotainguyenmoitruong.vn/thoi-tiet-26-4-bac-bo-tiep-tuc-mua-ret-co-noi-duoi-15-do-303546.html">{{$p->title}}</a></h3></div>
-                                    <div class="b-grid__row b-grid__desc">
-                                        {{$p->short_desc}}
-                                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="home-blog-single mb-30">
+                            <div class="blog-img-cap">
+                                <div class="blog-img">
+                                    <img src="{{asset("img/blog/home-blog1.jpg")}}" alt="">
+                                </div>
+                                <div class="blog-cap">
+                                    <p> |   Traveling</p>
+                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
+                                    <a href="#" class="more-btn">Read more »</a>
                                 </div>
                             </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                <!-- World News -->
-                <div class="col-12 col-md-5 col-lg-4">
-                    <div class="section-heading">
-                        <h6>Bình luận mới nhất</h6>
-                    </div>
-
-                    <!-- Single Post -->
-                    @foreach(\App\Comment::where("status",\App\Comment::ACTIVE)->with("Post")->orderBy("created_at","DESC")->take(5)->get() as $comment)
-                        <div class="single-blog-post small-featured-post d-flex">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
-                            </div>
-                            <div class="swt-inner">
-                                <span><strong>{{$comment->user_name}}</strong></span>
-
-                                <p>{!!str_limit($comment->content) !!}
-                                    <a class="color-primary" href="{{url("baiviet",["cat_path"=>$comment->Post->Category->path,"slug"=>$comment->Post->slug])}}"><br>[Xem bình luận]</a></p>
+                            <div class="blog-date text-center">
+                                <span>24</span>
+                                <p>Now</p>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="home-blog-single mb-30">
+                            <div class="blog-img-cap">
+                                <div class="blog-img">
+                                    <img src="{{asset("img/blog/home-blog2.jpg")}}" alt="">
+                                </div>
+                                <div class="blog-cap">
+                                    <p> |   Traveling</p>
+                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
+                                    <a href="#" class="more-btn">Read more »</a>
+                                </div>
+                            </div>
+                            <div class="blog-date text-center">
+                                <span>24</span>
+                                <p>Now</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+</main>
     @endsection

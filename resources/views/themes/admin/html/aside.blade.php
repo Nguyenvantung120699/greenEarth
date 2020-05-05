@@ -4,7 +4,7 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
-    <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+    <div class="logo"><a href="{{asset("admin/home")}}" class="simple-text logo-normal">
           Admin
         </a></div>
     <div class="sidebar-wrapper">
@@ -19,15 +19,6 @@
                 <a class="nav-link"  >
                     <i class="material-icons">edit</i>
                     <p>Bài viết</p>
-                </a>
-
-                <li class="nav-item has-treeview ">
-                <a href="http://127.0.0.1:8000/admin/#" class="nav-link text-capitalize">
-                    <i class="nav-icon fa fa-edit"></i>
-                    <p>
-                        Bài viết
-                        <i class="fa fa-angle-left"></i>
-                    </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">

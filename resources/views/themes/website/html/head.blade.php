@@ -1,21 +1,22 @@
 <head>
-<meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>The Green Earth </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="{{asset("img/favicon.ico")}}">
 
-    <!-- Title -->
-    <title>The Green Earth</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="{{asset("img/core-img/favicon.ico")}}">
-
-    <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="{{asset("style.css")}}">
-    <!-- Syntax Highlighter -->
-
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
-
-</head>
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+            <link rel="stylesheet" href="{{asset("css/owl.carousel.min.css")}}">
+            <link rel="stylesheet" href="{{asset("css/flaticon.css")}}">
+            <link rel="stylesheet" href="{{asset("css/slicknav.css")}}">
+            <link rel="stylesheet" href="{{asset("css/animate.min.css")}}">
+            <link rel="stylesheet" href="{{asset("css/magnific-popup.css")}}">
+            <link rel="stylesheet" href="{{asset("css/fontawesome-all.min.css")}}">
+            <link rel="stylesheet" href="{{asset("css/themify-icons.css")}}">
+            <link rel="stylesheet" href="{{asset("css/slick.css")}}">
+            <link rel="stylesheet" href="{{asset("css/nice-select.css")}}">
+            <link rel="stylesheet" href="{{asset("css/style.css")}}">
+   </head>

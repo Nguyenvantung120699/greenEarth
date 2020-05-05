@@ -4,7 +4,7 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
-    <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+    <div class="logo"><a href="{{asset("admin/home")}}" class="simple-text logo-normal">
           Admin
         </a></div>
     <div class="sidebar-wrapper">
@@ -15,30 +15,27 @@
                     <p>Quản trị Website</p>
                 </a>
             </li>
-            <li class="nav-item has-treeview ">
-                <a href="" class="nav-link text-capitalize">
-                    <i class="nav-icon far fa-edit"></i>
-                    <p>
-                        Bài viết
-                        <i class="material-icons">edit</i>
-                    </p>
+            <li class="nav-item ">
+                <a class="nav-link"  >
+                    <i class="material-icons">edit</i>
+                    <p>Bài viết</p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url("admin/post/create")}}" class="nav-link text-capitalize">
-                            <i class="far fa-circle text-info nav-icon"></i>
+                            <i class="fa fa-file"></i>
                             <p>Viết bài mới</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{url("admin/post")}}" class="nav-link text-capitalize">
-                            <i class="far fa-circle text-info nav-icon"></i>
+                            <i class="fa fa-th-list"></i>
                             <p>Tất cả bài viết</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{url("admin/comment")}}" class="nav-link text-capitalize">
-                            <i class="far fa-circle text-info nav-icon"></i>
+                            <i class="fa fa-comments"></i>
                             <p>Tất cả bình luận</p>
                         </a>
                     </li>
@@ -74,7 +71,6 @@
 
                 </ul>
             </li>
-
             <li class="nav-item ">
                 <a class="nav-link" href="./map.html">
                     <i class="material-icons">person</i>

@@ -25,16 +25,17 @@ class WebController extends Controller
 {
     public function index(){
         $categories = Category::all();
-        $post = Post::orderBy('count_views','desc')->take(10)->get();
-        $posts = Post::orderBy('id','desc')->take(1)->get();
+        $post = Post::orderBy('count_views','desc')->take(6)->get();
+        // $postt = Post::orderBy('id','desc')->take(4)->get();
+        // $posts = Post::orderBy('id','desc')->take(1)->get();
         $like = Post::orderBy('count_like','desc')->take(4)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'posts'=>$posts,'like'=>$like]);
+        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like]);
     }
 
     public function categoryPost($path){
         $category = Category::where("path","=",$path)->first();
 
-        $posts = $category->Posts()->paginate(3);
+        $posts = $category->Posts()->paginate(5);
 //        $cat_id = [];
 //        $cat_id[] =$category->getId();
 //        $posts = Post::whereIn("category_id",$cat_id)->with("Category")->orderBy("created_at","desc")->paginate(10);
@@ -42,7 +43,7 @@ class WebController extends Controller
     }
     public function viewPost($cat_path,$slug){
         $posts = Post::where("slug",$slug)->first();
-        $post = Post::orderBy('count_views','desc')->take(10)->get();
+        $post = Post::orderBy('count_views','desc')->take(6)->get();
         $comment = $posts->Comments->where('status',0);
 
 

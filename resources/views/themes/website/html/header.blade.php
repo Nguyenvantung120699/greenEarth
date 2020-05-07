@@ -60,9 +60,9 @@
                                                 @endforeach
                                                 </ul>
                                             </li>
-                                            <li><a href="about.html">About US</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="contact.html">Donate</a></li>
+                                            <li><a href="{{url("/about")}}">About US</a></li>
+                                            <li><a href="{{url("/contact")}}">Contact Us</a></li>
+                                            <li><a href="{{url("blog")}}">Blog</a></li>
                                         </ul>
                                     </nav>
                                 </div>

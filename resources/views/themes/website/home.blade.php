@@ -1,4 +1,5 @@
 @extends('themes.website.layout.layout')
+@section("title","Trang chủ")
 @section('content')
 
 <main>

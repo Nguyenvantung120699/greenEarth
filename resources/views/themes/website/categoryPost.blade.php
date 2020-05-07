@@ -1,7 +1,6 @@
 @extends('themes.website.layout.layout')
+@section("title",$title)
 @section('content')
-
-
 <div class="slider-area ">
         <!-- Mobile Menu -->
         <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{asset("img/hero/contact_hero.jpg")}}">

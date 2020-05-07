@@ -102,8 +102,20 @@ class AdminController extends Controller
         ]);
 
         try {
+            $image = null;
+            $ext_allow =['png','jpg','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext =$file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                        $file->move("upload",$file_name);
+                        $image = "upload/".$file_name;
+                }
+            }
             Post::create([
                 "title"=>$request->get("title"),
+                "image"=>$image,
                 "author"=>$request->get("author"),
                 "category_id"=>$request->get("category_id"),
                 "slug"=>str_slug($request->get("title")),

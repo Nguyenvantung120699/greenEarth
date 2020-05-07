@@ -8,7 +8,7 @@
                         <div class="card-header card-header-primary">
                             <h4 class="card-title ">{{__('Thêm bài viết')}}</h4>
                         </div>
-                        <form action="{{url("admin/post/store")}} "  method="POST">
+                        <form action="{{url("admin/post/store")}} "  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -25,7 +25,7 @@
                                         <label class="text-capitalize">{{__('Người viết')}}</label>
                                         <input type="text" name="author" value="{{old("author")}}" class="form-control"  placeholder="{{__('Nhập tên tác giả')}}" >
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-10">
                                         <div class="form-group ">
                                             <label  class="control-label mb-1">{{__("Chuyên đề")}}</label>
                                             <select class="form-group form-control" name="category_id" required>
@@ -37,6 +37,13 @@
                                                     <option value="{{$c->id}}">{{$c->category_name}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <label for="cc-name" class="control-label mb-1">Ảnh đại diện</label>
+                                            <input type="file" class="form-control-file"
+                                                   name="image">
                                         </div>
                                     </div>
                                     <div class="col-sm-10">

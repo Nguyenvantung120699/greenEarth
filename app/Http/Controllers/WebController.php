@@ -134,6 +134,10 @@ class WebController extends Controller
         return view("themes.website.register_work");
     }
 
+    public function donate(){
+        return view("themes.website.donate");
+    }
+
     public function contact(){
 
         return view("themes.website.contact");

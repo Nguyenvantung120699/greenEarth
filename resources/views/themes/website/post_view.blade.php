@@ -176,7 +176,7 @@
                      <div class="media post_item">
                         <img style="width:35%;height:auto" src="{{asset("$p->image")}}" alt="post">
                         <div class="media-body">
-                           <a href="single-blog.html">
+                           <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}">
                               <h3>{{$p->title}}</h3>
                            </a>
                            <p>{{$p->created_at}}</p>
@@ -209,6 +209,49 @@
                            type="submit">Submit</button>
                         </div>
                      </form>
+                  </aside>
+                  <aside class="single_sidebar_widget search_widget">
+                  <h3 class="text-center">Donate Now</h3>
+                     <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                     @csrf
+                     <div class="row">
+                           <div class="col-sm-6">
+                              <div class="form-group">
+                                 <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                              </div>
+                           </div>
+                           <div class="col-sm-6">
+                              <div class="form-group">
+                                 <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="form-group">
+                                 <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Address'" placeholder="Enter Address">
+                              </div>
+                           </div>
+                           <div class="col-sm-6">
+                              <div class="form-group">
+                                 <input class="form-control valid" name="money" id="money" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'The amount you donate'" placeholder="The amount you donate">
+                              </div>
+                           </div>
+                           <div class="col-sm-4">
+                              <div class="form-group">
+                                 <select class="form-control">
+                                       <option>Bank transfer</option>
+                                       <option>Post office</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="form-group">
+                                 <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                              </div>
+                           </div>
+                     </div>
+                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                           type="submit">Donate</button>
+                  </form>
                   </aside>
                </div>
             </div>

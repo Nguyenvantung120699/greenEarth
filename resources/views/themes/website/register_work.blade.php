@@ -47,10 +47,6 @@
                             </span>
 					    @enderror
 				</div>
-				<div class="input-group mb-3 custom-file"> 
-						<input type="file" class="custom-file-input" id="customFile">
-						<label class="custom-file-label" for="customFile">Choose file</label>
-				</div>
 			<button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
 			type="submit">{{ __('Register Work') }}</button>
 			</form>

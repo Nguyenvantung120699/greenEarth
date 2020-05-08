@@ -42,6 +42,9 @@ Route::get("search",'WebController@search');
 
 Route::get("work",'WebController@work');
 
+
+Route::get("donate",'WebController@donate');
+
 Route::post("postLogin",'WebController@postLogin');
 
 Route::post("commentPost/{post_id}","WebController@commentPost");

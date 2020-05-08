@@ -98,12 +98,12 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single-place mb-30">
                         <div class="place-img">
-                            <img src="{{$p->image}}" alt="">
+                            <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><img src="{{$p->image}}" alt=""></a>
                         </div>
                         <div class="place-cap">
                             <div class="place-cap-top">
-                                <h3><a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}">{{$p->Category->category_name}}</a></h3>
-                                <p class="dolor">{{$p->title}}</p>
+                                <h3><a href="{{url("/chuyenmuc",["path"=>$p->Category->path])}}">{{$p->Category->category_name}}</a></h3>
+                                <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p class="dolor">{{$p->title}}</p></a>
                             </div>
                             <div class="place-cap-bottom">
                                 <ul>
@@ -148,30 +148,51 @@
                         <div class="right-caption">
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle2">
-                                <span>Apply our company</span>
-                                <h2>We are performing the operation <br>Company Need Supporters</h2>
+                                <span>Green Earth</span>
+                                <h2>Is in need of staff<br>carry out the activities</h2>
                             </div>
                             <div class="support-caption">
                                 <p>LWe implement environmental protection activities everywhere across the globe. and parallel with that is the need for human resources to be able to deploy and maintain activities. Interested people please register with us for the opportunity to join the organization</p>
-                                <div class="select-suport-items">
-                                    <label class="single-items">I really love this job
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="single-items">I want to join the membership registration
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="single-items">Eiusmod tempor incididunt
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="single-items">Ad minim veniam, quis nostrud.
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                <div class="select-suport-items border-top">
+                                <aside class="single_sidebar_widget search_widget" style="padding:5%;">
+                                    <h2 class="text-center">Sign up for an Interview</h2>
+                                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <select class="form-control">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                    <input class="form-control valid" name="telephone" id="" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter telephone number'" placeholder="Telephone">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Address'" placeholder="Enter Address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                            type="submit">Submit</button>
+                                    </form>
+                                    </aside>
                                 </div>
-                                <a href="{{url("/work")}}" class="btn border-btn">Recruitment now</a>
                             </div>
                         </div>
                     </div>

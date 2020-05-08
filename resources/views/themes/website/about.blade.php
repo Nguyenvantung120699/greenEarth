@@ -49,7 +49,7 @@ There are articles assessing the level and warning about the environment and the
                 </div>
             </div>
         </div>
-        <div style="padding-bottom:5%" class="testimonial-area testimonial-padding" data-background="https://moitruong.tranthanhtra.net/wp-content/uploads/2018/06/tiet-kiem-nang-luong.jpg">
+        <div class="testimonial-area testimonial-padding" data-background="https://moitruong.tranthanhtra.net/wp-content/uploads/2018/06/tiet-kiem-nang-luong.jpg">
             <div class="container ">
                 <div class="row d-flex justify-content-center">
                     <div class="col-xl-11 col-lg-11 col-md-9">

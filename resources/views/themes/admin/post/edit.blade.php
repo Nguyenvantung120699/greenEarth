@@ -9,7 +9,7 @@
                             <h4 class="card-title ">{{__('Sửa bài viết')}}</h4>
                         </div>
                         <div class="container">
-                            <form action="{{url("admin/post/update",['id'=>$posts->id])}}" method="POST">
+                            <form action="{{url("admin/post/update",['id'=>$posts->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
@@ -22,6 +22,13 @@
                                                 @endif
                                             </div>
                                         </div>
+                                        <div class="col-sm-10">
+                                        <div class="border-bottom" style="padding-bottom:1%">
+                                            <label for="cc-name" class="control-label mb-1">Ảnh đại diện</label>
+                                            <input value="{{$posts->image}}" type="file"
+                                                   name="image" multiple>
+                                        </div>
+                                    </div>
                                         <div class="col-sm-10">
                                             <div class="form-group ">
                                                 <label  class="control-label mb-1">{{__("Chuyên đề")}}</label>

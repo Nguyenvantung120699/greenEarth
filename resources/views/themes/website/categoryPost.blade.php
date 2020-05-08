@@ -1,7 +1,6 @@
 @extends('themes.website.layout.layout')
+@section("title",$title)
 @section('content')
-
-
 <div class="slider-area ">
         <!-- Mobile Menu -->
         <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{asset("img/hero/contact_hero.jpg")}}">
@@ -42,7 +41,7 @@
                     <h4 class="mb-30">{{$post->title}}</h4>
                     <div class="row">
                         <div class="col-md-3">
-                        <img src="{{asset("img/elements/d.jpg")}}" alt="" class="img-fluid">
+                        <img src="{{asset("$post->image")}}" alt="" class="img-fluid">
                         </div>
                         <div class="col-md-9 mt-sm-20">
                             <div class="col-md-12">

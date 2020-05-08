@@ -1,4 +1,5 @@
 @extends('themes.website.layout.layout')
+@section("title","Trang chủ")
 @section('content')
 
 <main>
@@ -97,7 +98,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single-place mb-30">
                         <div class="place-img">
-                            <img src="https://qcvn.com.vn/wp-content/uploads/2019/07/anh-huong-cua-nuoc-thai-sinh-hoat-den-moi-truong-va-cuoc-song.jpg" alt="">
+                            <img src="{{$p->image}}" alt="">
                         </div>
                         <div class="place-cap">
                             <div class="place-cap-top">
@@ -122,7 +123,7 @@
                     <div class="col-xl-12">
                         <div class="video-caption text-center">
                             <div class="video-icon">
-                                <a class="popup-video" href="https://www.youtube.com/watch?v=1aP-TXUpNoU" tabindex="0"><i class="fas fa-play"></i></a>
+                                <a class="popup-video" href="https://www.youtube.com/watch?v=vKiSdMxU1sg" tabindex="0"><i class="fas fa-play"></i></a>
                             </div>
                             <p class="pera1">"The environment is the place where we meet, the place that benefits everyone, is something we all share."</p>
                             <p class="pera2">Let us show you a beautiful green globe</p>
@@ -241,7 +242,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="{{asset("img/blog/home-blog1.jpg")}}" alt="">
+                                    <img src="{{$pt->image}}" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   {{$pt->Category->category_name}}</p>

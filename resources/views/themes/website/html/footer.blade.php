@@ -107,6 +107,7 @@
         
         <!-- contact js -->
         <script src="{{asset("js/contact.js")}}"></script>
+        <script src="{{asset("js/custom.js")}}"></script>
         <script src="{{asset("js/jquery.form.js")}}"></script>
         <script src="{{asset("js/jquery.validate.min.js")}}"></script>
         <script src="{{asset("js/mail-script.js")}}"></script>

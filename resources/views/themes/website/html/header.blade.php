@@ -59,9 +59,10 @@
                                                     <li><a href="{{url("/chuyenmuc",["path"=>$c->path])}}">{{$c->category_name}}</a></li>
                                                 @endforeach
                                                 </ul>
-                                            </li>
-                                            <li><a href="about.html">About US</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            </li>   
+                                            <li><a href="{{url("/about")}}">About US</a></li>
+                                            <li><a href="{{url("/contact")}}">Contact Us</a></li>
+                                            <li><a href="{{url("blog")}}">Blog</a></li>
                                             <li><a href="#"><i style="font-size:150%" class="fa fa-language"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="{{asset('/setLocal-vn')}}">VN</a></li>

@@ -7,7 +7,7 @@
 <div class="container col-md-4 col-md-offset-3" style="padding-top:10%;padding-bottom:10%">	
 	<div class="border">
 		<aside class="single_sidebar_widget search_widget" style="padding:10%;border-radius:10%;">
-			<form method="POST" action="{{ route('register') }}">
+			<form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group">
 			<h3 class="text-center">Work Register</h3>
@@ -46,6 +46,10 @@
                                 <strong>{{ $message }}</strong>
                             </span>
 					    @enderror
+				</div>
+				<div class="input-group mb-3 custom-file"> 
+						<input type="file" class="custom-file-input" id="customFile">
+						<label class="custom-file-label" for="customFile">Choose file</label>
 				</div>
 			<button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
 			type="submit">{{ __('Register Work') }}</button>

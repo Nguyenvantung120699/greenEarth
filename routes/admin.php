@@ -25,3 +25,8 @@ Route::get("/comment","AdminController@comment");
 
 //{{--account--}}
 Route::get("/account","AdminController@account");
+//{{--member--}}
+Route::get("/member","AdminController@member");
+Route::get("member/pending","AdminController@pendingMembers");
+Route::get('member/{id}/pending',"AdminController@pendingMember");
+Route::get('member/{id}/restore',"AdminController@restoreMember");

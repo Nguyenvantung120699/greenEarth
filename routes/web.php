@@ -34,6 +34,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get("chuyenmuc/{path}",'WebController@categoryPost');
 Route::get("baiviet/{cat_path}/{slug}",'WebController@viewPost');
+Route::get("contact",'WebController@contact');
+Route::get("blog",'WebController@blog');
+Route::get("about",'WebController@about');
 
 Route::get("search",'WebController@search');
 
@@ -42,4 +45,5 @@ Route::get("work",'WebController@work');
 Route::post("postLogin",'WebController@postLogin');
 
 Route::post("commentPost/{post_id}","WebController@commentPost");
+Route::post("joinMember/{post_id}","WebController@joinGroup");
 

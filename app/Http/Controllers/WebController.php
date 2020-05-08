@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Member;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -44,21 +45,19 @@ class WebController extends Controller
     }
 
     public function categoryPost($path){
-        $category = Category::where("path","=",$path)->first();
+        $categories = Category::where("path","=",$path)->first();
 
-        $posts = $category->Posts()->paginate(5);
-//        $cat_id = [];
-//        $cat_id[] =$category->getId();
-//        $posts = Post::whereIn("category_id",$cat_id)->with("Category")->orderBy("created_at","desc")->paginate(10);
-        return view("themes.website.categoryPost",["categories"=>$category,"posts"=>$posts]);
+        $posts = $categories->Posts()->paginate(5);
+        $title = "Chuyên mục - $categories->category_name";
+        return view("themes.website.categoryPost",compact("categories","posts","title"));
     }
     public function viewPost($cat_path,$slug){
         $posts = Post::where("slug",$slug)->first();
         $post = Post::orderBy('count_views','desc')->take(6)->get();
-        $comment = $posts->Comments->where('status',0);
+        $comments = $posts->Comments->where('status',0);
+        $title = "Bài viết - $posts->title";
 
-
-        return view("themes.website.post_view",["posts"=>$posts,'post'=>$post,'comments'=>$comment]);
+        return view("themes.website.post_view",compact("posts","post","comments","title"));
     }
     //ajax login
 
@@ -108,8 +107,41 @@ class WebController extends Controller
         return back();
     }
 
+    public function joinGroup(Request $request,$post_id){
+
+            $request->validate([
+                "name"=>"required",
+                "email"=>"required",
+                "telephone"=>"required",
+                "address"=>"required"
+            ]);
+
+        try {
+              $member = Member::create([
+                  "post_id"=>$post_id,
+                  "name"=>$request->get("name"),
+                  "email"=>$request->get("email"),
+                  "telephone"=>$request->get("telephone"),
+                  "address"=>$request->get("address"),
+              ]);
+        }catch (\Throwable $th){
+            throw $th;
+        }
+        return back();
+    }
+
     public function work(){
         return view("themes.website.register_work");
     }
 
+    public function contact(){
+
+        return view("themes.website.contact");
+    }
+    public function blog(){
+        return view("themes.website.blog");
+    }
+    public function about(){
+        return view("themes.website.about");
+    }
 }

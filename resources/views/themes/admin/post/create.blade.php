@@ -1,6 +1,6 @@
 @extends('themes.admin.layout.layout')
 @section('content')
-    <section class="content">
+<section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -8,7 +8,7 @@
                         <div class="card-header card-header-primary">
                             <h4 class="card-title ">{{__('Thêm bài viết')}}</h4>
                         </div>
-                        <form class="form-vertical" action="{{url("admin/post/store")}} "  method="POST" enctype="multipart/form-data">
+                        <form action="{{url("admin/post/store")}} "  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -25,14 +25,7 @@
                                         <label class="text-capitalize">{{__('Người viết')}}</label>
                                         <input type="text" name="author" value="{{old("author")}}" class="form-control"  placeholder="{{__('Nhập tên tác giả')}}" >
                                     </div>
-
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label class="text-capitalize">{{__('Ảnh')}}</label>
-                                            <input name="image" type="file" value="{{old("image")}}" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-10">
                                         <div class="form-group ">
                                             <label  class="control-label mb-1">{{__("Chuyên đề")}}</label>
                                             <select class="form-group form-control" name="category_id" required>
@@ -44,6 +37,13 @@
                                                     <option value="{{$c->id}}">{{$c->category_name}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="border-bottom" style="padding-bottom:1%">
+                                            <label for="cc-name" class="control-label mb-1">Ảnh đại diện</label>
+                                            <input type="file"
+                                                   name="image" multiple>
                                         </div>
                                     </div>
                                     <div class="col-sm-10">

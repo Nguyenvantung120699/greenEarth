@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Comment;
+use App\Member;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -101,8 +102,20 @@ class AdminController extends Controller
         ]);
 
         try {
+            $image = null;
+            $ext_allow =['png','jpg','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext =$file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                        $file->move("upload",$file_name);
+                        $image = "upload/".$file_name;
+                }
+            }
             Post::create([
                 "title"=>$request->get("title"),
+                "image"=>$image,
                 "author"=>$request->get("author"),
                 "category_id"=>$request->get("category_id"),
                 "slug"=>str_slug($request->get("title")),
@@ -127,9 +140,20 @@ class AdminController extends Controller
                 "content"=>"required",
             ]);
         try {
-
+            $image = null;
+            $ext_allow =['png','jpg','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext =$file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                        $file->move("upload",$file_name);
+                        $image = "upload/".$file_name;
+                }
+            }
             $posts->update([
                 "title"=>$request->get("title"),
+                "image"=>$image,
                 "category_id"=>$request->get("category_id"),
                 "slug"=>str_slug($request->get("title")),
                 "short_desc"=>$request->get("short_desc"),
@@ -153,10 +177,40 @@ class AdminController extends Controller
         //{{--comment--}}
     public function comment(){
         $comments = Comment::all();
-        return view("themes.admin.comment.index",["comments"=>$comments]);
+        return view("themes.admin.comment.index",compact("comments"));
     }
 //        {{--account--}}
     public function account(){
         return view("themes.admin.account.index");
     }
+    // {{--member--}}
+    public function member(){
+        $members = Member::where("status","=",1)->orderby("created_at","DESC")->get();
+        return view("themes.admin.member.index",compact("members"));
+    }
+    public function pendingMembers(){
+        $members = Member::where("status","=",0)->orderby("created_at","DESC")->get();
+        return view("themes.admin.member.pendingMember",compact("members"));
+    }
+    public function pendingMember($id){
+        $member = Member::find($id);
+        try {
+            $member->status = "0";
+            $member->save();
+        }catch (\Throwable $th){
+            throw $th;
+        }
+        return redirect()->to("admin/member");
+    }
+    public function restoreMember($id){
+        $member = Member::find($id);
+        try {
+            $member->status = "1";
+            $member->save();
+        }catch (\Throwable $th){
+            throw $th;
+        }
+        return redirect()->to("admin/member/pending");
+    }
+
 }

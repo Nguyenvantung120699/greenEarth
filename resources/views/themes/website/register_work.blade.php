@@ -10,7 +10,7 @@
 			<form method="POST" action="{{ route('register') }}">
 			@csrf
 			<div class="form-group">
-			<h3 class="text-center">Account Register</h3>
+			<h3 class="text-center">Work Register</h3>
 				<div class="input-group mb-3">
 					<input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('email') }}" placeholder='Name'
 						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
@@ -30,26 +30,26 @@
 					@enderror
 				</div>
 				<div class="input-group mb-3"> 
-					<input type="text" class="form-control password @error('password') is-invalid @enderror" name="password" placeholder='Password'
-						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-						@error('password')
+					<input type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" placeholder='Telephone'
+						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'">
+						@error('telephone')
 						<span class="invalid-feedback" role="alert">
 							<strong>{{ $message }}</strong>
 						</span>
 					@enderror
 				</div>
-				<div class="input-group mb-3">
-					<input id="password-confirm" type="password" class="form-control password" name="password_confirmation" placeholder='Confirm Password'
-						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+				<div class="input-group mb-3"> 
+					<input type="text" class="form-control @error('address') is-invalid @enderror" name="address" placeholder='Address'
+						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
+						@error('address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+					    @enderror
 				</div>
 			<button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-			type="submit">{{ __('Register') }}</button>
+			type="submit">{{ __('Register Work') }}</button>
 			</form>
-			<div class="col-md-12 text-center" style="padding-top:5%">
-				<a href="{{ route('login') }}">
-					<p>You are member. Sign in now !</p>
-				</a>
-			</div>
 		</aside>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 
 @include('themes.website.html.head')
@@ -51,5 +51,32 @@
         });
     </script>
 @endif
+
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="slider-area ">
+                    <!-- Mobile Menu -->
+                <div class="slider-active">
+                    <!-- Search Box -->
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <!-- form -->
+                            <form method="get" action="{{asset('search')}}" class="search-box">
+                                <div class="input-form mb-30">
+                                    <input name="key" type="text" placeholder="Green Earth Search" required>
+                                </div>
+                                <div class="search-form mb-30">
+                                <button type="submit" class="btn btn-warning">Search</button>
+                                </div>	
+                            </form>	
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                
 </body>
 </html>

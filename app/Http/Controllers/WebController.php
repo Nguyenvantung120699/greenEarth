@@ -23,13 +23,24 @@ use App\Brand;
 
 class WebController extends Controller
 {
+
+
+    //multilanguage
+    public function changeLanguage($language)
+    {
+        Session::put('website_language', $language);
+
+        return redirect()->back();
+    }
+
+
     public function index(){
         $categories = Category::all();
         $post = Post::orderBy('count_views','desc')->take(6)->get();
-        // $postt = Post::orderBy('id','desc')->take(4)->get();
+        $postt = Post::orderBy('id','desc')->take(2)->get();
         // $posts = Post::orderBy('id','desc')->take(1)->get();
         $like = Post::orderBy('count_like','desc')->take(4)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like]);
+        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt]);
     }
 
     public function categoryPost($path){
@@ -96,4 +107,9 @@ class WebController extends Controller
         }
         return back();
     }
+
+    public function work(){
+        return view("themes.website.register_work");
+    }
+
 }

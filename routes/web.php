@@ -3,6 +3,11 @@ Route::prefix("admin")->group(function (){
     include_once ("admin.php");
 });
 
+Route::get('setLocal-{lang}', function($lang) {
+    \Illuminate\Support\Facades\Session::put('lang', $lang);
+    return back();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +36,8 @@ Route::get("chuyenmuc/{path}",'WebController@categoryPost');
 Route::get("baiviet/{cat_path}/{slug}",'WebController@viewPost');
 
 Route::get("search",'WebController@search');
+
+Route::get("work",'WebController@work');
 
 Route::post("postLogin",'WebController@postLogin');
 

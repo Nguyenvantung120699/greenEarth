@@ -8,7 +8,7 @@
                         <div class="card-header card-header-primary">
                             <h4 class="card-title ">{{__('Thêm bài viết')}}</h4>
                         </div>
-                        <form action="{{url("admin/post/store")}} "  method="POST">
+                        <form class="form-vertical" action="{{url("admin/post/store")}} "  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -24,6 +24,13 @@
                                     <div class="form-group">
                                         <label class="text-capitalize">{{__('Người viết')}}</label>
                                         <input type="text" name="author" value="{{old("author")}}" class="form-control"  placeholder="{{__('Nhập tên tác giả')}}" >
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="text-capitalize">{{__('Ảnh')}}</label>
+                                            <input name="image" type="file" value="{{old("image")}}" class="form-control">
+                                        </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group ">

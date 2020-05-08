@@ -11,7 +11,7 @@
                         <div class="col-xl-9 col-lg-9 col-md-9">
                             <div class="hero__caption">
                                 <h1>Green Earth <span>Who Is?</span> </h1>
-                                <p>"Green Earth is a non-profit organization, always contributing to the campaign to improve the environment and clean the earth"</p>
+                                <p>{{trans('home.banner_content')}}</p>
                             </div>
                         </div>
                     </div>
@@ -19,12 +19,12 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <!-- form -->
-                            <form action="#" class="search-box">
+                            <form method="get" action="{{asset('search')}}" class="search-box">
                                 <div class="input-form mb-30">
-                                    <input type="text" placeholder="Green Earth Search">
+                                    <input name="key" type="text" placeholder="Green Earth Search" required>
                                 </div>
                                 <div class="search-form mb-30">
-                                    <a href="#">Search</a>
+                                   <button type="submit" class="btn btn-warning">Search</button>
                                 </div>	
                             </form>	
                         </div>
@@ -106,8 +106,7 @@
                             </div>
                             <div class="place-cap-bottom">
                                 <ul>
-                                    <li><i class="fa fa-eye"></i>Preview</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                    <li class="text-black"><a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p><i class="fa fa-eye"></i>See Activity</p></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -125,9 +124,9 @@
                             <div class="video-icon">
                                 <a class="popup-video" href="https://www.youtube.com/watch?v=1aP-TXUpNoU" tabindex="0"><i class="fas fa-play"></i></a>
                             </div>
-                            <p class="pera1">Love where you're going in the perfect time</p>
-                            <p class="pera2">Tripo is a World Leading Online</p>
-                            <p class="pera3"> Tour Booking Platform</p>
+                            <p class="pera1">"The environment is the place where we meet, the place that benefits everyone, is something we all share."</p>
+                            <p class="pera2">Let us show you a beautiful green globe</p>
+                            <p class="pera3">Green Earth Sustainable House</p>
                         </div>
                     </div>
                 </div>
@@ -148,17 +147,17 @@
                         <div class="right-caption">
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle2">
-                                <span>About Our Company</span>
-                                <h2>We are Go Trip <br>Ravels Support Company</h2>
+                                <span>Apply our company</span>
+                                <h2>We are performing the operation <br>Company Need Supporters</h2>
                             </div>
                             <div class="support-caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                                <p>LWe implement environmental protection activities everywhere across the globe. and parallel with that is the need for human resources to be able to deploy and maintain activities. Interested people please register with us for the opportunity to join the organization</p>
                                 <div class="select-suport-items">
-                                    <label class="single-items">Lorem ipsum dolor sit amet
+                                    <label class="single-items">I really love this job
                                         <input type="checkbox" checked="checked active">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="single-items">Consectetur adipisicing sed do
+                                    <label class="single-items">I want to join the membership registration
                                         <input type="checkbox" checked="checked active">
                                         <span class="checkmark"></span>
                                     </label>
@@ -171,7 +170,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <a href="#" class="btn border-btn">About us</a>
+                                <a href="{{url("/work")}}" class="btn border-btn">Recruitment now</a>
                             </div>
                         </div>
                     </div>
@@ -188,18 +187,15 @@
                                 <!-- Testimonial Content -->
                                 <div class="testimonial-caption ">
                                     <div class="testimonial-top-cap">
-                                        <img src="{{asset("img/icon/testimonial.png")}}" alt="">
-                                        <p>Logisti Group is a representative logistics operator providing full range of ser
-                                            of customs clearance and transportation worl.</p>
+                                    <div class="services-ion">
+                                        <h1  style="font-size:500%" class="flaticon-tour"></h1>
+                                    </div>
+                                        <p>"The rest of the natural world can continue to live without us, but we cannot exist without them."</p>
                                     </div>
                                     <!-- founder -->
                                     <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                        <div class="founder-img">
-                                            <img src="{{asset("img/testmonial/Homepage_testi.png")}}" alt="">
-                                        </div>
                                         <div class="founder-text">
-                                            <span>Jessya Inn</span>
-                                            <p>Co Founder</p>
+                                            <span>SYLVIA A.EARLE</span>
                                         </div>
                                     </div>
                                 </div>
@@ -208,19 +204,16 @@
                             <div class="single-testimonial text-center">
                                 <!-- Testimonial Content -->
                                 <div class="testimonial-caption ">
-                                    <div class="testimonial-top-cap">
-                                        <img src="{{asset("img/icon/testimonial.png")}}" alt="">
-                                        <p>Logisti Group is a representative logistics operator providing full range of ser
-                                            of customs clearance and transportation worl.</p>
+                                    <div class="testimonial-top-cap text-black">
+                                    <div class="services-ion">
+                                        <h1  style="font-size:500%" class="flaticon-tour"></h1>
+                                    </div>
+                                        <p>"There is an undeniable fact that a small group of conscious and dedicated citizens can change the whole world."</p>
                                     </div>
                                     <!-- founder -->
                                     <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                        <div class="founder-img">
-                                            <img src="{{asset("img/testmonial/Homepage_testi.png")}}" alt="">
-                                        </div>
                                         <div class="founder-text">
                                             <span>Jessya Inn</span>
-                                            <p>Co Founder</p>
                                         </div>
                                     </div>
                                 </div>
@@ -237,12 +230,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <span>Our Recent news</span>
-                            <h2>Tourist Blog</h2>
+                            <span>The Activities Of</span>
+                            <h2>Famous People</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                @foreach($postt as $pt)
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
@@ -250,9 +244,9 @@
                                     <img src="{{asset("img/blog/home-blog1.jpg")}}" alt="">
                                 </div>
                                 <div class="blog-cap">
-                                    <p> |   Traveling</p>
-                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
-                                    <a href="#" class="more-btn">Read more »</a>
+                                    <p> |   {{$pt->Category->category_name}}</p>
+                                    <h3><a href="single-blog.html">{{$pt->title}}</a></h3>
+                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="more-btn">Read more »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">
@@ -261,24 +255,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="{{asset("img/blog/home-blog2.jpg")}}" alt="">
-                                </div>
-                                <div class="blog-cap">
-                                    <p> |   Traveling</p>
-                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
-                                    <a href="#" class="more-btn">Read more »</a>
-                                </div>
-                            </div>
-                            <div class="blog-date text-center">
-                                <span>24</span>
-                                <p>Now</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

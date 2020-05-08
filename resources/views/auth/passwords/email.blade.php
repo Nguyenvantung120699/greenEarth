@@ -4,28 +4,31 @@
 
 @section('content')
 
-<div class="container" style="padding-bottom:5%;padding-top:5%;padding-left:22%;">	
-	<div class="newsletter-widget col-md-6" style="border-radius:4%;">
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-
-		<h4><i style="font-size:200%" class="fa fa-lock"></i></h4>
-		<h4 style="padding-bottom:10%;">Reset Password</h4>
-		<form  method="POST" action="{{ route('password.email') }}">
-		@csrf
-			<input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-
-			<button type="submit" class="btn w-100">{{ __('Send Password Reset Link') }}</button>
-		</form>
+<div class="container col-md-4 col-md-offset-3" style="padding-top:5%;padding-bottom:10%">
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif	
+	<div class="border">
+		<aside class="single_sidebar_widget search_widget" style="padding:10%;border-radius:10%;">
+			<form method="POST" action="{{ route('password.email') }}">
+			@csrf
+			<div class="form-group">
+			<h3 class="text-center">Reset Password</h3>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder='Email'
+						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+						@error('email')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+				</div>
+			<button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+			type="submit">{{ __('Send Password Reset Link') }}</button>
+			</form>
+		</aside>
 	</div>
 </div>
-
 @endsection

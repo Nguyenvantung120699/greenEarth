@@ -3,7 +3,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/logo.png" alt="">
+                    <img src="{{asset("img/logo/green_earth.jpg")}}" alt="">
                 </div>
             </div>
         </div>
@@ -19,9 +19,9 @@
                         <div class="col-lg-8">
                             <div class="header-info-left">
                                 <ul>                          
-                                    <li>needhelp@gotrip.com</li>
-                                    <li>666 569 025077</li>
-                                    <li>broklyn street new york</li>
+                                    <li>tungnvth1903001@fpt.edu.vn</li>
+                                    <li>nambpth1902008@fpt.edu.vn</li>
+                                    <li>Ton That Thuyet street Ha Noi</li>
                                 </ul>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                  <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="{{url("/")}}"><img src="{{asset("img/logo/logoG1.jpg")}}" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -62,7 +62,17 @@
                                             </li>
                                             <li><a href="about.html">About US</a></li>
                                             <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="contact.html">Donate</a></li>
+                                            <li><a href="#"><i style="font-size:150%" class="fa fa-language"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="{{asset('/setLocal-vn')}}">VN</a></li>
+                                                    <li><a href="{{asset('/setLocal-en')}}">EN</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link" data-toggle="modal" data-target="#searchModal">
+                                                <i class="fas fa-search"></i>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>

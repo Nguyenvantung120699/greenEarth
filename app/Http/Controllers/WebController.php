@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Donate;
 use App\Member;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -129,14 +130,41 @@ class WebController extends Controller
         }
         return back();
     }
+    public function Donate(Request $request,$post_id){
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'telephone'=>'required',
+            'address'=>'required',
+            'payment_method'=>'required',
+            'donate'=>'required',
+            'message'=>'required'
+        ]);
+        try {
+            $donate = Donate::create([
+                'name'=>$request->get("name"),
+                'email'=>$request->get("email"),
+                'telephone'=>$request->get("telephone"),
+                'address'=>$request->get("address"),
+                'donate'=>$request->get("donate"),
+                'payment_method'=>$request->get("payment_method"),
+                'message'=>$request->get("message"),
+                'post_id'=>$post_id,
+
+            ]);
+
+        }catch (\Throwable $th){
+            throw $th;
+        }
+        return back();
+    }
 
     public function work(){
         return view("themes.website.register_work");
     }
 
-    public function donate(){
-        return view("themes.website.donate");
-    }
+
 
     public function contact(){
 

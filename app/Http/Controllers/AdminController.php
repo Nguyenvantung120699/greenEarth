@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Comment;
+use App\Donate;
 use App\Member;
 use App\Post;
 use Illuminate\Http\Request;
@@ -212,5 +213,10 @@ class AdminController extends Controller
         }
         return redirect()->to("admin/member/pending");
     }
+// {{--donate--}}
 
+    public function donate(){
+        $donates = Donate::all();
+        return view("themes.admin.donate.index",compact("donates"));
+    }
 }

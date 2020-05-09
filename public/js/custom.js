@@ -27,15 +27,19 @@ function submitComment() {
         });
     });
 }
+$(function () {
+        $("#toggle").on("click",function (e) {
+            e.preventDefault();
+            var target = $(".submit")
+            if (target.hasClass("d-none")){
+                target.removeClass("d-none")
+            }else {
+                target.addClass("d-none")
+            }
+        })
+})
 
 
-function colorlike() {
-    document.getElementById("like").style.color = "#FE2E2E";
-}
-
-function colorshare() {
-    document.getElementById("share").style.color = "#FE2E2E";
-}
 function joinMember() {
       $(document).ready(function () {
             $("#joinMember").submit((e)=>{
@@ -56,3 +60,17 @@ function joinMember() {
           });
       });
 }
+$(function () {
+        $("#donate-now").ready(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    method : "post",
+                    url : $('#donate-now').attr("action"),
+                    data : $("#donate-now").serialize(),
+                    dataType : "json",
+                    success :function (response) {
+                            console.log(response)
+                    }
+                });
+        })
+})

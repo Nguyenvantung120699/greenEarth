@@ -8,15 +8,15 @@
           Admin
         </a></div>
     <div class="sidebar-wrapper">
-        <ul class="nav">
-            <li class="nav-item active  ">
+        <ul class="nav nav-list">
+            <li class="nav-item active">
                 <a class="nav-link" href="{{url("admin/home")}}">
                     <i class="material-icons">dashboard</i>
                     <p>Quản trị Website</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link"  >
+            <li class="nav-item">
+                <a class="nav-link">
                     <i class="material-icons">edit</i>
                     <p>Bài viết</p>
                 </a>
@@ -41,13 +41,13 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="{{url("admin/category")}}">
+            <li class="nav-item">
+                <a class="nav-link">
                     <i class="material-icons">content_paste</i>
                     <p>Quản lý chuyên mục</p>
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a href="" class="nav-link text-capitalize">
                     <i class="material-icons">library_books</i>
                     <p>
@@ -71,6 +71,12 @@
 
                 </ul>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url("admin/donate")}}">
+                    <i class="fa fa-globe" ></i>
+                    <p>Ủng hộ</p>
+                </a>
+            </li>
             <li class="nav-item ">
                 <a class="nav-link" href="./map.html">
                     <i class="material-icons">person</i>
@@ -80,4 +86,5 @@
 
         </ul>
     </div>
+
 </div>

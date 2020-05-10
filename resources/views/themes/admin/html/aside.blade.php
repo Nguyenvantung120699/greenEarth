@@ -42,7 +42,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" href="{{url("admin/category")}}">
                     <i class="material-icons">content_paste</i>
                     <p>Quản lý chuyên mục</p>
                 </a>
@@ -78,7 +78,7 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./map.html">
+                <a class="nav-link" href="{{url("admin/account")}}">
                     <i class="material-icons">person</i>
                     <p>Tài khoản</p>
                 </a>

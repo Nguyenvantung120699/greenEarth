@@ -103,7 +103,7 @@
                         <div class="place-cap">
                             <div class="place-cap-top">
                                 <h3><a href="{{url("/chuyenmuc",["path"=>$p->Category->path])}}">{{$p->Category->category_name}}</a></h3>
-                                <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p class="dolor">{{$p->title}}</p></a>
+                                <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p class="dolor">{{str_limit($p->title),10}}</p></a>
                             </div>
                             <div class="place-cap-bottom">
                                 <ul>
@@ -156,35 +156,43 @@
                                 <div class="select-suport-items border-top">
                                 <aside class="single_sidebar_widget search_widget" style="padding:5%;">
                                     <h2 class="text-center">Sign up for an Interview</h2>
-                                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                                        <form class="form-contact contact_form" action="{{url("introduction")}}" method="post" id="introduction" >
                                         @csrf
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                                    <input class="form-control valid" name="name" id="name" type="text"   placeholder="{{__("Enter your full name")}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                                    <input class="form-control cc-name @if($errors->has("email")) is-invalid @endif" name="email" value="{{old("email")}}" type="email" placeholder="{{__("Enter your email")}}" required>
+                                                    @if($errors->has("email"))
+                                                        <p style="color:red">{{$errors->first("email")}}</p>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>Male</option>
-                                                        <option>Female</option>
+                                                    <select class="form-control" name="gender">
+                                                        <option selected value="male">Male</option>
+                                                        <option selected value="female" >Female</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-sm-10">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="telephone" id="" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter telephone number'" placeholder="Telephone">
+                                                    <input class="form-control valid" name="telephone" placeholder="{{__("Enter telephone number")}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Address'" placeholder="Enter Address">
+                                                    <input class="form-control" name="address" id="address" type="text"  placeholder="{{__("Enter Address")}}" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" minlength="100" name="message" id="message" rows="4" type="text"  placeholder="{{__("Message")}}"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,6 +200,29 @@
                                             type="submit">Submit</button>
                                     </form>
                                     </aside>
+
+                                 <div class="row">
+                                        <div class="modal fade" id="ignismyModal" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+
+                                                        <div class="thank-you-pop">
+                                                            <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+                                                            <h1>Thank You!</h1>
+                                                            <p>Your submission is received and we will contact you soon</p>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

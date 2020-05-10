@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link text-capitalize">
+                <a class="nav-link text-capitalize">
                     <i class="material-icons">library_books</i>
                     <p>
                         Quản lý thành viên

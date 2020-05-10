@@ -50,4 +50,5 @@ Route::post("postLogin",'WebController@postLogin');
 Route::post("commentPost/{post_id}","WebController@commentPost");
 Route::post("joinMember/{post_id}","WebController@joinGroup");
 Route::post("donate-now/{post_id}","WebController@donate");
+Route::post("introduction","WebController@introduction");
 

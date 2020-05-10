@@ -107,14 +107,14 @@
                                            @csrf
                                            <div class="row">
                                                <div class="form-group col-sm-6">
-                                                   <input type="text" class="form-control"  name="user_name" placeholder="{{__("Name *")}}">
+                                                   <input type="text" class="form-control"  name="user_name" placeholder="{{__("Name *")}}" required>
                                                </div>
                                                <div class="form-group col-sm-6">
-                                                   <input type="text" class="form-control" name="email" placeholder="{{__("Email *")}}">
+                                                   <input type="text" class="form-control" name="email" placeholder="{{__("Email *")}}" required>
                                                </div>
                                            </div>
                                            <div class="form-group">
-                                               <textarea name="message" class="form-control" rows="2" placeholder="{{__("Comment ")}}"></textarea>
+                                               <textarea name="message" minlength="100" class="form-control" rows="2" placeholder="{{__("Comment ")}}" required></textarea>
                                            </div>
                                            <input type="hidden" name="comment_id" value="{{ $comment->id }}">
                                            <button type="submit" class="button button-contactForm btn_1 boxed-btn">Submit</button>
@@ -136,17 +136,17 @@
                         <div class="col-12">
                            <div class="form-group">
                               <textarea class="form-control w-100" minlength="100" name="message" id="comment" cols="30" rows="9"
-                                 placeholder="Write Comment"></textarea>
+                                 placeholder="Write Comment" required></textarea>
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                              <input class="form-control" name="user_name" id="name" type="text" placeholder="Name">
+                              <input class="form-control" name="user_name" id="name" type="text" placeholder="Name" required>
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                              <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                              <input class="form-control" name="email" id="email" type="email" placeholder="Email" required>
                            </div>
                         </div>
                      </div>
@@ -185,25 +185,22 @@
                      @endforeach
                   </aside>
                   <aside class="single_sidebar_widget search_widget">
-                     <form action="{{url("joinMember",["post_id"=>$posts->id])}}" method="post">
+                     <form action="{{url("joinMember",["post_id"=>$posts->id])}}" id="join-group" method="post">
                          @csrf
                         <div class="form-group">
                         <h3 class="text-center">Join Group</h3>
                            <div class="input-group mb-3">
-                              <input type="text" name="name" class="form-control" placeholder='Name'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
+                              <input type="text" name="name" class="form-control" placeholder='Name' required>
                            </div>
                            <div class="input-group mb-3">
-                              <input type="text" name="email" class="form-control" placeholder='Email'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                              <input type="text" name="email" class="form-control" placeholder='Email' required>
                            </div>
                            <div class="input-group mb-3">
-                              <input type="text" name="telephone" class="form-control" placeholder='Telephone'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'">
+                              <input type="text" name="telephone" class="form-control" placeholder='Telephone' required>
+
                            </div>
                            <div class="input-group mb-3">
-                              <input type="text" name="address" class="form-control" placeholder='Address'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
+                              <input type="text" name="address" class="form-control" placeholder='Address' required>
                            </div>
                         <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
                            type="submit">Submit</button>
@@ -222,22 +219,22 @@
                            </div>
                            <div class="col-sm-6">
                               <div class="form-group">
-                                 <input class="form-control valid" name="email" id="email" type="email" placeholder="{{__("Enter email address")}}">
+                                 <input class="form-control valid" name="email" id="email" type="email" placeholder="{{__("Enter email address")}}" required>
                               </div>
                            </div>
                            <div class="col-12">
                               <div class="form-group">
-                                 <input class="form-control" name="address" id="address" type="text" placeholder="{{__("Enter Address")}}">
+                                 <input class="form-control" name="address" id="address" type="text" placeholder="{{__("Enter Address")}}" required>
                               </div>
                            </div>
                          <div class="col-12">
                              <div class="form-group">
-                                 <input class="form-control" name="telephone" id="telephone" type="text"  placeholder="{{__("Enter Telephone")}}">
+                                 <input class="form-control" name="telephone" id="telephone" type="text"  placeholder="{{__("Enter Telephone")}}" required>
                              </div>
                          </div>
                            <div class="col-sm-6">
                               <div class="form-group">
-                                 <input class="form-control valid" name="donate" id="money" type="number" placeholder="{{__("The amount you donate")}}">
+                                 <input class="form-control valid" name="donate" id="money" type="number" placeholder="{{__("The amount you donate")}}" required>
                               </div>
                            </div>
                            <div class="col-sm-4">

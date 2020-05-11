@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-xl-9 col-lg-9 col-md-9">
                             <div class="hero__caption">
-                                <h1>Green Earth <span>Who Is?</span> </h1>
+                                <h1>Green Earth <span>{{trans('home.name')}}</span> </h1>
                                 <p>{{trans('home.banner_content')}}</p>
                             </div>
                         </div>
@@ -22,10 +22,10 @@
                             <!-- form -->
                             <form method="get" action="{{asset('search')}}" class="search-box">
                                 <div class="input-form mb-30">
-                                    <input name="key" type="text" placeholder="Green Earth Search" required>
+                                    <input name="key" type="text" placeholder="{{trans('home.search_1')}}" required>
                                 </div>
                                 <div class="search-form mb-30">
-                                   <button type="submit" class="btn btn-warning">Search</button>
+                                   <button type="submit" class="btn btn-warning">{{trans('home.search_2')}}</button>
                                 </div>	
                             </form>	
                         </div>
@@ -44,7 +44,7 @@
                             <span class="flaticon-tour"></span>
                         </div>
                         <div class="services-cap">
-                            <h5>8000+ People<br>Join</h5>
+                            <h5>{{trans('home.i1')}}<br>{{trans('home.i2')}}</h5>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             <span class="flaticon-pay"></span>
                         </div>
                         <div class="services-cap">
-                            <h5>We Always Need<br>Donate</h5>
+                            <h5>{{trans('home.i3')}}<br>{{trans('home.i4')}}</h5>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             <span class="flaticon-experience"></span>
                         </div>
                         <div class="services-cap">
-                            <h5>Organize Activities To Be Necessary<br>Necessary</h5>
+                            <h5>{{trans('home.i5')}}<br>{{trans('home.i6')}}</h5>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             <span class="flaticon-good"></span>
                         </div>
                         <div class="services-cap">
-                            <h5>Join Hands Together For A<br>Green Earth</h5>
+                            <h5>{{trans('home.i7')}}<br>{{trans('home.i8')}}</h5>
                         </div>
                     </div>
                 </div>
@@ -88,8 +88,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle text-center">
-                        <span>activities</span>
-                        <h2>Our typical</h2>
+                        <span>{{trans('home.activities')}}</span>
+                        <h2>{{trans('home.Our')}}</h2>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="place-cap-bottom">
                                 <ul>
-                                    <li class="text-black"><a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p><i class="fa fa-eye"></i>See Activity</p></a></li>
+                                    <li class="text-black"><a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p><i class="fa fa-eye"></i>{{trans('home.see')}}</p></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -125,9 +125,9 @@
                             <div class="video-icon">
                                 <a class="popup-video" href="https://www.youtube.com/watch?v=vKiSdMxU1sg" tabindex="0"><i class="fas fa-play"></i></a>
                             </div>
-                            <p class="pera1">"The environment is the place where we meet, the place that benefits everyone, is something we all share."</p>
-                            <p class="pera2">Let us show you a beautiful green globe</p>
-                            <p class="pera3">Green Earth Sustainable House</p>
+                            <p class="pera1">"{{trans('home.pera1')}}"</p>
+                            <p class="pera2">{{trans('home.pera2')}}</p>
+                            <p class="pera3">{{trans('home.pera3')}}</p>
                         </div>
                     </div>
                 </div>
@@ -149,47 +149,47 @@
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle2">
                                 <span>Green Earth</span>
-                                <h2>Is in need of staff<br>carry out the activities</h2>
+                                <h2>{{trans('home.staff')}}<br>{{trans('home.carry')}}</h2>
                             </div>
                             <div class="support-caption">
-                                <p>LWe implement environmental protection activities everywhere across the globe. and parallel with that is the need for human resources to be able to deploy and maintain activities. Interested people please register with us for the opportunity to join the organization</p>
+                                <p>{{trans('home.introduceW')}}</p>
                                 <div class="select-suport-items border-top">
                                 <aside class="single_sidebar_widget search_widget" style="padding:5%;">
-                                    <h2 class="text-center">Sign up for an Interview</h2>
+                                    <h2 class="text-center">{{trans('home.title_form')}}</h2>
                                         <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                                         @csrf
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.name_form')}}'" placeholder="{{trans('home.name_form')}}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.email_form')}}'" placeholder="{{trans('home.email_form')}}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <option>Male</option>
-                                                        <option>Female</option>
+                                                        <option>{{trans('home.male_form')}}</option>
+                                                        <option>{{trans('home.female_form')}}</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-sm-10">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="telephone" id="" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter telephone number'" placeholder="Telephone">
+                                                    <input class="form-control valid" name="telephone" id="" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.telephone_form')}}'" placeholder="{{trans('home.telephone_form')}}">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Address'" placeholder="Enter Address">
+                                                    <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.address_form')}}'" placeholder="{{trans('home.address_form')}}">
                                                 </div>
                                             </div>
                                         </div>
                                             <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                            type="submit">Submit</button>
+                                            type="submit">{{trans('home.button_form')}}</button>
                                     </form>
                                     </aside>
                                 </div>
@@ -212,7 +212,7 @@
                                     <div class="services-ion">
                                         <h1  style="font-size:500%" class="flaticon-tour"></h1>
                                     </div>
-                                        <p>"The rest of the natural world can continue to live without us, but we cannot exist without them."</p>
+                                        <p>"{{trans('home.remember1')}}"</p>
                                     </div>
                                     <!-- founder -->
                                     <div class="testimonial-founder d-flex align-items-center justify-content-center">
@@ -230,7 +230,7 @@
                                     <div class="services-ion">
                                         <h1  style="font-size:500%" class="flaticon-tour"></h1>
                                     </div>
-                                        <p>"There is an undeniable fact that a small group of conscious and dedicated citizens can change the whole world."</p>
+                                        <p>"{{trans('home.remember2')}}"</p>
                                     </div>
                                     <!-- founder -->
                                     <div class="testimonial-founder d-flex align-items-center justify-content-center">
@@ -252,8 +252,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <span>The Activities Of</span>
-                            <h2>Famous People</h2>
+                            <span>{{trans('home.the_activitices')}}</span>
+                            <h2>{{trans('home.people')}}</h2>
                         </div>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
                                 <div class="blog-cap">
                                     <p> |   {{$pt->Category->category_name}}</p>
                                     <h3><a href="single-blog.html">{{$pt->title}}</a></h3>
-                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="more-btn">Read more »</a>
+                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="more-btn">{{trans('home.remore')}}</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">

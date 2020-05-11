@@ -52,17 +52,17 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="{{url("/")}}">Home</a></li>
-                                            <li><a href="#">Category</a>
+                                            <li><a href="{{url("/")}}">{{trans('header.home')}}</a></li>
+                                            <li><a href="#">{{trans('header.category')}}</a>
                                                 <ul class="submenu">
                                                 @foreach(\App\Category::all() as $c)
                                                     <li><a href="{{url("/chuyenmuc",["path"=>$c->path])}}">{{$c->category_name}}</a></li>
                                                 @endforeach
                                                 </ul>
                                             </li>   
-                                            <li><a href="{{url("/about")}}">About US</a></li>
-                                            <li><a href="{{url("/contact")}}">Contact Us</a></li>
-                                            <li><a href="{{url("blog")}}">Blog</a></li>
+                                            <li><a href="{{url("/about")}}">{{trans('header.about_us')}}</a></li>
+                                            <li><a href="{{url("/contact")}}">{{trans('header.contact_us')}}</a></li>
+                                            <li><a href="{{url("blog")}}">{{trans('header.blog')}}</a></li>
                                             <li><a href="#"><i style="font-size:150%" class="fa fa-language"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="{{asset('/setLocal-vn')}}">VN</a></li>

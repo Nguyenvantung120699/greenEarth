@@ -12,6 +12,7 @@ class Post extends Model
 
     const SHOW = 1;
     const HIDE = 0;
+    const  FAMOUS = 3 ;
 
     public function Category(){
             return $this->belongsTo("\App\Category");
@@ -22,5 +23,8 @@ class Post extends Model
 
     public function Member(){
         return $this->hasMany(Member::class);
+    }
+    public function Donate(){
+        return $this->hasMany(Donate::class);
     }
 }

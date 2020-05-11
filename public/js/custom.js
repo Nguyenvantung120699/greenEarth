@@ -11,6 +11,23 @@ $(function () {
     })
 })
 
+// $(function () {
+//         $('#comment').submit(function (e) {
+//                 let form = $('#comment');
+//                 e.preventDefault();
+//                 $.ajax({
+//                     method : 'post',
+//                     url : $('#comment').attr("action"),
+//                     data : $('#comment').serialize(),
+//                     dataType : "json",
+//                     success : function () {
+//                             form.trigger("reset");
+//                     }
+//                 })
+//         })
+// })
+
+
 function submitComment() {
     $(document).ready(function () {
         $("#comment").submit((e)=>{
@@ -27,32 +44,56 @@ function submitComment() {
         });
     });
 }
-
-
-function colorlike() {
-    document.getElementById("like").style.color = "#FE2E2E";
-}
-
-function colorshare() {
-    document.getElementById("share").style.color = "#FE2E2E";
-}
-function joinMember() {
-      $(document).ready(function () {
-            $("#joinMember").submit((e)=>{
+$(function () {
+    $("#join-group").submit(function (e) {
+            let  form = $("#join-group");
+            e.preventDefault();
+            $.ajax({
+                method : "post",
+                url : $('#join-group').attr("action"),
+                data : $('#join-group').serialize(),
+                dataType : "json",
+                success : function () {
+                    form.trigger("reset");
+                    alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
+                }
+            })
+    })
+})
+$(function () {
+        $("#donate-now").submit(function (e) {
+            let form = $('#donate-now');
                 e.preventDefault();
                 $.ajax({
-                     method : 'POST',
-                     url : $("#joinMember").attr("action"),
-                    data : $("#joinMember").serialize(),
-                    dataType : 'json',
-                    success : function (data) {
-                           if (data == true){
-                               alert(data)
-                           }else {
-                               console.log("error")
-                           }
+                    method : "post",
+                    url : $('#donate-now').attr("action"),
+                    data : $("#donate-now").serialize(),
+                    dataType : "json",
+                    success :function (response) {
+                        form.trigger("reset");
+                        alert("Cảm ơn bạn đã tham gia ủng hộ hoạt động")
                     }
                 });
-          });
-      });
-}
+        })
+})
+$(function () {
+        $("#introduction").submit(function (e) {
+                let form = $('#introduction');
+                e.preventDefault();
+                $.ajax({
+                    method : "post",
+                    url : $("#introduction").attr("action"),
+                    data : $("#introduction").serialize(),
+                    dataType : "json",
+                    success : function () {
+                            form.trigger("reset")
+                            alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
+                            // $("#ignismyModal").show();
+                            // alert($("#ignismyModal"))
+                    },
+                    error : function () {
+                            alert("đăng kí thất bại")
+                    }
+                })
+        })
+})

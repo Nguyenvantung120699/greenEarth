@@ -35,7 +35,7 @@
                                         </form>
                                     </div>
                                 </td>
-                                <td></td>
+                                <td><img src="{{asset($p->image)}}" class="img-thumbnail"/></td>
                                 <td>{{$p->title}}</td>
                                 <td>{{$p->category->category_name}}</td>
                                 <td>{{$p->count_views}}</td>

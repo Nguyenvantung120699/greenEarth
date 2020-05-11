@@ -156,35 +156,43 @@
                                 <div class="select-suport-items border-top">
                                 <aside class="single_sidebar_widget search_widget" style="padding:5%;">
                                     <h2 class="text-center">{{trans('home.title_form')}}</h2>
-                                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                                    <form class="form-contact contact_form" action="{{url("introduction")}}" method="post" id="introduction" >
                                         @csrf
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.name_form')}}'" placeholder="{{trans('home.name_form')}}">
+                                                    <input class="form-control valid" name="name" id="name" type="text"   placeholder="{{trans('home.name_form')}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.email_form')}}'" placeholder="{{trans('home.email_form')}}">
+                                                    <input class="form-control cc-name @if($errors->has("email")) is-invalid @endif" name="email" value="{{old("email")}}" type="email" placeholder="{{trans('home.email_form')}}" required>
+                                                    @if($errors->has("email"))
+                                                        <p style="color:red">{{$errors->first("email")}}</p>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>{{trans('home.male_form')}}</option>
-                                                        <option>{{trans('home.female_form')}}</option>
+                                                    <select class="form-control" name="gender">
+                                                        <option selected value="male">{{trans('home.male_form')}}</option>
+                                                        <option selected value="female" >{{trans('home.female_form')}}</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-sm-10">
                                                 <div class="form-group">
-                                                    <input class="form-control valid" name="telephone" id="" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.telephone_form')}}'" placeholder="{{trans('home.telephone_form')}}">
+                                                    <input class="form-control valid" name="telephone" placeholder="{{trans('home.telephone_form')}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{trans('home.address_form')}}'" placeholder="{{trans('home.address_form')}}">
+                                                    <input class="form-control" name="address" id="address" type="text"  placeholder="{{trans('home.address_form')}}" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" maxlength="1000" name="message" id="message" rows="4" type="text"  placeholder="{{trans('home.message_form')}}"></textarea>
                                                 </div>
                                             </div>
                                         </div>

@@ -30,3 +30,5 @@ Route::get("/member","AdminController@member");
 Route::get("member/pending","AdminController@pendingMembers");
 Route::get('member/{id}/pending',"AdminController@pendingMember");
 Route::get('member/{id}/restore',"AdminController@restoreMember");
+//{{--donate--}}
+Route::get("/donate","AdminController@donate");

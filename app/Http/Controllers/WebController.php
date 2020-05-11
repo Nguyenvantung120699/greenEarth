@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Donate;
+use App\Introduction;
 use App\Member;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -105,6 +107,9 @@ class WebController extends Controller
             throw  $th;
         }
         return back();
+//        return response()->json([
+//            'message' => 'Comment successfully.'
+//        ], 200);
     }
 
     public function joinGroup(Request $request,$post_id){
@@ -127,16 +132,74 @@ class WebController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
-        return back();
+        return response()->json([
+            'message' => 'Register successfully.'
+        ], 200);
     }
+    public function Donate(Request $request,$post_id){
 
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'telephone'=>'required',
+            'address'=>'required',
+            'payment_method'=>'required',
+            'donate'=>'required',
+            'message'=>'required'
+        ]);
+        try {
+            $donate = Donate::create([
+                'name'=>$request->get("name"),
+                'email'=>$request->get("email"),
+                'telephone'=>$request->get("telephone"),
+                'address'=>$request->get("address"),
+                'donate'=>$request->get("donate"),
+                'payment_method'=>$request->get("payment_method"),
+                'message'=>$request->get("message"),
+                'post_id'=>$post_id,
+
+            ]);
+
+        }catch (\Throwable $th){
+            throw $th;
+        }
+        return response()->json([
+            'message' => 'Donate successfully.'
+        ], 200);
+        Mail::to(Donate::session()->email)->send(new Donate());
+    }
+    public function introduction(Request $request){
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'gender'=>'required',
+            'telephone'=>'required',
+            'address'=>'required',
+            'message'=>'required'
+
+        ]);
+        try {
+            $introduction = Introduction::create([
+                'name'=>$request->get("name"),
+                'email'=>$request->get("email"),
+                'gender'=>$request->get("gender"),
+                'telephone'=>$request->get("telephone"),
+                'address'=>$request->get("address"),
+                'message'=>$request->get("message")
+            ]);
+        }catch (\Throwable $th){
+            throw $th;
+        }
+        return response()->json([
+            'message' => 'Register successfully.'
+        ], 200);
+
+    }
     public function work(){
         return view("themes.website.register_work");
     }
 
-    public function donate(){
-        return view("themes.website.donate");
-    }
+
 
     public function contact(){
 

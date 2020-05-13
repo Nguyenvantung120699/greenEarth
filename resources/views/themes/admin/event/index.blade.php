@@ -9,41 +9,42 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            <th></th>
-                            <th>Ảnh đại diện</th>
-                            <th>Tiêu đề</th>
-                            <th>Chuyên mục</th>
-                            <th>Lượt xem</th>
-                            <th>Tác giả</th>
-                            <th>Ngày xuất bản</th>
+                        <th></th>
+                        <th>Ảnh đại diện</th>
+                        <th>Tên sự kiện</th>
+                        <th>Thời gian bắt đầu</th>
+                        <th>Thời gian kết thúc</th>
+                        <th>Đơn vị tổ chức</th>
+                        <th>Địa chỉ</th>
+
                         </thead>
                         <tbody>
-                        @forelse($posts as $p)
+                        @forelse($events as $event)
                             <tr class="tr-shadow">
                                 <td>
                                     <div class="table-data-feature">
-                                        <form action="{{url("admin/post/edit",['id'=>$p->id])}}">
+                                        <form action="{{url("admin/event/edit",['id'=>$event->id])}}">
                                             <button class="btn btn-default" title="edit" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="material-icons">create</i>
                                             </button>
                                         </form>
-                                        <form action="{{url("admin/post/delete",['id'=>$p->id])}}">
-                                            <button onclick="return confirm('Xóa bài viết ?')" title="delete" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <form action="{{url("admin/event/delete",['id'=>$event->id])}}">
+                                            <button onclick="return confirm('Xóa sự kiện ?')" title="delete" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </form>
                                     </div>
                                 </td>
-                                <td><img src="{{asset($p->image)}}" class="img-thumbnail"/></td>
-                                <td>{{$p->title}}</td>
-                                <td>{{$p->category->category_name}}</td>
-                                <td>{{$p->count_views}}</td>
-                                <td>{{$p->author}}</td>
-                                <td>{{$p->created_at}}</td>
+                                <td><img src="{{asset($event->image)}}" class="img-thumbnail"/></td>
+                                <td>{{$event->event_name}}</td>
+                                <td>{{$event->start_date}}</td>
+                                <td>{{$event->end_date}}</td>
+                                <td>{{$event->organizational_units}}</td>
+                                <td>{{$event->address}}</td>
                             </tr>
                             <tr class="spacer"></tr>
                         @empty
-                            <p>Không có danh mục nào</p>
+                            <p>Không có sự kiện nào</p>
                         @endforelse
                         </tbody>
                     </table>
@@ -51,4 +52,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+    </script>
 @endsection

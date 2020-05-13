@@ -25,6 +25,8 @@ Route::get("/comment","AdminController@comment");
 
 //{{--account--}}
 Route::get("/account","AdminController@account");
+Route::get('account/create',"AdminController@userCreate");
+Route::post('account/store',"AdminController@userStore");
 //{{--member--}}
 Route::get("/member","AdminController@member");
 Route::get("member/pending","AdminController@pendingMembers");
@@ -32,3 +34,10 @@ Route::get('member/{id}/pending',"AdminController@pendingMember");
 Route::get('member/{id}/restore',"AdminController@restoreMember");
 //{{--donate--}}
 Route::get("/donate","AdminController@donate");
+//{{--event--}}
+Route::get("/event","AdminController@event");
+Route::get("event/create","AdminController@createEvent");
+Route::post("event/store","AdminController@storeEvent");
+Route::get("/event/edit/{id}","AdminController@eventEdit");
+Route::post("/event/update/{id}","AdminController@eventUpdate");
+Route::get("/event/delete/{id}","AdminController@eventDestroy");

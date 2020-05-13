@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Comment;
 use App\Donate;
+use App\Event;
 use App\Member;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -110,8 +112,8 @@ class AdminController extends Controller
                 $file_name = time()."-".$file->getClientOriginalName();
                 $ext =$file->getClientOriginalExtension();
                 if (in_array($ext,$ext_allow)){
-                        $file->move("upload",$file_name);
-                        $image = "upload/".$file_name;
+                        $file->move("upload/post",$file_name);
+                        $image = "upload/post".$file_name;
                 }
             }
             Post::create([
@@ -148,8 +150,8 @@ class AdminController extends Controller
                 $file_name = time()."-".$file->getClientOriginalName();
                 $ext =$file->getClientOriginalExtension();
                 if (in_array($ext,$ext_allow)){
-                        $file->move("upload",$file_name);
-                        $image = "upload/".$file_name;
+                        $file->move("upload/post/",$file_name);
+                        $image = "upload/post/".$file_name;
                 }
             }
             $posts->update([
@@ -184,6 +186,28 @@ class AdminController extends Controller
     public function account(){
         return view("themes.admin.account.index");
     }
+    public function userCreate(){
+        return view('themes.admin.account.create');
+    }
+
+    public function userStore(Request $request){
+        $request->validate([
+            "email"=> "required|string|max:255|unique:users",// validation laravel
+            "name"=> "required|string",
+            "password"=> "required|string",
+        ]);
+        try{
+            User::create([
+                "name"=> $request->get("name"),
+                "email"=> $request->get("email"),
+                "password"=> $request->get("password"),
+            ]);
+        }catch(\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/account");
+    }
+
     // {{--member--}}
     public function member(){
         $members = Member::where("status","=",1)->orderby("created_at","DESC")->get();
@@ -218,5 +242,104 @@ class AdminController extends Controller
     public function donate(){
         $donates = Donate::all();
         return view("themes.admin.donate.index",compact("donates"));
+    }
+    //{{--event--}}
+    public function event(){
+        $events = Event::all();
+        return view("themes.admin.event.index",compact("events"));
+    }
+    public function createEvent(){
+        return view("themes.admin.event.create");
+    }
+    public function storeEvent(Request $request){
+        $request->validate([
+                'event_name'=>'required',
+                'content'=>'required',
+                'start_date'=>'required',
+                'end_date'=>'required',
+                'organizational_units'=>'required',
+                'address'=>'required'
+        ]);
+        try {
+            $image = null;
+            $ext_allow =['png','jpg','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext =$file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                    $file->move("upload/event/",$file_name);
+                    $image = "upload/event/".$file_name;
+                }
+            }
+
+            Event::create([
+                "event_name"=>$request->get("event_name"),
+                "image"=>$image,
+                "content"=>$request->get("content"),
+                "start_date"=>$request->get("start_date"),
+                "event_slug"=>str_slug($request->get("event_name")),
+                "end_date"=>$request->get("end_date"),
+                "organizational_units"=>$request->get("organizational_units"),
+                "address"=>$request->get("address")
+            ]);
+
+          }catch (\Exception $e){
+                return redirect()->back();
+        }
+                return redirect()->to("admin/event");
+    }
+    public function eventEdit($id){
+
+            $events= Event::find($id);
+        return view("themes.admin.event.edit",compact('events'));
+    }
+    public function eventUpdate($id,Request $request){
+        $events = Event::find($id);
+        $request->validate([
+            'event_name'=>'required',
+            'content'=>'required',
+            'start_date'=>'required',
+            'end_date'=>'required',
+            'organizational_units'=>'required',
+            'address'=>'required'
+        ]);
+        try {
+            $image = null;
+            $ext_allow =['png','jpg','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext =$file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                    $file->move("upload/event/",$file_name);
+                    $image = "upload/event/".$file_name;
+                }
+            }
+
+            $events->update([
+                "event_name"=>$request->get("event_name"),
+                "image"=>$image,
+                "content"=>$request->get("content"),
+                "start_date"=>$request->get("start_date"),
+                "event_slug"=>str_slug($request->get("event_name")),
+                "end_date"=>$request->get("end_date"),
+                "organizational_units"=>$request->get("organizational_units"),
+                "address"=>$request->get("address")
+            ]);
+
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/event");
+    }
+    public function eventDestroy($id){
+        $events = Event::find($id);
+        try {
+            $events->delete();
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/event");
     }
 }

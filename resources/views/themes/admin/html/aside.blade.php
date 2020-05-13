@@ -55,7 +55,7 @@
 
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
+                <ul class="nav ">
                     <li class="nav-item">
                         <a href="{{url("admin/member")}}" class="nav-link text-capitalize">
                             <i class="far fa-circle text-info nav-icon"></i>

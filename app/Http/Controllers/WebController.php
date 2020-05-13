@@ -166,7 +166,7 @@ class WebController extends Controller
         return response()->json([
             'message' => 'Donate successfully.'
         ], 200);
-        Mail::to(Donate::session()->email)->send(new Donate());
+        Mail::to("nambpth1902008@gmail.com")->send(new  Donate());
     }
     public function introduction(Request $request){
         $request->validate([

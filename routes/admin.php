@@ -41,3 +41,11 @@ Route::post("event/store","AdminController@storeEvent");
 Route::get("/event/edit/{id}","AdminController@eventEdit");
 Route::post("/event/update/{id}","AdminController@eventUpdate");
 Route::get("/event/delete/{id}","AdminController@eventDestroy");
+
+//{{--campaign--}}
+Route::get("/campaign","AdminController@campaign");
+Route::get("campaign/create","AdminController@createCampaign");
+Route::post("campaign/store","AdminController@storeCampaign");
+Route::get("/campaign/edit/{id}","AdminController@campaignEdit");
+Route::post("/campaign/update/{id}","AdminController@campaignUpdate");
+Route::get("/campaign/delete/{id}","AdminController@campaignDestroy");

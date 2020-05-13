@@ -8,16 +8,16 @@
                         <div class="card-header card-header-primary">
                             <h4 class="card-title ">{{__('Thêm sự kiên')}}</h4>
                         </div>
-                        <form action="{{url("admin/event/store")}} "  method="POST" enctype="multipart/form-data">
+                        <form action="{{url("admin/campaign/store")}} "  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <label class="text-capitalize">{{__('Tiêu đề')}}</label>
-                                            <input type="text" name="event_name" class="form-control @if($errors->has("event_name"))is-invalid @endif"  placeholder="{{__('Nhập tiêu đề')}}" required>
-                                            @if($errors->has("event_name"))
-                                                <p style="color:red">{{$errors->first("event_name")}}</p>
+                                            <input type="text" name="campaign_name" class="form-control @if($errors->has("campaign_name"))is-invalid @endif"  placeholder="{{__('Nhập tiêu đề')}}" required>
+                                            @if($errors->has("campaign_name"))
+                                                <p style="color:red">{{$errors->first("campaign_name")}}</p>
                                             @endif
                                         </div>
                                     </div>
@@ -61,14 +61,6 @@
                                         <div class="form-group">
                                             <label class="text-capitalize">{{__('Đơn vị tổ chức')}}</label>
                                             <textarea type="text" name="organizational_units" class="form-control "  placeholder="{{__('Nhập đơn vị tổ chức')}}" ></textarea>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label class="text-capitalize">{{__('Địa chỉ')}}</label>
-                                            <textarea type="text" name="address" class="form-control "  placeholder="{{__('Nhập địa chỉ')}}" ></textarea>
-
                                         </div>
                                     </div>
                                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Campaign;
 use App\Category;
 use App\Comment;
 use App\Donate;
@@ -341,5 +342,101 @@ class AdminController extends Controller
             return redirect()->back();
         }
         return redirect()->to("admin/event");
+    }
+
+    //{{--campaign--}}
+    public function campaign(){
+        $campaigns = Campaign::all();
+        return view("themes.admin.campaign.index",compact("campaigns"));
+    }
+    public function createCampaign(){
+        return view("themes.admin.campaign.create");
+    }
+    public function storeCampaign(Request $request){
+        $request->validate([
+            'campaign_name'=>'required',
+            'content'=>'required',
+            'start_date'=>'required',
+            'end_date'=>'required',
+            'organizational_units'=>'required',
+
+        ]);
+        try {
+            $image = null;
+            $ext_allow =['png','jpg','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext =$file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                    $file->move("upload/campaign/",$file_name);
+                    $image = "upload/campaign/".$file_name;
+                }
+            }
+            Campaign::create([
+                "campaign_name"=>$request->get("campaign_name"),
+                "image"=>$image,
+                "content"=>$request->get("content"),
+                "start_date"=>$request->get("start_date"),
+                "campaign_slug"=>str_slug($request->get("campaign_name")),
+                "end_date"=>$request->get("end_date"),
+                "organizational_units"=>$request->get("organizational_units"),
+
+            ]);
+
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/campaign");
+    }
+    public function campaignEdit($id){
+
+        $campaigns= Campaign::find($id);
+        return view("themes.admin.campaign.edit",compact('campaigns'));
+    }
+    public function campaignUpdate($id,Request $request){
+        $campaigns = Campaign::find($id);
+        $request->validate([
+            'campaign_name'=>'required',
+            'content'=>'required',
+            'start_date'=>'required',
+            'end_date'=>'required',
+            'organizational_units'=>'required',
+        ]);
+        try {
+            $image = null;
+            $ext_allow =['png','jpg','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext =$file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                    $file->move("upload/campaign/",$file_name);
+                    $image = "upload/campaign/".$file_name;
+                }
+            }
+            $campaigns->update([
+                "campaign_name"=>$request->get("campaign_name"),
+                "image"=>$image,
+                "content"=>$request->get("content"),
+                "start_date"=>$request->get("start_date"),
+                "campaign_slug"=>str_slug($request->get("campaign_name")),
+                "end_date"=>$request->get("end_date"),
+                "organizational_units"=>$request->get("organizational_units"),
+            ]);
+
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/campaign");
+    }
+    public function campaignDestroy($id){
+        $campaigns = Campaign::find($id);
+        try {
+            $campaigns->delete();
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/campaign");
     }
 }

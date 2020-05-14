@@ -1,7 +1,5 @@
 @extends('themes.website.layout.layout')
-@section("title",$title)
 @section('content')
-
 <div class="slider-area ">
       <!-- Mobile Menu -->
       <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{asset("img/hero/contact_hero.jpg")}}">
@@ -184,11 +182,32 @@
                      </div>
                      @endforeach
                   </aside>
+                  <aside class="single_sidebar_widget search_widget">
+                     <form action="{{url("joinMember",["post_id"=>$posts->id])}}" id="join-group" method="post">
+                         @csrf
+                        <div class="form-group">
+                        <h3 class="text-center">Join Group</h3>
+                           <div class="input-group mb-3">
+                              <input type="text" name="name" class="form-control" placeholder='Name' required>
+                           </div>
+                           <div class="input-group mb-3">
+                              <input type="text" name="email" class="form-control" placeholder='Email' required>
+                           </div>
+                           <div class="input-group mb-3">
+                              <input type="text" name="telephone" class="form-control" placeholder='Telephone' required>
+
+                           </div>
+                           <div class="input-group mb-3">
+                              <input type="text" name="address" class="form-control" placeholder='Address' required>
+                           </div>
+                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                           type="submit">Submit</button>
+                        </div>
+                     </form>
+                  </aside>
                </div>
             </div>
          </div>
       </div>
    </section>
-   <!--================ Blog Area end =================-->
-
-    @endsection
+@endsection

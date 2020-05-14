@@ -2,7 +2,7 @@
 return[
     "home"=>"Trang Chủ",
     "category"=>"Chuyên Mục",
-    "about_us"=>"about us",
+    "campaign"=>"Chiến Dịch",
     "contact_us"=>"contact us",
-    "blog"=>"blog",  
+    "evens"=>"Sự Kiện",  
 ];

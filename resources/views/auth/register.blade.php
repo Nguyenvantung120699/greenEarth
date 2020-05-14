@@ -42,8 +42,7 @@
 					<input id="password-confirm" type="password" class="form-control password" name="password_confirmation" placeholder='Confirm Password'
 						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
 				</div>
-			<button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-			type="submit">{{ __('Register') }}</button>
+			<button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn">{{ __('Register') }}</button>
 			</form>
 			<div class="col-md-12 text-center" style="padding-top:5%">
 				<a href="{{ route('login') }}">

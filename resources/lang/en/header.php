@@ -1,8 +1,8 @@
 <?php
 return[
     "home"=>"home",
-    "category"=>"category",
-    "about_us"=>"about us",
+    "category"=>"Working",
+    "campaign"=>"campaign",
     "contact_us"=>"contact us",
-    "blog"=>"blog",  
+    "evens"=>"evens",  
 ];

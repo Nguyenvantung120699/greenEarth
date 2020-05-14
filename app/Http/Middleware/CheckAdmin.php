@@ -21,7 +21,7 @@ class CheckAdmin
             if($currentUser->role==User::ADMIN){
                 return $next($request);
             }
-            return redirect()->to("/");
+            return redirect()->to("/register");
         }
         return redirect()->to("/login");
     }

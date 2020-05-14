@@ -161,7 +161,6 @@ class WebController extends Controller
             ]);
 
         }catch (\Throwable $th){
-            throw $th;
         }
         return response()->json([
             'message' => 'Donate successfully.'
@@ -205,10 +204,17 @@ class WebController extends Controller
 
         return view("themes.website.contact");
     }
-    public function blog(){
-        return view("themes.website.blog");
+    public function campaign(){
+        return view("themes.website.campaign");
     }
-    public function about(){
-        return view("themes.website.about");
+    public function events(){
+        return view("themes.website.events");
+    }
+
+    public function viewcampaign(){
+        return view("themes.website.campaign_view");
+    }
+    public function viewevents(){
+        return view("themes.website.events_view");
     }
 }

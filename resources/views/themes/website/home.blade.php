@@ -117,18 +117,98 @@
             </div>
         </div>
 
-        <div class="video-area video-bg pt-200 pb-200"  data-background="{{asset("img/service/video-bg.jpg")}}">
-            <div class="container">
+        <div class="home-blog-area section-padding2" style="padding-bottom:2%">
+            <div class="container ">
+                <!-- Section Tittle -->
                 <div class="row">
-                    <div class="col-xl-12">
-                        <div class="video-caption text-center">
-                            <div class="video-icon">
-                                <a class="popup-video" href="https://www.youtube.com/watch?v=vKiSdMxU1sg" tabindex="0"><i class="fas fa-play"></i></a>
-                            </div>
-                            <p class="pera1">"{{trans('home.pera1')}}"</p>
-                            <p class="pera2">{{trans('home.pera2')}}</p>
-                            <p class="pera3">{{trans('home.pera3')}}</p>
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <span>Our Recent news</span>
+                            <h2>Tourist Blog</h2>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="home-blog-single mb-30">
+                            <div class="blog-img-cap">
+                                <div class="blog-img" style="height:365px" data-background="{{asset("img/blog/home-blog1.jpg")}}">
+                                    <div class="col-md-12" style="padding-top:20%">
+                                    <h1 class="text-center text-white" id="demo">Sự Kiện Sắp Diễn Ra</h1>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="blog-date text-center" style="border-radius:10%;background-color:green">
+                                                    <span id="dongho1"></span>
+                                                    <p>Day</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="blog-date text-center" style="border-radius:10%;background-color:green">
+                                                    <span id="dongho2"></span>
+                                                    <p>Hours</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="blog-date text-center" style="border-radius:10%;background-color:green">
+                                                    <span id="dongho3" >24</span>
+                                                    <p>Min</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="blog-date text-center" style="border-radius:10%;background-color:green">
+                                                    <span id="dongho4">24</span>
+                                                    <p>Sec</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-cap">
+                                    <p> |   Traveling</p>
+                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
+                                    <a href="#" class="more-btn">Read more »</a>
+                                </div>
+                            </div>
+                            <div class="blog-date text-center">
+                                <span id="date"></span>
+                                <p>Day</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6" style="height:365px">
+                        <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img rounded-0" src="{{asset("img/blog/single_blog_4.png")}}" alt="">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a href="#" class="blog_item_date" style="background-color:green">
+                                                    <h3>Start</h3>
+                                                    <p>15 Jan</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="#" class="blog_item_date" style="background-color:red">
+                                                    <h3>finish</h3>
+                                                    <p>15 July</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="single-blog.html">
+                                        <h2>Google inks pact for new 35-storey office</h2>
+                                    </a>
+                                    <p>That dominion stars lights dominion divide years for fourth have don't stars is that
+                                        he earth it first without heaven in place seed it second morning saying.</p>
+                                    <ul class="blog-info-link">
+                                        <li><a href="#"><i class="fa fa-user"></i> 100 people donated</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    </ul>
+                                </div>
+                            </article>
                     </div>
                 </div>
             </div>
@@ -291,4 +371,51 @@
         </div>
     </div>
 </main>
+
+<script>
+    var countDownDate = new Date("July 13, 2020 21:22:25").getTime();
+
+        var x = setInterval(function() {
+
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if(days<10){
+            document.getElementById("dongho1").innerHTML = "0"+days;
+        }else{
+            document.getElementById("dongho1").innerHTML = days;
+        }
+        if(hours<10){
+            document.getElementById("dongho2").innerHTML = "0"+hours;
+        }else{
+            document.getElementById("dongho2").innerHTML = hours;
+        }
+        if(minutes<10){
+            document.getElementById("dongho3").innerHTML = "0"+minutes;
+        }else{
+            document.getElementById("dongho3").innerHTML = minutes;
+        }
+        if(seconds<10){
+            document.getElementById("dongho4").innerHTML = "0"+seconds;
+        }else{
+            document.getElementById("dongho4").innerHTML = seconds;
+        }
+        document.getElementById("date").innerHTML = days;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Thời gian sự kiện đã kết thúc";
+            document.getElementById("dongho1").innerHTML = "00";
+            document.getElementById("dongho2").innerHTML = "00";
+            document.getElementById("dongho3").innerHTML = "00";
+            document.getElementById("dongho4").innerHTML = "00";
+        }
+        }, 1000);
+</script>
     @endsection

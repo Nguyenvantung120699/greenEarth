@@ -60,9 +60,9 @@
                                                 @endforeach
                                                 </ul>
                                             </li>   
-                                            <li><a href="{{url("/about")}}">{{trans('header.about_us')}}</a></li>
+                                            <li><a href="{{url("/campaign")}}">{{trans('header.campaign')}}</a></li>
+                                            <li><a href="{{url("/events")}}">{{trans('header.evens')}}</a></li>
                                             <li><a href="{{url("/contact")}}">{{trans('header.contact_us')}}</a></li>
-                                            <li><a href="{{url("blog")}}">{{trans('header.blog')}}</a></li>
                                             <li><a href="#"><i style="font-size:150%" class="fa fa-language"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="{{asset('/setLocal-vn')}}">VN</a></li>

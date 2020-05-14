@@ -1,6 +1,6 @@
 <?php
-Route::prefix("admin")->group(function (){
-    include_once ("admin.php");
+Route::prefix("admin")->middleware(['auth',"checkAdmin"])->group(function (){
+    include_once("admin.php");
 });
 
 Route::get('setLocal-{lang}', function($lang) {
@@ -34,8 +34,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get("chuyenmuc/{path}",'WebController@categoryPost');
 Route::get("baiviet/{cat_path}/{slug}",'WebController@viewPost');
-Route::get("contact",'WebController@contact');
-Route::get("blog",'WebController@blog');
+Route::get("events",'WebController@events');
+Route::get("campaign",'WebController@campaign');
+
+Route::get("viewevents",'WebController@viewevents');
+Route::get("viewcampaign",'WebController@viewcampaign');
 Route::get("about",'WebController@about');
 
 Route::get("search",'WebController@search');

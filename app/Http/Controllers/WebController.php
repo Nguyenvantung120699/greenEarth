@@ -165,7 +165,7 @@ class WebController extends Controller
         return response()->json([
             'message' => 'Donate successfully.'
         ], 200);
-        Mail::to(Donate::session()->email)->send(new Donate());
+        Mail::to("nambpth1902008@gmail.com")->send(new  Donate());
     }
     public function introduction(Request $request){
         $request->validate([
@@ -215,6 +215,6 @@ class WebController extends Controller
         return view("themes.website.campaign_view");
     }
     public function viewevents(){
-        return view("themes.website.events_view");
+        return view("themes.website.evens_view");
     }
 }

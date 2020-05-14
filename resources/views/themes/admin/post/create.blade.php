@@ -42,8 +42,8 @@
                                     <div class="col-sm-10">
                                         <div class="border-bottom" style="padding-bottom:1%">
                                             <label for="cc-name" class="control-label mb-1">Ảnh đại diện</label>
-                                            <input type="file"
-                                                   name="image" multiple>
+                                            <input type="file" name="image" multiple>
+
                                         </div>
                                     </div>
                                     <div class="col-sm-10">

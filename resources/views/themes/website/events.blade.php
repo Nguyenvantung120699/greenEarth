@@ -21,8 +21,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <span>Our Recent news</span>
-                            <h2>Tourist Blog</h2>
+                            <span>Green Earth Event</span>
+                            <h2>Our Events</h2>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="assets/img/blog/home-blog1.jpg" alt="">
+                                    <img src="{{asset("img/blog/home-blog1.jpg")}}" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   Traveling</p>
@@ -49,7 +49,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="assets/img/blog/home-blog2.jpg" alt="">
+                                    <img src="{{asset("img/blog/home-blog2.jpg")}}" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   Traveling</p>

@@ -43,7 +43,7 @@ class WebController extends Controller
         $postt = Post::orderBy('id','desc')->take(2)->get();
         // $posts = Post::orderBy('id','desc')->take(1)->get();
         $like = Post::orderBy('count_like','desc')->take(4)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt]);
+        return view("themes.website.home",compact("categories","post","postt","like"));
     }
 
     public function categoryPost($path){

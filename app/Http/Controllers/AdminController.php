@@ -6,6 +6,7 @@ use App\Campaign;
 use App\Category;
 use App\Comment;
 use App\Donate;
+use App\Donors;
 use App\Event;
 use App\Member;
 use App\Post;
@@ -420,8 +421,8 @@ class AdminController extends Controller
                 "image"=>$image,
                 "content"=>$request->get("content"),
                 "start_date"=>$request->get("start_date"),
-                "campaign_slug"=>str_slug($request->get("campaign_name")),
                 "end_date"=>$request->get("end_date"),
+                "campaign_slug"=>str_slug($request->get("campaign_name")),
                 "organizational_units"=>$request->get("organizational_units"),
             ]);
 
@@ -438,5 +439,88 @@ class AdminController extends Controller
             return redirect()->back();
         }
         return redirect()->to("admin/campaign");
+    }
+
+//{{--donors--}}
+
+    public function donors(){
+        $donors = Donors::all();
+        return view("themes.admin.donors.index",compact("donors"));
+    }
+
+    public function createDonors(){
+        return view("themes.admin.donors.create");
+    }
+    public function storeDonors(Request $request){
+        $request->validate([
+            'name'=>'required',
+            'event_id'=>'required'
+        ]);
+        try {
+            $image = null;
+            $ext_allow = ['jpg','png','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext = $file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                    $file->move("upload/donors/",$file_name);
+                    $image = "upload/donors/".$file_name;
+                }
+            }
+
+            $donors = Donors::create([
+                'name'=>$request->get("name"),
+                'logo'=>$image,
+                'event_id'=>$request->get("event_id")
+            ]);
+
+        }catch (\Throwable $th){
+            return back();
+        }
+        return redirect()->to("admin/donors");
+    }
+    public function donorsEdit($id){
+        $donors = Donors::find($id);
+        return view("themes.admin.donors.edit",compact("donors"));
+    }
+    public function donorsUpdate($id,Request $request){
+        $donors = Donors::find($id);
+        $request->validate([
+            'name'=>'required',
+            'event_id'=>'required'
+        ]);
+        try {
+            $image = null;
+            $ext_allow = ['jpg','png','giF','svg'];
+            if ($request->hasFile("image")){
+                $file = $request->file("image");
+                $file_name = time()."-".$file->getClientOriginalName();
+                $ext = $file->getClientOriginalExtension();
+                if (in_array($ext,$ext_allow)){
+                    $file->move("upload/donors/",$file_name);
+                    $image = "upload/donors/".$file_name;
+                }
+            }
+
+            $donors->upadate([
+            'name'=>$request->get("name"),
+            'logo'=>$image,
+            'event_id'=>$request->get('event_id')
+             ]);
+
+        }catch (\Throwable $th){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/donors");
+    }
+    public function donorsDestroy($id,Request $request){
+        $donors = Donors::find($id);
+        try {
+            $donors->delete();
+        }catch (\Throwable $th){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/donors");
     }
 }

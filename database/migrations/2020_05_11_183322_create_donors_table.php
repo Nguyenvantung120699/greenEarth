@@ -17,8 +17,10 @@ class CreateDonorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string("logo")->nullable();
-
+            $table->unsignedBigInteger("event_id");
             $table->timestamps();
+
+            $table->foreign('event_id')->references("id")->on('event');
         });
     }
 

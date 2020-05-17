@@ -53,6 +53,54 @@
             </li>
             <li class="nav-item">
                 <div class="btn-group dropright">
+                    <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">edit</i>
+                        <p>Sự kiện</p>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url("admin/event/create")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-file"></i>
+                                    <p>Thêm sự kiện</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url("admin/event")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-th-list"></i>
+                                    <p>Tất cả sự kiện</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="btn-group dropright">
+                    <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">edit</i>
+                        <p>Chiến dịch</p>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url("admin/campaign/create")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-file"></i>
+                                    <p>Thêm chiến dịch</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url("admin/campaign")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-th-list"></i>
+                                    <p>Tất cả chiến dịch</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="btn-group dropright">
                     <a class="nav-link text-capitalize" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">library_books</i>
                         <p>Quản lý thành viên</p>
@@ -69,6 +117,30 @@
                                 <a href="{{url("admin/member/pending")}}" class="nav-link text-capitalize">
                                     <i class="fa fa-user-plus nav-icon"></i>
                                     <p>Thành viên chờ duyệt</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="btn-group dropright">
+                    <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">edit</i>
+                        <p>Tài trợ</p>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url("admin/post/create")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-file"></i>
+                                    <p>Thêm nhà tài trợ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url("admin/post")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-th-list"></i>
+                                    <p>Tất cả nhà tài trợ</p>
                                 </a>
                             </li>
                         </ul>

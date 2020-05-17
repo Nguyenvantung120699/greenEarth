@@ -24,7 +24,5 @@ class Post extends Model
     public function Member(){
         return $this->hasMany(Member::class);
     }
-    public function Donate(){
-        return $this->hasMany(Donate::class);
-    }
+
 }

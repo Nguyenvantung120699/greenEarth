@@ -1,5 +1,5 @@
 <?php
-Route::prefix("admin")->middleware(['auth',"checkAdmin"])->group(function (){
+Route::prefix("admin")->group(function (){
     include_once("admin.php");
 });
 
@@ -37,8 +37,8 @@ Route::get("baiviet/{cat_path}/{slug}",'WebController@viewPost');
 Route::get("events",'WebController@events');
 Route::get("campaign",'WebController@campaign');
 
-Route::get("viewevents",'WebController@viewevents');
-Route::get("viewcampaign",'WebController@viewcampaign');
+Route::get("sukien/{event_slug}",'WebController@viewevents');
+Route::get("chiendich/{campaign_slug}",'WebController@viewcampaign');
 Route::get("about",'WebController@about');
 
 Route::get("search",'WebController@search');

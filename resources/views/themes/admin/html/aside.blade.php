@@ -54,7 +54,7 @@
             <li class="nav-item">
                 <div class="btn-group dropright">
                     <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">edit</i>
+                        <i class="material-icons">post_add</i>
                         <p>Sự kiện</p>
                     </a>
                     <div class="dropdown-menu">
@@ -78,7 +78,7 @@
             <li class="nav-item">
                 <div class="btn-group dropright">
                     <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">edit</i>
+                        <i class="material-icons">nfc</i>
                         <p>Chiến dịch</p>
                     </a>
                     <div class="dropdown-menu">
@@ -126,7 +126,7 @@
             <li class="nav-item">
                 <div class="btn-group dropright">
                     <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">edit</i>
+                        <i class="material-icons">account_tree</i>
                         <p>Tài trợ</p>
                     </a>
                     <div class="dropdown-menu">

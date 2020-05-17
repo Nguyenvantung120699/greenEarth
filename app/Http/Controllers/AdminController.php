@@ -345,6 +345,7 @@ class AdminController extends Controller
         return redirect()->to("admin/event");
     }
 
+
     //{{--campaign--}}
     public function campaign(){
         $campaigns = Campaign::all();
@@ -439,6 +440,18 @@ class AdminController extends Controller
             return redirect()->back();
         }
         return redirect()->to("admin/campaign");
+    }
+
+    public function detailCampaign($id){
+        $campaigns = Campaign::find($id);
+        $donate = $campaigns->Donate;
+        $donate_total = 0;
+        foreach ($donate as $d){
+            $donate_total += $d->donate;
+        }
+        return view("themes.admin.campaign.detail",compact("campaigns","donate_total","donate"));
+
+
     }
 
 //{{--donors--}}

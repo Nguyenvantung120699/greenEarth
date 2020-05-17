@@ -22,10 +22,10 @@ class CreateDonateTable extends Migration
             $table->decimal("donate",12,4);
             $table->text("message")->nullable();
             $table->string("payment_method")->nullable();
-            $table->unsignedBigInteger("post_id");
+            $table->unsignedBigInteger("campaign_id");
             $table->timestamps();
 
-            $table->foreign("post_id")->references("id")->on("post");
+            $table->foreign("campaign_id")->references("id")->on("campaign");
         });
     }
 

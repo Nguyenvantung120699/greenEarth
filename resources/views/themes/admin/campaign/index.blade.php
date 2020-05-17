@@ -22,7 +22,7 @@
                                 <td>
                                     <div class="table-data-feature">
                                         <form action="{{url("admin/campaign/detail",['id'=>$campaign->id])}}">
-                                            <button class="btn btn-default" title="chi tiết" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <button class="btn btn-info" title="chi tiết" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="material-icons">visibility</i>
                                             </button>
                                         </form>

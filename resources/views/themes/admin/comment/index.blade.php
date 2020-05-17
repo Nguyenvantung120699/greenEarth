@@ -24,7 +24,7 @@
                             </tr>
 
                         @empty
-                            <p>Không có danh mục nào</p>
+                            <p>Không có bình luận nào</p>
                         @endforelse
                         </tbody>
                     </table>

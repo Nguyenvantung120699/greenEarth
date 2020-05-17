@@ -3,7 +3,7 @@
     <div class="content">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title ">Danh Mục</h4>
+                <h4 class="card-title ">Danh mục</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -62,7 +62,7 @@
                             </tr>
                             <tr class="spacer"></tr>
                         @empty
-                            <p>Không có danh mục nào</p>
+                            <p>Không có chuyên mục nào</p>
                         @endforelse
                         </tbody>
                     </table>

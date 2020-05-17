@@ -27,16 +27,17 @@
                     </div>
                 </div>
                 <div class="row">
+                @foreach($event as $e)
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="{{asset("img/blog/home-blog1.jpg")}}" alt="">
+                                    <img src="{{$e->image}}" alt="">
                                 </div>
                                 <div class="blog-cap">
-                                    <p> |   Traveling</p>
-                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
-                                    <a href="#" class="more-btn">Read more »</a>
+                                    <p> |   Event</p>
+                                    <h3><a href="single-blog.html">{{$e->event_name}}</a></h3>
+                                    <a href="{{url("viewevents/{$e->id}")}}" class="more-btn">Read more »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">
@@ -45,24 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="{{asset("img/blog/home-blog2.jpg")}}" alt="">
-                                </div>
-                                <div class="blog-cap">
-                                    <p> |   Traveling</p>
-                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
-                                    <a href="#" class="more-btn">Read more »</a>
-                                </div>
-                            </div>
-                            <div class="blog-date text-center">
-                                <span>24</span>
-                                <p>Now</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

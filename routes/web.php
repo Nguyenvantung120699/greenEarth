@@ -37,8 +37,8 @@ Route::get("baiviet/{cat_path}/{slug}",'WebController@viewPost');
 Route::get("events",'WebController@events');
 Route::get("campaign",'WebController@campaign');
 
-Route::get("viewevents",'WebController@viewevents');
-Route::get("viewcampaign",'WebController@viewcampaign');
+Route::get("viewevents/{id}",'WebController@viewevents');
+Route::get("viewcampaign/{id}",'WebController@viewcampaign');
 Route::get("about",'WebController@about');
 
 Route::get("search",'WebController@search');

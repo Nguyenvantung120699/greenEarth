@@ -21,59 +21,38 @@
          <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6">
                <div class="support-location-img mb-50">
-                     <img src="{{asset("img/service/support-img.jpg")}}" alt="">
+                     <img src="{{$events->image}}" alt="">
                      <div class="support-img-cap">
                         <span>Since 1992</span>
                      </div>
                </div>
+               <div class=" blog_right_sidebar" >
+                           <aside class="single_sidebar_widget tag_cloud_widget">
+                            <h4 class="widget_title">Sponsors</h4>
+                            <ul class="list">
+                                <li>
+                                    <a href="#">{{$events->organizational_units}}</a>
+                                </li>
+                            </ul>
+                        </aside>
+                        </div>
             </div>
             <div class="col-xl-6 col-lg-6">
                <div class="right-caption">
                      <!-- Section Tittle -->
                      <div class="section-tittle section-tittle2">
                         <span>EVENS</span>
-                        <h2>Title</h2><br>
-                        <p><b>Time start :</b> start - stop</p>
-                        <p><b>Event location : </b>My Dinh - Ha Noi - Viet Nam</p>
+                        <h2>{{$events->event_name}}</h2><br>
+                        <p><b>Time start :</b> {{$events->start_date}}</p>
+                        <p><b>Event location : </b>{{$events->address}}</p>
                      </div>
                      <div class="support-caption">
-                        <p>{{trans('home.introduceW')}}</p>
+                        <p>{{$events->content}}</p>
 
                         <ul class="blog-info-link">
-                           <li><a href="#"><i class="fa fa-user"></i>+ 800 People Join</a></li>
+                           <li><a href="#"><i class="fa fa-user"></i>+ 100 / 800 People Join</a></li>
                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Ha Noi - Viet Nam</a></li>
                         </ul>
-                        <div class=" blog_right_sidebar" >
-                           <aside class="single_sidebar_widget tag_cloud_widget">
-                            <h4 class="widget_title">Sponsors</h4>
-                            <ul class="list">
-                                <li>
-                                    <a href="#">Green Earth</a>
-                                </li>
-                                <li>
-                                    <a href="#">Lotte</a>
-                                </li>
-                                <li>
-                                    <a href="#">technology</a>
-                                </li>
-                                <li>
-                                    <a href="#">Nissan</a>
-                                </li>
-                                <li>
-                                    <a href="#">Honda</a>
-                                </li>
-                                <li>
-                                    <a href="#">VinGroup</a>
-                                </li>
-                                <li>
-                                    <a href="#">design</a>
-                                </li>
-                                <li>
-                                    <a href="#">illustration</a>
-                                </li>
-                            </ul>
-                        </aside>
-                        </div>
                      </div>
                   </div>
                </div>
@@ -138,127 +117,29 @@
                         </div>
                     </div>
                 </div>
+                @foreach($eventt as $et)
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="assets/img/service/services1.jpg" alt="">
+                                <img src="{{$et->image}}" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
+                                    <h3><a href="#">{{$et->event_name}}</a></h3>
                                     <p class="dolor">$1870 <span>/ Per Person</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
                                         <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{$et->address}}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services2.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services3.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services4.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services5.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services6.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -22,7 +22,8 @@ use App\Post;
 use App\Category;
 use App\Comment;
 use App\User;
-use App\Brand;
+use App\Campaign;
+use App\Event;
 
 class WebController extends Controller
 {
@@ -43,7 +44,9 @@ class WebController extends Controller
         $postt = Post::orderBy('id','desc')->take(2)->get();
         // $posts = Post::orderBy('id','desc')->take(1)->get();
         $like = Post::orderBy('count_like','desc')->take(4)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt]);
+        $campaigns = Campaign::orderBy('id','desc')->take(1)->get();
+        $events = Event::orderBy('id','desc')->take(1)->get();
+        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt,'campaigns'=>$campaigns,'events'=>$events]);
     }
 
     public function categoryPost($path){
@@ -131,7 +134,7 @@ class WebController extends Controller
               ]);
         }catch (\Throwable $th){
             throw $th;
-        }
+        }   
         return response()->json([
             'message' => 'Register successfully.'
         ], 200);
@@ -199,22 +202,29 @@ class WebController extends Controller
     }
 
 
+    public function campaign(){
+        $campaign = Campaign::all();
+        return view("themes.website.campaign",["campaign"=>$campaign]);
+    }
+    public function events(){
+        $event = Event::all();
+        return view("themes.website.events",["event"=>$event]);
+    }
+
+    public function viewcampaign($id){
+        $campaigns = Campaign::find($id);
+        $campaignt = Campaign::orderBy('id','desc')->take(6)->get();
+         return view("themes.website.campaign_view",["campaigns"=>$campaigns,"campaignt"=>$campaignt]);
+    }
+    public function viewevents($id){
+        $events = Event::find($id);
+        $eventt = Event::orderBy('id','desc')->take(6)->get();
+        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt]);
+    }
 
     public function contact(){
 
         return view("themes.website.contact");
     }
-    public function campaign(){
-        return view("themes.website.campaign");
-    }
-    public function events(){
-        return view("themes.website.events");
-    }
 
-    public function viewcampaign(){
-        return view("themes.website.campaign_view");
-    }
-    public function viewevents(){
-        return view("themes.website.evens_view");
-    }
 }

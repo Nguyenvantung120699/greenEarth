@@ -23,55 +23,39 @@
                     <div class="blog_left_sidebar blog_right_sidebar">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{asset("img/blog/single_blog_1.png")}}" alt="">
+                                <img class="card-img rounded-0" src="{{$campaigns->image}}" alt="">
                                 <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
+                                    <h3>Start : {{$campaigns->start_date}}</h3>
+                                    <p>end : {{$campaigns->end_date}}</p>
                                 </a>
                             </div>
 
                             <div class="blog_details">
                                 <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Google inks pact for new 35-storey office</h2>
+                                    <h2>{{$campaigns->campaign_name}}</h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
+                                <p>{{$campaigns->content}}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>800 people Donate</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i>Need to Achieve 5000,000 USD</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i>received 1000,000 USD</a></li>
                                 </ul>
                             </div>
                         </article>
 
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">Other Campaigns</h3>
+                            @foreach($campaignt as $ct)
                             <div class="media post_item">
-                                <img src="{{asset("img/post/post_1.png")}}" alt="post">
+                                <img style="width:20%" src="{{$ct->image}}" alt="post">
                                 <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>From life was you fish...</h3>
+                                    <a href="{{url("viewcampaign/{$ct->id}")}}">
+                                        <h3>{{$ct->campaign_name}}</h3>
                                     </a>
-                                    <p>January 12, 2019</p>
+                                    <p><b>start :</b> {{$ct->start_date}}</p>
                                 </div>
                             </div>
-                            <div class="media post_item">
-                                <img src="{{asset("img/post/post_1.png")}}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>The Amazing Hubble</h3>
-                                    </a>
-                                    <p>02 Hours ago</p>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <img src="{{asset("img/post/post_1.png")}}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>Astronomy Or Astrology</h3>
-                                    </a>
-                                    <p>03 Hours ago</p>
-                                </div>
-                            </div>  
+                            @endforeach
                         </aside>
                        
                     </div>
@@ -80,7 +64,11 @@
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget instagram_feeds">
                             <h4 class="widget_title">Introduce</h4>
-                            
+                            <ul style="color:black;">
+                                    <li><p><i class="fa fa-user"></i> 800 people Donate</li></p>
+                                    <li><p><i class="fa fa-comments"></i> Objectives achieved 5000,000 USD</li></p>
+                                    <li><p><i class="fa fa-comments"></i> Received 1000,000 USD</li></p>
+                                </ul>
                         </aside>
 
                         <aside class="single_sidebar_widget search_widget">
@@ -134,31 +122,10 @@
                             </form>
                         </aside>
                         <aside class="single_sidebar_widget tag_cloud_widget">
-                            <h4 class="widget_title">Tag Clouds</h4>
+                            <h4 class="widget_title">Organizer</h4>
                             <ul class="list">
                                 <li>
-                                    <a href="#">project</a>
-                                </li>
-                                <li>
-                                    <a href="#">love</a>
-                                </li>
-                                <li>
-                                    <a href="#">technology</a>
-                                </li>
-                                <li>
-                                    <a href="#">travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">restaurant</a>
-                                </li>
-                                <li>
-                                    <a href="#">life style</a>
-                                </li>
-                                <li>
-                                    <a href="#">design</a>
-                                </li>
-                                <li>
-                                    <a href="#">illustration</a>
+                                    <a href="#">{{$campaigns->organizational_units}}</a>
                                 </li>
                             </ul>
                         </aside>

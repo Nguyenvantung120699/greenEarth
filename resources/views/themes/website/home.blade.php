@@ -129,10 +129,11 @@
                     </div>
                 </div>
                 <div class="row">
+                @foreach($campaigns as $c)
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
-                                <div class="blog-img" style="height:365px" data-background="{{asset("img/blog/home-blog1.jpg")}}">
+                                <div class="blog-img" style="height:365px" data-background="{{$c->image}}">
                                     <div class="col-md-12" style="padding-top:20%">
                                     <h1 class="text-center text-white" id="demo">Sự Kiện Sắp Diễn Ra</h1>
                                         <div class="row">
@@ -164,9 +165,9 @@
                                     </div>
                                 </div>
                                 <div class="blog-cap">
-                                    <p> |   Traveling</p>
-                                    <h3><a href="single-blog.html">Tips For Taking A Long-Term Trip With Kids.</a></h3>
-                                    <a href="#" class="more-btn">Read more »</a>
+                                    <p> |   Campaign</p>
+                                    <h3><a href="single-blog.html">{{$c->campaign_name}}</a></h3>
+                                    <a href="{{url("viewcampaign/{$c->id}")}}" class="more-btn">Read more »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">
@@ -175,41 +176,44 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                    @foreach($events as $e)
                     <div class="col-xl-6 col-lg-6 col-md-6" style="height:365px">
                         <article class="blog_item">
-                                <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="{{asset("img/blog/single_blog_4.png")}}" alt="">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <a href="#" class="blog_item_date" style="background-color:green">
-                                                    <h3>Start</h3>
-                                                    <p>15 Jan</p>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <a href="#" class="blog_item_date" style="background-color:red">
-                                                    <h3>finish</h3>
-                                                    <p>15 July</p>
-                                                </a>
-                                            </div>
+                            <div class="blog_item_img">
+                                <img class="card-img rounded-0" src="{{$e->image}}" alt="">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="#" class="blog_item_date" style="background-color:green">
+                                                <h3>Start</h3>
+                                                <p>{{$e->start_date}}</p>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="#" class="blog_item_date" style="background-color:red">
+                                                <h3>finish</h3>
+                                                <p>{{$e->end_date}}</p>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="blog_details">
-                                    <a class="d-inline-block" href="single-blog.html">
-                                        <h2>Google inks pact for new 35-storey office</h2>
-                                    </a>
-                                    <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                        he earth it first without heaven in place seed it second morning saying.</p>
-                                    <ul class="blog-info-link">
-                                        <li><a href="#"><i class="fa fa-user"></i> 100 people donated</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </article>
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="{{url("viewevents/{$e->id}")}}">
+                                    <h2>{{$e->event_name}}</h2>
+                                </a>
+                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
+                                    he earth it first without heaven in place seed it second morning saying.</p>
+                                <ul class="blog-info-link">
+                                    <li><a href="#"><i class="fa fa-user"></i> 100 people donated</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                </ul>
+                            </div>
+                        </article>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

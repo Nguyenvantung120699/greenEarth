@@ -18,6 +18,7 @@ class CreateEventTable extends Migration
             $table->string("event_name")->unique();
             $table->string("event_slug");
             $table->unsignedInteger("status")->default(0);
+            $table->string("target");
             $table->date("start_date");
             $table->date("end_date");
             $table->string("image");

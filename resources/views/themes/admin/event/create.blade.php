@@ -35,6 +35,13 @@
 
                                         </div>
                                     </div>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <label class="text-capitalize">{{__('Mục tiêu')}}</label>
+                                            <textarea type="text" name="target" class="form-control " rows="5"  placeholder="{{__('Nhập mục tiêu')}}" ></textarea>
+
+                                        </div>
+                                    </div>
                                     <div class="col-sm-5">
                                         <div class="form-group">
                                             <div class="form-group">

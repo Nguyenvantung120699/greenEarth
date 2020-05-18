@@ -14,18 +14,19 @@
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Đơn vị tổ chức</th>
-                        <th>Tổng số tiền ủng hộ</th>
+                        <th>Thành viên tham gia</th>
 
                         </thead>
                         <tbody>
 
                             <tr class="tr-shadow">
-                                <td><img src="{{asset($campaigns->image)}}" class="img-thumbnail"/></td>
-                                <td>{{$campaigns->campaign_name}}</td>
-                                <td>{{$campaigns->start_date}}</td>
-                                <td>{{$campaigns->end_date}}</td>
-                                <td>{{$campaigns->organizational_units}}</td>
-                                <td>{{$donate_total}} $</td>
+                                <td><img src="{{asset($events->image)}}" class="img-thumbnail"/></td>
+                                <td>{{$events->event_name}}</td>
+                                <td>{{$events->start_date}}</td>
+                                <td>{{$events->end_date}}</td>
+                                <td>{{$events->organizational_units}}</td>
+                                <td>{{$events->Member->count()}}</td>
+
                             </tr>
                             <tr class="spacer"></tr>
 
@@ -48,23 +49,23 @@
                                 <th>Email</th>
                                 <th>SĐT</th>
                                 <th>Địa chỉ</th>
-{{--                                <th>Ghi chú</th>--}}
-                                <th>Số tiền ủng hộ</th>
+                                <th>Ghi chú</th>
+{{--                                <th>Số tiền ủng hộ</th>--}}
                             </thead>
                             <tbody>
-                                @forelse($donate as $d)
+                                @forelse($member as $d)
                                     <tr class="tr-shadow">
                                        <td>{{$d->id}}</td>
                                        <td>{{$d->name}}</td>
                                        <td>{{$d->email}}</td>
                                        <td>{{$d->telephone}}</td>
                                        <td>{{$d->address}}</td>
-{{--                                       <td>{{$d->message}}</td>--}}
-                                        <td>{{$d->getDonate()}} $</td>
+                                       <td>{{$d->message}}</td>
+
                                     </tr>
 
                                 @empty
-                                     Không có người nào ủng hộ
+                                     Không có thành viên nào
                                 @endforelse
                             </tbody>
                         </table>

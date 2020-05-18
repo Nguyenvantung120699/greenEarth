@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">{{__('Thêm sự kiên')}}</h4>
+                            <h4 class="card-title ">{{__('Thêm chiến dịch')}}</h4>
                         </div>
                         <form action="{{url("admin/campaign/store")}} "  method="POST" enctype="multipart/form-data">
                             @csrf

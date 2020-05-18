@@ -3,7 +3,7 @@
     <div class="content">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title ">Bài viết</h4>
+                <h4 class="card-title ">Sự kiện</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -23,6 +23,11 @@
                             <tr class="tr-shadow">
                                 <td>
                                     <div class="table-data-feature">
+                                        <form action="{{url("admin/event/detail",['id'=>$event->id])}}">
+                                            <button class="btn btn-info" title="chi tiết" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="material-icons">visibility</i>
+                                            </button>
+                                        </form>
                                         <form action="{{url("admin/event/edit",['id'=>$event->id])}}">
                                             <button class="btn btn-default" title="edit" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="material-icons">create</i>

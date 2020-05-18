@@ -41,7 +41,7 @@ Route::post("event/store","AdminController@storeEvent");
 Route::get("/event/edit/{id}","AdminController@eventEdit");
 Route::post("/event/update/{id}","AdminController@eventUpdate");
 Route::get("/event/delete/{id}","AdminController@eventDestroy");
-
+Route::get("/event/detail/{id}","AdminController@detailEvent");
 
 //{{--campaign--}}
 Route::get("/campaign","AdminController@campaign");

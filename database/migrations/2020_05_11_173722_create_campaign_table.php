@@ -22,6 +22,7 @@ class CreateCampaignTable extends Migration
             $table->date("end_date")->nullable();
             $table->string("image");
             $table->text("content");
+            $table->string("target");
             $table->string("organizational_units");
             $table->timestamps();
         });

@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">{{__('Thêm sự kiên')}}</h4>
+                            <h4 class="card-title ">{{__('Thêm chiến dịch')}}</h4>
                         </div>
                         <form action="{{url("admin/campaign/store")}} "  method="POST" enctype="multipart/form-data">
                             @csrf
@@ -32,6 +32,13 @@
                                         <div class="form-group">
                                             <label class="text-capitalize">{{__('Bài viết')}}</label>
                                             <textarea type="text" name="content" class="form-control " rows="5"  placeholder="{{__('Nhập bài viết')}}" ></textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <label class="text-capitalize">{{__('Mục tiêu')}}</label>
+                                            <textarea type="text" name="target" class="form-control " rows="5"  placeholder="{{__('Nhập mục tiêu')}}" ></textarea>
 
                                         </div>
                                     </div>

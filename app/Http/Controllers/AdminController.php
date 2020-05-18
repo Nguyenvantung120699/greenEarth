@@ -254,9 +254,11 @@ class AdminController extends Controller
         return view("themes.admin.event.create");
     }
     public function storeEvent(Request $request){
+
         $request->validate([
                 'event_name'=>'required',
                 'content'=>'required',
+                'target'=>'required',
                 'start_date'=>'required',
                 'end_date'=>'required',
                 'organizational_units'=>'required',
@@ -279,6 +281,7 @@ class AdminController extends Controller
                 "event_name"=>$request->get("event_name"),
                 "image"=>$image,
                 "content"=>$request->get("content"),
+                'target'=>$request->get("target"),
                 "start_date"=>$request->get("start_date"),
                 "event_slug"=>str_slug($request->get("event_name")),
                 "end_date"=>$request->get("end_date"),
@@ -301,6 +304,7 @@ class AdminController extends Controller
         $request->validate([
             'event_name'=>'required',
             'content'=>'required',
+            'target'=>'required',
             'start_date'=>'required',
             'end_date'=>'required',
             'organizational_units'=>'required',
@@ -323,6 +327,7 @@ class AdminController extends Controller
                 "event_name"=>$request->get("event_name"),
                 "image"=>$image,
                 "content"=>$request->get("content"),
+                'target'=>$request->get("target"),
                 "start_date"=>$request->get("start_date"),
                 "event_slug"=>str_slug($request->get("event_name")),
                 "end_date"=>$request->get("end_date"),
@@ -344,6 +349,14 @@ class AdminController extends Controller
         }
         return redirect()->to("admin/event");
     }
+    public function detailEvent($id){
+        $events = Event::find($id);
+        $member = $events->Member;
+//        $donate_total = 0;
+
+        return view("themes.admin.event.detail",compact("events","member"));
+    }
+
 
     //{{--campaign--}}
     public function campaign(){
@@ -357,6 +370,7 @@ class AdminController extends Controller
         $request->validate([
             'campaign_name'=>'required',
             'content'=>'required',
+            'target'=>'required',
             'start_date'=>'required',
             'end_date'=>'required',
             'organizational_units'=>'required',
@@ -378,6 +392,7 @@ class AdminController extends Controller
                 "campaign_name"=>$request->get("campaign_name"),
                 "image"=>$image,
                 "content"=>$request->get("content"),
+                'target'=>$request->get("target"),
                 "start_date"=>$request->get("start_date"),
                 "campaign_slug"=>str_slug($request->get("campaign_name")),
                 "end_date"=>$request->get("end_date"),
@@ -400,6 +415,7 @@ class AdminController extends Controller
         $request->validate([
             'campaign_name'=>'required',
             'content'=>'required',
+            'target'=>'required',
             'start_date'=>'required',
             'end_date'=>'required',
             'organizational_units'=>'required',
@@ -420,6 +436,7 @@ class AdminController extends Controller
                 "campaign_name"=>$request->get("campaign_name"),
                 "image"=>$image,
                 "content"=>$request->get("content"),
+                'target'=>$request->get("target"),
                 "start_date"=>$request->get("start_date"),
                 "end_date"=>$request->get("end_date"),
                 "campaign_slug"=>str_slug($request->get("campaign_name")),
@@ -439,6 +456,16 @@ class AdminController extends Controller
             return redirect()->back();
         }
         return redirect()->to("admin/campaign");
+    }
+
+    public function detailCampaign($id){
+        $campaigns = Campaign::find($id);
+        $donate = $campaigns->Donate;
+        $donate_total = 0;
+        foreach ($donate as $d){
+            $donate_total += $d->donate;
+        }
+        return view("themes.admin.campaign.detail",compact("campaigns","donate_total","donate"));
     }
 
 //{{--donors--}}

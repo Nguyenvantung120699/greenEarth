@@ -12,6 +12,7 @@
                         <th></th>
                         <th>Ảnh đại diện</th>
                         <th>Tên chiến dịch</th>
+                        <th>Mục tiêu</th>
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Đơn vị tổ chức</th>
@@ -21,6 +22,11 @@
                             <tr class="tr-shadow">
                                 <td>
                                     <div class="table-data-feature">
+                                        <form action="{{url("admin/campaign/detail",['id'=>$campaign->id])}}">
+                                            <button class="btn btn-info" title="chi tiết" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="material-icons">visibility</i>
+                                            </button>
+                                        </form>
                                         <form action="{{url("admin/campaign/edit",['id'=>$campaign->id])}}">
                                             <button class="btn btn-default" title="edit" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="material-icons">create</i>
@@ -35,6 +41,7 @@
                                 </td>
                                 <td><img src="{{asset($campaign->image)}}" class="img-thumbnail"/></td>
                                 <td>{{$campaign->campaign_name}}</td>
+                                <td>{{$campaign->target}}</td>
                                 <td>{{$campaign->start_date}}</td>
                                 <td>{{$campaign->end_date}}</td>
                                 <td>{{$campaign->organizational_units}}</td>

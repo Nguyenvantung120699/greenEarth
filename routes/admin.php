@@ -41,6 +41,7 @@ Route::post("event/store","AdminController@storeEvent");
 Route::get("/event/edit/{id}","AdminController@eventEdit");
 Route::post("/event/update/{id}","AdminController@eventUpdate");
 Route::get("/event/delete/{id}","AdminController@eventDestroy");
+Route::get("/event/detail/{id}","AdminController@detailEvent");
 
 //{{--campaign--}}
 Route::get("/campaign","AdminController@campaign");
@@ -49,6 +50,7 @@ Route::post("campaign/store","AdminController@storeCampaign");
 Route::get("/campaign/edit/{id}","AdminController@campaignEdit");
 Route::post("/campaign/update/{id}","AdminController@campaignUpdate");
 Route::get("/campaign/delete/{id}","AdminController@campaignDestroy");
+Route::get("/campaign/detail/{id}","AdminController@detailCampaign");
 //{{--donors--}}
 Route::get("/donors","AdminController@donors");
 Route::get("donors/create","AdminController@createDonors");

@@ -37,10 +37,10 @@
                     <div class="card card-stats bg-warning">
                         <div class="card-header card-header-warning card-header-icon ">
                             <div class="" style="float: left;padding-top: 5px">
-                                <i class="fa fa-comments" style="color:	#d9a406;"></i>
+                                <i class="material-icons" style="color:#d9a406;">event</i>
                             </div>
-                            <h2 class="card-title">{{\App\Comment::count()}}</h2>
-                            <p class="card-category">Bình luận</p>
+                            <h2 class="card-title">{{\App\Event::count()}}</h2>
+                            <p class="card-category">Sự kiện</p>
 
                         </div>
                         <div class="card-footer">
@@ -52,10 +52,10 @@
                     <div class="card card-stats bg-danger">
                         <div class="card-header card-header-warning card-header-icon ">
                             <div class="" style="float: left;padding-top: 5px">
-                                <i class="material-icons" style="color:#bb2d3b;">library_books</i>
+                                <i class="material-icons" style="color:#bb2d3b;">nfc</i>
                             </div>
-                            <h2 class="card-title">{{\App\Member::count()}}</h2>
-                            <p class="card-category">Quản lý thành viên</p>
+                            <h2 class="card-title">{{\App\Campaign::count()}}</h2>
+                            <p class="card-category">Chiến dịch</p>
 
                         </div>
                         <div class="card-footer">

@@ -3,7 +3,7 @@
     <div class="content">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title ">Donate</h4>
+                <h4 class="card-title ">Ủng hộ</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -17,7 +17,7 @@
                         <th>Ủng hộ</th>
                         <th>Thanh toán</th>
                         <th>Ghi chú</th>
-                        <th>Hoạt động</th>
+                        <th>Chiến dịch</th>
                         </thead>
                         <tbody>
                         @forelse($donates as $donate)
@@ -30,7 +30,7 @@
                                 <td>{{$donate->getDonate()}} $</td>
                                 <td>{{$donate->payment_method}}</td>
                                 <td>{{$donate->message}}</td>
-                                <td>{{$donate->Post->title}}</td>
+                                <td>{{$donate->Campaign->campaign_name}}</td>
                             </tr>
                             <tr class="spacer"></tr>
                         @empty

@@ -50,14 +50,14 @@
                         <p>{{$events->content}}</p>
 
                         <ul class="blog-info-link">
-                           <li><a href="#"><i class="fa fa-user"></i>+ {{$pevent}} / 800 People Join</a></li>
+                           <li><a href="#"><i class="fa fa-user"></i>+ {{$pevent}} / {{$events->target}} People Join</a></li>
                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Ha Noi - Viet Nam</a></li>
                         </ul>
                      </div>
                   </div>
                </div>
             </div>
-           @if($pevent >= 800)
+           @if($pevent >= $events->target)
            <div class="comment-form">
             <form class="form-contact comment_form">
            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
@@ -67,7 +67,7 @@
            @else
             <div class="comment-form">
                <h2>Join Evens</h2>
-               <form class="form-contact comment_form" action="{{url("joinMember/{$events->id}")}}" id="comment" method="post">
+               <form class="form-contact comment_form" id="join-group" action="{{url("joinMember/{$events->id}")}}" id="comment" method="post">
                   @csrf
                      <div class="row">
                         <div class="col-sm-6">
@@ -108,7 +108,7 @@
                         </div>
                      </div>
                         <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                        type="submit" data-toggle="modal" data-target="#exampleModalCenter">Join</button>
+                        type="submit">Join</button>
                   </form>
                </div>
          </div>

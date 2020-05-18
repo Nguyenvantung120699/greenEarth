@@ -66,7 +66,7 @@
                             <h4 class="widget_title">Introduce</h4>
                             <ul style="color:black;">
                                     <li><p><i class="fa fa-user"></i> {{$tdonate}} people Donate</li></p>
-                                    <li><p><i class="fa fa-comments"></i> Objectives achieved 5000,000 USD</li></p>
+                                    <li><p><i class="fa fa-comments"></i> Objectives achieved {{$campaigns->target}} USD</li></p>
                                     <li><p><i class="fa fa-comments"></i> Received {{$total_money}} USD</li></p>
                                 </ul>
                         </aside>

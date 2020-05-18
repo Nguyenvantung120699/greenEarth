@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
+use App\Mail\Donates;
 use App\Feedback;
 use App\Post;
 use App\Category;
@@ -168,7 +169,7 @@ class WebController extends Controller
         return response()->json([
             'message' => 'Donate successfully.'
         ], 200);
-        Mail::to("nambpth1902008@gmail.com")->send(new  Donate());
+        Mail::to('ntung9921@gmail.com')->send(new Donates());
     }
     public function introduction(Request $request){
         $request->validate([

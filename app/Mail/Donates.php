@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Donate extends Mailable
+class Donates extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,6 +28,6 @@ class Donate extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.donate');
+        return $this->markdown('email.member');
     }
 }

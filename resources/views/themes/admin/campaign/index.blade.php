@@ -12,6 +12,7 @@
                         <th></th>
                         <th>Ảnh đại diện</th>
                         <th>Tên chiến dịch</th>
+                        <th>Mục tiêu</th>
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Đơn vị tổ chức</th>
@@ -40,6 +41,7 @@
                                 </td>
                                 <td><img src="{{asset($campaign->image)}}" class="img-thumbnail"/></td>
                                 <td>{{$campaign->campaign_name}}</td>
+                                <td>{{$campaign->target}}</td>
                                 <td>{{$campaign->start_date}}</td>
                                 <td>{{$campaign->end_date}}</td>
                                 <td>{{$campaign->organizational_units}}</td>

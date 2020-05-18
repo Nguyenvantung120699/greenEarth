@@ -3,7 +3,7 @@
     <div class="content">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title ">Chi tiết chiến dịch</h4>
+                <h4 class="card-title ">Chi tiết sự kiện</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -11,6 +11,7 @@
                         <thead class=" text-primary">
                         <th>Ảnh đại diện</th>
                         <th>Tên Chiến dịch</th>
+                        <th>Mục tiêu</th>
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Đơn vị tổ chức</th>
@@ -22,6 +23,7 @@
                             <tr class="tr-shadow">
                                 <td><img src="{{asset($events->image)}}" class="img-thumbnail"/></td>
                                 <td>{{$events->event_name}}</td>
+                                <td>{{$events->target}}</td>
                                 <td>{{$events->start_date}}</td>
                                 <td>{{$events->end_date}}</td>
                                 <td>{{$events->organizational_units}}</td>
@@ -38,7 +40,7 @@
         <div class="col-md-12">
             <div class="card card-plain">
                 <div class="card-header card-header-primary">
-                    <h4 class="card-title mt-0"> Danh sách người ủng hộ chiến dịch</h4>
+                    <h4 class="card-title mt-0"> Danh sách người tham gia sự kiện</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

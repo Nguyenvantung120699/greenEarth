@@ -12,6 +12,7 @@
                         <th></th>
                         <th>Ảnh đại diện</th>
                         <th>Tên sự kiện</th>
+                        <th>Mục tiêu</th>
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Đơn vị tổ chức</th>
@@ -42,6 +43,7 @@
                                 </td>
                                 <td><img src="{{asset($event->image)}}" class="img-thumbnail"/></td>
                                 <td>{{$event->event_name}}</td>
+                                <td>{{$event->target}}</td>
                                 <td>{{$event->start_date}}</td>
                                 <td>{{$event->end_date}}</td>
                                 <td>{{$event->organizational_units}}</td>

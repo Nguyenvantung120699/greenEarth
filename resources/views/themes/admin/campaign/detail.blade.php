@@ -11,6 +11,7 @@
                         <thead class=" text-primary">
                         <th>Ảnh đại diện</th>
                         <th>Tên Chiến dịch</th>
+                        <th>Mục tiêu</th>
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Đơn vị tổ chức</th>
@@ -22,6 +23,7 @@
                             <tr class="tr-shadow">
                                 <td><img src="{{asset($campaigns->image)}}" class="img-thumbnail"/></td>
                                 <td>{{$campaigns->campaign_name}}</td>
+                                <td>{{$campaigns->target}}</td>
                                 <td>{{$campaigns->start_date}}</td>
                                 <td>{{$campaigns->end_date}}</td>
                                 <td>{{$campaigns->organizational_units}}</td>

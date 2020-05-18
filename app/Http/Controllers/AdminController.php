@@ -304,6 +304,7 @@ class AdminController extends Controller
         $request->validate([
             'event_name'=>'required',
             'content'=>'required',
+            'target'=>'required',
             'start_date'=>'required',
             'end_date'=>'required',
             'organizational_units'=>'required',
@@ -326,6 +327,7 @@ class AdminController extends Controller
                 "event_name"=>$request->get("event_name"),
                 "image"=>$image,
                 "content"=>$request->get("content"),
+                'target'=>$request->get("target"),
                 "start_date"=>$request->get("start_date"),
                 "event_slug"=>str_slug($request->get("event_name")),
                 "end_date"=>$request->get("end_date"),
@@ -368,6 +370,7 @@ class AdminController extends Controller
         $request->validate([
             'campaign_name'=>'required',
             'content'=>'required',
+            'target'=>'required',
             'start_date'=>'required',
             'end_date'=>'required',
             'organizational_units'=>'required',
@@ -389,6 +392,7 @@ class AdminController extends Controller
                 "campaign_name"=>$request->get("campaign_name"),
                 "image"=>$image,
                 "content"=>$request->get("content"),
+                'target'=>$request->get("target"),
                 "start_date"=>$request->get("start_date"),
                 "campaign_slug"=>str_slug($request->get("campaign_name")),
                 "end_date"=>$request->get("end_date"),
@@ -411,6 +415,7 @@ class AdminController extends Controller
         $request->validate([
             'campaign_name'=>'required',
             'content'=>'required',
+            'target'=>'required',
             'start_date'=>'required',
             'end_date'=>'required',
             'organizational_units'=>'required',
@@ -431,6 +436,7 @@ class AdminController extends Controller
                 "campaign_name"=>$request->get("campaign_name"),
                 "image"=>$image,
                 "content"=>$request->get("content"),
+                'target'=>$request->get("target"),
                 "start_date"=>$request->get("start_date"),
                 "end_date"=>$request->get("end_date"),
                 "campaign_slug"=>str_slug($request->get("campaign_name")),

@@ -31,13 +31,13 @@
                         </div>
 
                         <div class="blog_details">
-                           <a class="d-inline-block" href="{{url("viewcampaign/{$c->id}")}}">
+                           <a class="d-inline-block" href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}">
                               <h2>{{$c->campaign_name}}</h2>
                            </a>
                            <p>{{$c->organizational_units}}</p>
                            <ul class="blog-info-link">
-                              <li><a href="#"><i class="fa fa-user"></i>{{$c->start_date}}</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i>{{$c->end}}</a></li>
+                              <li><a href="#"><i class="far fa-clock"></i>start : {{$c->start_date}}</a></li>
+                              <li><a href="#"><i class="far fa-clock"></i>end : {{$c->end_date}}</a></li>
                            </ul>
                         </div>
                   </article>

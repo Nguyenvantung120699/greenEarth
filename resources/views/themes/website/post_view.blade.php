@@ -114,7 +114,7 @@
                                                </div>
                                            </div>
                                            <div class="form-group">
-                                               <textarea name="message" minlength="100" class="form-control" rows="2" placeholder="{{__("Comment ")}}" required></textarea>
+                                               <textarea name="message" minlength="2" class="form-control" rows="2" placeholder="{{__("Comment ")}}" required></textarea>
                                            </div>
                                            <input type="hidden" name="comment_id" value="{{ $comment->id }}">
                                            <button type="submit" class="button button-contactForm btn_1 boxed-btn">Submit</button>
@@ -135,7 +135,7 @@
                      <div class="row">
                         <div class="col-12">
                            <div class="form-group">
-                              <textarea class="form-control w-100" minlength="100" name="message" id="comment" cols="30" rows="9"
+                              <textarea class="form-control w-100" minlength="2" name="message" id="comment" cols="30" rows="9"
                                  placeholder="Write Comment" required></textarea>
                            </div>
                         </div>

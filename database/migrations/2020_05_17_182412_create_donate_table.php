@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJoinMemberTable extends Migration
+class CreateDonateTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreateJoinMemberTable extends Migration
      */
     public function up()
     {
-        Schema::create('join_member', function (Blueprint $table) {
+        Schema::create('donate', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("name");
-            $table->string("email")->unique();
-            $table->string("address");
+            $table->string("email");
             $table->string("telephone");
-            $table->unsignedBigInteger("post_id");
-            $table->string("status")->default(0);
+            $table->string("address");
+            $table->decimal("donate",12,4);
+            $table->text("message")->nullable();
+            $table->string("payment_method")->nullable();
+            $table->unsignedBigInteger("campaign_id");
             $table->timestamps();
 
-            $table->foreign("post_id")->references("id")->on("post");
+            $table->foreign("campaign_id")->references("id")->on("campaign");
         });
     }
 
@@ -34,6 +36,6 @@ class CreateJoinMemberTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('join_member');
+        Schema::dropIfExists('donate');
     }
 }

@@ -115,7 +115,7 @@ class WebController extends Controller
 //        ], 200);
     }
 
-    public function joinGroup(Request $request,$post_id){
+    public function joinGroup(Request $request,$events_id){
 
             $request->validate([
                 "name"=>"required",
@@ -126,7 +126,7 @@ class WebController extends Controller
 
         try {
               $member = Member::create([
-                  "post_id"=>$post_id,
+                  "event_id"=>$events_id,
                   "name"=>$request->get("name"),
                   "email"=>$request->get("email"),
                   "telephone"=>$request->get("telephone"),
@@ -139,7 +139,7 @@ class WebController extends Controller
             'message' => 'Register successfully.'
         ], 200);
     }
-    public function Donate(Request $request,$post_id){
+    public function Donate(Request $request,$campaigns_id){
 
         $request->validate([
             'name'=>'required',
@@ -156,10 +156,10 @@ class WebController extends Controller
                 'email'=>$request->get("email"),
                 'telephone'=>$request->get("telephone"),
                 'address'=>$request->get("address"),
-                'donate'=>$request->get("donate"),
                 'payment_method'=>$request->get("payment_method"),
+                'donate'=>$request->get("donate"),
                 'message'=>$request->get("message"),
-                'post_id'=>$post_id,
+                'campaign_id'=>$campaigns_id,
 
             ]);
 
@@ -211,15 +211,20 @@ class WebController extends Controller
         return view("themes.website.events",["event"=>$event]);
     }
 
-    public function viewcampaign($id){
-        $campaigns = Campaign::find($id);
+    public function viewcampaign($campaign_slug){
+        // $campaign = Campaign::find($id);
+        $campaigns = Campaign::where("campaign_slug",$campaign_slug)->first();
         $campaignt = Campaign::orderBy('id','desc')->take(6)->get();
-         return view("themes.website.campaign_view",["campaigns"=>$campaigns,"campaignt"=>$campaignt]);
+        $donatep = Donate::where("campaign_id",$campaigns->id)->get();
+        $tdonate = Donate::where("campaign_id",$campaigns->id)->count();
+        $total_money = Donate::where("campaign_id",$campaigns->id)->sum('donate');
+         return view("themes.website.campaign_view",["campaigns"=>$campaigns,"campaignt"=>$campaignt,"donatep"=>$donatep,"tdonate"=>$tdonate,"total_money"=>$total_money]);
     }
-    public function viewevents($id){
-        $events = Event::find($id);
+    public function viewevents($event_slug){
+        $events = Event::where("event_slug",$event_slug)->first();
         $eventt = Event::orderBy('id','desc')->take(6)->get();
-        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt]);
+        $pevent = Member::where("event_id",$events->id)->count();
+        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent]);
     }
 
     public function contact(){

@@ -36,8 +36,8 @@
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   Event</p>
-                                    <h3><a href="single-blog.html">{{$e->event_name}}</a></h3>
-                                    <a href="{{url("viewevents/{$e->id}")}}" class="more-btn">Read more »</a>
+                                    <h3><a href="{{url("sukien",["event_slug"=>$e->event_slug])}}">{{$e->event_name}}</a></h3>
+                                    <a href="{{url("sukien",["event_slug"=>$e->event_slug])}}" class="more-btn">Read more »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">

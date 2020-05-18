@@ -166,8 +166,8 @@
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   Campaign</p>
-                                    <h3><a href="single-blog.html">{{$c->campaign_name}}</a></h3>
-                                    <a href="{{url("viewcampaign/{$c->id}")}}" class="more-btn">Read more »</a>
+                                    <h3><a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}">{{$c->campaign_name}}</a></h3>
+                                    <a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}" class="more-btn">Read more »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">
@@ -201,11 +201,9 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="{{url("viewevents/{$e->id}")}}">
+                                <a class="d-inline-block" href="{{url("sukien",["event_slug"=>$e->event_slug])}}")}}">
                                     <h2>{{$e->event_name}}</h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-user"></i> 100 people donated</a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>

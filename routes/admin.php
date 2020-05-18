@@ -49,3 +49,10 @@ Route::post("campaign/store","AdminController@storeCampaign");
 Route::get("/campaign/edit/{id}","AdminController@campaignEdit");
 Route::post("/campaign/update/{id}","AdminController@campaignUpdate");
 Route::get("/campaign/delete/{id}","AdminController@campaignDestroy");
+//{{--donors--}}
+Route::get("/donors","AdminController@donors");
+Route::get("donors/create","AdminController@createDonors");
+Route::post("donors/store","AdminController@storeDonors");
+Route::get("/donors/edit/{id}","AdminController@donorsEdit");
+Route::post("/donors/update/{id}","AdminController@donorsUpdate");
+Route::get("/donors/delete/{id}","AdminController@donorsDestroy");

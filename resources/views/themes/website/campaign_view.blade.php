@@ -36,9 +36,9 @@
                                 </a>
                                 <p>{{$campaigns->content}}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i>800 people Donate</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>{{$tdonate}} people Donate</a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i>Need to Achieve 5000,000 USD</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i>received 1000,000 USD</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i>Received {{$total_money}} USD</a></li>
                                 </ul>
                             </div>
                         </article>
@@ -49,7 +49,7 @@
                             <div class="media post_item">
                                 <img style="width:20%" src="{{$ct->image}}" alt="post">
                                 <div class="media-body">
-                                    <a href="{{url("viewcampaign/{$ct->id}")}}">
+                                    <a href="{{url("chiendich",["campaign_slug"=>$ct->campaign_slug])}}">
                                         <h3>{{$ct->campaign_name}}</h3>
                                     </a>
                                     <p><b>start :</b> {{$ct->start_date}}</p>
@@ -65,9 +65,9 @@
                         <aside class="single_sidebar_widget instagram_feeds">
                             <h4 class="widget_title">Introduce</h4>
                             <ul style="color:black;">
-                                    <li><p><i class="fa fa-user"></i> 800 people Donate</li></p>
+                                    <li><p><i class="fa fa-user"></i> {{$tdonate}} people Donate</li></p>
                                     <li><p><i class="fa fa-comments"></i> Objectives achieved 5000,000 USD</li></p>
-                                    <li><p><i class="fa fa-comments"></i> Received 1000,000 USD</li></p>
+                                    <li><p><i class="fa fa-comments"></i> Received {{$total_money}} USD</li></p>
                                 </ul>
                         </aside>
 
@@ -75,7 +75,7 @@
                                 <div class="text-center">
                                     <h3>Donate Now</h3>
                                 </div>
-                                <form class="form-group contact_form" action="#" method="post" id="donate-now" novalidate="novalidate">
+                                <form class="form-group contact_form" action="{{url("donate-now/{$campaigns->id}")}}" method="post" id="donate-now" novalidate="novalidate">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -129,6 +129,17 @@
                                 </li>
                             </ul>
                         </aside>
+
+                        <div><h5>List People Donate</h5>
+                        <div>
+                            <ul class="list-group list-group-flush" style="background-color: #eee;width: 100%;height: 200px;overflow: scroll;">
+                                @foreach($donatep as $d)
+                                <li class="list-group-item"><p>{{$d->id}}. {{$d->name}} - ${{$d->getDonate()}}</p></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        </div>
+                            
                     </div>
                 </div>
             </div>

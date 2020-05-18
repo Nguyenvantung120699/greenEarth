@@ -16,7 +16,7 @@
                                         <div class="col-sm-8">
                                             <div class="form-group">
                                                 <label class="text-capitalize">{{__('Tiêu đề')}}</label>
-                                                <input type="text" name="event_name" class="form-control" value="{{$campaigns->campaign_name}}" required>
+                                                <input type="text" name="campaign_name" class="form-control" value="{{$campaigns->campaign_name}}" required>
 
                                             </div>
                                         </div>

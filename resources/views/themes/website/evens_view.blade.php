@@ -50,16 +50,24 @@
                         <p>{{$events->content}}</p>
 
                         <ul class="blog-info-link">
-                           <li><a href="#"><i class="fa fa-user"></i>+ 100 / 800 People Join</a></li>
+                           <li><a href="#"><i class="fa fa-user"></i>+ {{$pevent}} / 800 People Join</a></li>
                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Ha Noi - Viet Nam</a></li>
                         </ul>
                      </div>
                   </div>
                </div>
             </div>
+           @if($pevent >= 800)
+           <div class="comment-form">
+            <form class="form-contact comment_form">
+           <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                        type="submit">đã đủ người tham gia</button>
+                  </form>
+                  </div>
+           @else
             <div class="comment-form">
                <h2>Join Evens</h2>
-               <form class="form-contact comment_form" action="#" id="comment" method="post">
+               <form class="form-contact comment_form" action="{{url("joinMember/{$events->id}")}}" id="comment" method="post">
                   @csrf
                      <div class="row">
                         <div class="col-sm-6">
@@ -100,10 +108,11 @@
                         </div>
                      </div>
                         <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                        type="submit">Join</button>
+                        type="submit" data-toggle="modal" data-target="#exampleModalCenter">Join</button>
                   </form>
                </div>
          </div>
+        @endif
         <!-- Our Services End -->
         <!-- Video Start Arera -->
         <div class="favourite-place place-padding">
@@ -126,13 +135,11 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
                                     <h3><a href="#">{{$et->event_name}}</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
+                                        <li><i class="far fa-clock"></i>{{$et->start_date}}</li>
                                         <li><i class="fas fa-map-marker-alt"></i>{{$et->address}}</li>
                                     </ul>
                                 </div>

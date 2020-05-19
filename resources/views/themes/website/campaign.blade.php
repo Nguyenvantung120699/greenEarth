@@ -18,9 +18,9 @@
 <section class="blog_area section-padding">
    <div class="container">
       <div class="row">
+      @foreach($campaign as $c)
             <div class="col-lg-6 mb-5 mb-lg-0">
                <div class="blog_left_sidebar">
-               @foreach($campaign as $c)
                   <article class="blog_item">
                         <div class="blog_item_img">
                            <img class="card-img rounded-0" src="{{$c->image}}" alt="">
@@ -41,9 +41,9 @@
                            </ul>
                         </div>
                   </article>
-                  @endforeach
                </div>
             </div>
+            @endforeach
          </div>
       </div>
    </section>

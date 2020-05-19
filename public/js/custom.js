@@ -82,10 +82,10 @@ $(function () {
                 e.preventDefault();
                 $.ajax({
                     method : "post",
-                    url : $("#introduction").attr("action"),
+                    url : $("#introduction").attr("action"),    
                     data : $("#introduction").serialize(),
                     dataType : "json",
-                    success : function () {
+                    success : function (res) {
                             form.trigger("reset")
                             alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
                             // $("#ignismyModal").show();

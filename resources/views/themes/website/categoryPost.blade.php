@@ -48,8 +48,7 @@
                                 <p>{{$post->short_desc}}</p>
                             </div>
                             <div class="button-group-area mt-40">
-                            <a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}" class="genric-btn success radius">Preview</a>
-                            <a href="#" class="genric-btn warning radius">Donate now</a>
+                            <a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}" class="genric-btn success radius">Preview</a>  
                         </div>
                         </div>
                     </div>

@@ -141,7 +141,6 @@ class WebController extends Controller
         ], 200);
     }
     public function Donate(Request $request,$campaigns_id){
-
         $request->validate([
             'name'=>'required',
             'email'=>'required',
@@ -169,7 +168,6 @@ class WebController extends Controller
         return response()->json([
             'message' => 'Donate successfully.'
         ], 200);
-        Mail::to('ntung9921@gmail.com')->send(new Donates());
     }
     public function introduction(Request $request){
         $request->validate([
@@ -230,6 +228,7 @@ class WebController extends Controller
 
     public function contact(){
 
+        Mail::to('tungnvth1903001@fpt.edu.vn')->send(new Donates());
         return view("themes.website.contact");
     }
 

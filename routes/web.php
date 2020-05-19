@@ -40,7 +40,7 @@ Route::get("campaign",'WebController@campaign');
 Route::get("sukien/{event_slug}",'WebController@viewevents');
 Route::get("chiendich/{campaign_slug}",'WebController@viewcampaign');
 
-Route::get("about",'WebController@about');
+Route::get("contact",'WebController@contact');
 
 Route::get("search",'WebController@search');
 

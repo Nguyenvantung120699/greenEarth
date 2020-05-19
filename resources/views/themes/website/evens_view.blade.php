@@ -67,7 +67,7 @@
            @else
             <div class="comment-form">
                <h2>Join Evens</h2>
-               <form class="form-contact comment_form" action="{{url("joinMember/{$events->id}")}}" id="comment" method="post">
+               <form class="form-contact comment_form" action="{{url("joinMember/{$events->id}")}}" id="join-group" method="post">
                   @csrf
                      <div class="row">
                         <div class="col-sm-6">

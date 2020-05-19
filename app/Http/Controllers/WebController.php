@@ -16,14 +16,13 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-
-use App\Feedback;
 use App\Post;
 use App\Category;
 use App\Comment;
 use App\User;
 use App\Campaign;
 use App\Event;
+
 
 class WebController extends Controller
 {
@@ -134,9 +133,10 @@ class WebController extends Controller
               ]);
         }catch (\Throwable $th){
             throw $th;
-        }   
+        }
         return response()->json([
             'message' => 'Register successfully.'
+
         ], 200);
     }
     public function Donate(Request $request,$campaigns_id){
@@ -168,7 +168,7 @@ class WebController extends Controller
         return response()->json([
             'message' => 'Donate successfully.'
         ], 200);
-        Mail::to("nambpth1902008@gmail.com")->send(new  Donate());
+
     }
     public function introduction(Request $request){
         $request->validate([

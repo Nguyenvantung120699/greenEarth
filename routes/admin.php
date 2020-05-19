@@ -27,6 +27,7 @@ Route::get("/comment","AdminController@comment");
 Route::get("/account","AdminController@account");
 Route::get('account/create',"AdminController@userCreate");
 Route::post('account/store',"AdminController@userStore");
+Route::get('account/delete/{id}',"AdminController@destroyAccount");
 //{{--member--}}
 Route::get("/member","AdminController@member");
 Route::get("member/pending","AdminController@pendingMembers");

@@ -186,7 +186,8 @@ class AdminController extends Controller
     }
 //        {{--account--}}
     public function account(){
-        return view("themes.admin.account.index");
+        $users = User::all();
+        return view("themes.admin.account.index",compact("users"));
     }
     public function userCreate(){
         return view('themes.admin.account.create');
@@ -194,21 +195,34 @@ class AdminController extends Controller
 
     public function userStore(Request $request){
         $request->validate([
-            "email"=> "required|string|max:255|unique:users",// validation laravel
+            "email"=> "required|string|max:255|unique:users",
             "name"=> "required|string",
+            "full_name"=>"required",
             "password"=> "required|string",
         ]);
         try{
             User::create([
                 "name"=> $request->get("name"),
+                'full_name'=>$request->get("full_name"),
                 "email"=> $request->get("email"),
                 "password"=> $request->get("password"),
+
             ]);
         }catch(\Exception $e){
             return redirect()->back();
         }
         return redirect()->to("admin/account");
     }
+    public function destroyAccount($id){
+        $user = User::find($id);
+        try {
+            $user->delete();
+        }catch (\Throwable $th){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/account");
+    }
+
 
     // {{--member--}}
     public function member(){

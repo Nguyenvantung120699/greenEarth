@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    protected $table = "member";
-    protected $fillable = ['name','email','telephone','address','event_id'];
+    protected $table = "join_member";
+    protected $fillable = ['name','email','status','telephone','address','event_id'];
 
     const PENDING = 0;
     const ACTIVE = 1;

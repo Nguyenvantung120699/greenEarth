@@ -42,15 +42,25 @@ class WebController extends Controller
 
 
     public function index(){
-        $categories = Category::all();
-        $post = Post::orderBy('count_views','desc')->take(6)->get();
-        $postt = Post::orderBy('id','desc')->take(2)->get();
-        // $posts = Post::orderBy('id','desc')->take(1)->get();
-        $like = Post::orderBy('count_like','desc')->take(4)->get();
-        $campaigns = Campaign::orderBy('id','desc')->take(1)->get();
-        $campaignt = Campaign::orderBy('id','desc')->take(2)->get();
-        $events = Event::orderBy('id','desc')->take(1)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt,'campaigns'=>$campaigns,'events'=>$events,'campaignt'=> $campaignt]);
+        if (!Cache::has("home")){
+            $cache = [];
+            $cache['post'] = Post::orderBy("created_at",'DESC')->first();
+            $cache['campaign'] = Campaign::orderBy("created_at",'DESC')->first();
+            $cache['event'] = Event::orderBy("created_at",'DESC')->first();
+            $cache['campaigns']= Campaign::orderBy("created_at",'DESC')->take(2)->get();
+
+            $post = $cache['post'];
+            $campaign = $cache['campaign'];
+            $event = $cache['event'];
+            $campaigns = $cache['campaigns'];
+
+            $views = view("themes.website.home",compact('post','campaign','event','campaigns'))->render();
+
+            $now = Carbon::now();
+            $exp_date = $now->addHour(1);
+            Cache::put('home',$views,$exp_date);
+        }
+        return Cache::get("home");
     }
 
     public function categoryPost($path){

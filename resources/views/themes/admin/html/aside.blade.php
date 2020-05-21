@@ -17,7 +17,7 @@
             </li>
             <li class="nav-item">
                 <div class="btn-group dropright">
-                    <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">edit</i>
                         <p>Hoạt Động</p>
                     </a>
@@ -53,7 +53,7 @@
             </li>
             <li class="nav-item">
                 <div class="btn-group dropright">
-                    <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">event</i>
                         <p>Sự kiện</p>
                     </a>
@@ -77,7 +77,7 @@
             </li>
             <li class="nav-item">
                 <div class="btn-group dropright">
-                    <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">nfc</i>
                         <p>Chiến dịch</p>
                     </a>
@@ -125,7 +125,7 @@
             </li>
             <li class="nav-item">
                 <div class="btn-group dropright">
-                    <a class="nav-link" href="javasrciptvoid 0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">account_tree</i>
                         <p>Tài trợ</p>
                     </a>
@@ -153,11 +153,29 @@
                     <p>Ủng hộ</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="{{url("admin/account")}}">
-                    <i class="material-icons">person</i>
-                    <p>Tài khoản</p>
-                </a>
+            <li class="nav-item">
+                <div class="btn-group dropright">
+                    <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">person</i>
+                        <p>Tài khoản</p>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url("admin/account/create")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-file"></i>
+                                    <p>Thêm tài khoản</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url("admin/account")}}" class="nav-link text-capitalize">
+                                    <i class="fa fa-th-list"></i>
+                                    <p>Tất cả tài khoản</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="{{url("/")}}">

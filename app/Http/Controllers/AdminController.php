@@ -39,6 +39,8 @@ class AdminController extends Controller
                         "category_name"=>$request->get("category_name"),
                         "path"=>str_slug($request->get("category_name"))
                 ]);
+
+            notify('green',"category",["message"=>"Thêm danh mục mới :".$request->get("category_name")]);
         }catch (\Exception $e){
             return redirect()->back();
         }
@@ -114,8 +116,8 @@ class AdminController extends Controller
                 $file_name = time()."-".$file->getClientOriginalName();
                 $ext =$file->getClientOriginalExtension();
                 if (in_array($ext,$ext_allow)){
-                        $file->move("upload/post",$file_name);
-                        $image = "upload/post".$file_name;
+                        $file->move("upload/post/",$file_name);
+                        $image = "upload/post/".$file_name;
                 }
             }
             Post::create([
@@ -127,6 +129,7 @@ class AdminController extends Controller
                 "short_desc"=>$request->get("short_desc"),
                 "content"=>$request->get("content")
             ]);
+            notify('posts',"post",["message"=>"Thêm bài viết mới :".$request->get("title")]);
         }catch (\Exception $e){
                 return redirect()->back();
         }
@@ -302,6 +305,7 @@ class AdminController extends Controller
                 "organizational_units"=>$request->get("organizational_units"),
                 "address"=>$request->get("address")
             ]);
+            notify('create',"event",["message"=>"Thêm sự kiện mới :".$request->get("event_name")]);
 
           }catch (\Exception $e){
                 return redirect()->back();
@@ -413,7 +417,7 @@ class AdminController extends Controller
                 "organizational_units"=>$request->get("organizational_units"),
 
             ]);
-
+            notify('campaigns',"campaign",["message"=>"Thêm chiến dịch mới :".$request->get("campaign_name")]);
         }catch (\Exception $e){
             return redirect()->back();
         }

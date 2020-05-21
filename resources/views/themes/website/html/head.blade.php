@@ -19,4 +19,6 @@
             <link rel="stylesheet" href="{{asset("css/slick.css")}}">
             <link rel="stylesheet" href="{{asset("css/nice-select.css")}}">
             <link rel="stylesheet" href="{{asset("css/style.css")}}">
+    <script src="{{asset("https://js.pusher.com/6.0/pusher.min.js")}}"></script>
+
    </head>

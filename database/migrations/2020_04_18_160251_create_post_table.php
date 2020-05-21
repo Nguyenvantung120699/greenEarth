@@ -18,6 +18,7 @@ class CreatePostTable extends Migration
             $table->string('title',191)->unique();
             $table->string('author');
             $table->string('slug');
+            $table->string("image");
             $table->text("short_desc");
             $table->text('content');
             $table->tinyInteger('status')->default(1);   

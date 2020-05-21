@@ -8,7 +8,7 @@
               <div class="row">
                   <div class="col-xl-12">
                       <div class="hero-cap text-center">
-                          <h2>Campaign</h2>
+                          <h2>{{trans('campaign.campaign')}}</h2>
                       </div>
                   </div>
               </div>
@@ -36,8 +36,8 @@
                            </a>
                            <p>{{$c->organizational_units}}</p>
                            <ul class="blog-info-link">
-                              <li><a href="#"><i class="far fa-clock"></i>start : {{$c->start_date}}</a></li>
-                              <li><a href="#"><i class="far fa-clock"></i>end : {{$c->end_date}}</a></li>
+                              <li><a href="#"><i class="far fa-clock"></i>{{trans('campaign.start')}} : {{$c->start_date}}</a></li>
+                              <li><a href="#"><i class="far fa-clock"></i>{{trans('campaign.end')}} : {{$c->end_date}}</a></li>
                            </ul>
                         </div>
                   </article>

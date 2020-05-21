@@ -7,7 +7,7 @@
               <div class="row">
                   <div class="col-xl-12">
                       <div class="hero-cap text-center">
-                          <h2>Evens</h2>
+                          <h2>{{trans('event_view.evens')}}</h2>
                       </div>
                   </div>
               </div>
@@ -28,7 +28,7 @@
                </div>
                <div class=" blog_right_sidebar" >
                            <aside class="single_sidebar_widget tag_cloud_widget">
-                            <h4 class="widget_title">Sponsors</h4>
+                            <h4 class="widget_title">{{trans('event_view.sponsors')}}</h4>
                             <ul class="list">
                                 <li>
                                     <a href="#">{{$events->organizational_units}}</a>
@@ -41,16 +41,16 @@
                <div class="right-caption">
                      <!-- Section Tittle -->
                      <div class="section-tittle section-tittle2">
-                        <span>EVENS</span>
+                        <span>{{trans('event_view.evens')}}</span>
                         <h2>{{$events->event_name}}</h2><br>
-                        <p><b>Time start :</b> {{$events->start_date}}</p>
-                        <p><b>Event location : </b>{{$events->address}}</p>
+                        <p><b>{{trans('event_view.time')}} </b> {{$events->start_date}}</p>
+                        <p><b>{{trans('event_view.address')}} </b>{{$events->address}}</p>
                      </div>
                      <div class="support-caption">
                         <p>{{$events->content}}</p>
 
                         <ul class="blog-info-link">
-                           <li><a href="#"><i class="fa fa-user"></i>+ {{$pevent}} / {{$events->target}} People Join</a></li>
+                           <li><a href="#"><i class="fa fa-user"></i>+ {{$pevent}} / {{$events->target}} {{trans('event_view.people')}}</a></li>
                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Ha Noi - Viet Nam</a></li>
                         </ul>
                      </div>
@@ -61,23 +61,23 @@
            <div class="comment-form">
             <form class="form-contact comment_form">
            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                        type="submit">đã đủ người tham gia</button>
+                        type="submit">{{trans('event_view.check_form')}}</button>
                   </form>
                   </div>
            @else
             <div class="comment-form">
-               <h2>Join Evens</h2>
+               <h2>{{trans('event_view.form_title')}}</h2>
                <form class="form-contact comment_form" action="{{url("joinMember/{$events->id}")}}" id="join-group" method="post">
                   @csrf
                      <div class="row">
                         <div class="col-sm-6">
                            <div class="form-group">
-                                 <input class="form-control valid" name="name" id="name" type="text"   placeholder="{{trans('home.name_form')}}" required>
+                                 <input class="form-control valid" name="name" id="name" type="text"   placeholder="{{trans('event_view.form_name')}}" required>
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                                 <input class="form-control cc-name @if($errors->has("email")) is-invalid @endif" name="email" value="{{old("email")}}" type="email" placeholder="{{trans('home.email_form')}}" required>
+                                 <input class="form-control cc-name @if($errors->has("email")) is-invalid @endif" name="email" value="{{old("email")}}" type="email" placeholder="{{trans('event_view.form_email')}}" required>
                                  @if($errors->has("email"))
                                     <p style="color:red">{{$errors->first("email")}}</p>
                                  @endif
@@ -93,22 +93,22 @@
                         </div>
                         <div class="col-sm-10">
                            <div class="form-group">
-                                 <input class="form-control valid" name="telephone" placeholder="{{trans('home.telephone_form')}}" required>
+                                 <input class="form-control valid" name="telephone" placeholder="{{trans('event_view.form_telephone')}}" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                                 <input class="form-control" name="address" id="address" type="text"  placeholder="{{trans('home.address_form')}}" required>
+                                 <input class="form-control" name="address" id="address" type="text"  placeholder="{{trans('event_view.form_address')}}" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                                 <textarea class="form-control" maxlength="1000" name="message" id="message" rows="4" type="text"  placeholder="{{trans('home.message_form')}}"></textarea>
+                                 <textarea class="form-control" maxlength="1000" name="message" id="message" rows="4" type="text"  placeholder="{{trans('event_view.form_message')}}"></textarea>
                            </div>
                         </div>
                      </div>
                         <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                        type="submit">Join</button>
+                        type="submit">{{trans('event_view.form_button')}}</button>
                   </form>
                </div>
          </div>
@@ -121,8 +121,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <span>Other Events</span>
-                            <h2>Upcoming</h2>
+                            <span>{{trans('event_view.other1')}}</span>
+                            <h2>{{trans('event_view.other2')}}</h2>
                         </div>
                     </div>
                 </div>

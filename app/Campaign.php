@@ -12,4 +12,8 @@ class Campaign extends Model
     public function Donate(){
         return $this->hasMany(Donate::class);
     }
+
+    public function getTarget(){
+        return number_format($this->target,"0",",",".");
+    }
 }

@@ -1,0 +1,23 @@
+<?php
+return[
+    "campaign"=>"Chiến Dịch",
+    "info"=>"Thông Tin Chiến Dịch",
+    "i1"=>"Người Quyên Góp",
+    "i2"=>"Mục tiêu ",
+    "i3"=>"Đã Nhận",
+    "start"=>"Bắt Đầu",
+    "end"=>"Kết Thúc",
+    "other"=>"Các chiến dịch khác",
+    "form_title"=>"Quyên Góp Ngay Bây Giờ",
+    "form_name"=>"Điền Tên Của Bạn",
+    "form_email"=>"Điền Email Của Bạn",
+    "form_address"=>"Điền Địa Chỉ",
+    "form_telephone"=>"Điền Số Điện Thoại",
+    "form_donate"=>"Số Tiền Bạn Quyên Góp",
+    "form_method1"=>"Chuyển Khoản",
+    "form_method2"=>"Bưu điện",
+    "form_message"=>"Ghi Chú",
+    "form_button"=>"Quyên Góp",
+    "organizer"=>"Người tổ chức",
+    "list"=>"Những Người Đã Quyên Góp",
+];

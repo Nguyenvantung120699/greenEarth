@@ -7,7 +7,7 @@
               <div class="row">
                   <div class="col-xl-12">
                       <div class="hero-cap text-center">
-                          <h2>Campaign</h2>
+                          <h2>{{trans('campaign_view.campaign')}}</h2>
                       </div>
                   </div>
               </div>
@@ -25,8 +25,8 @@
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="{{$campaigns->image}}" alt="">
                                 <a href="#" class="blog_item_date">
-                                    <h3>Start : {{$campaigns->start_date}}</h3>
-                                    <p>end : {{$campaigns->end_date}}</p>
+                                    <h3>{{trans('campaign_view.start')}} : {{$campaigns->start_date}}</h3>
+                                    <p>{{trans('campaign_view.end')}} : {{$campaigns->end_date}}</p>
                                 </a>
                             </div>
 
@@ -36,15 +36,15 @@
                                 </a>
                                 <p>{{$campaigns->content}}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i>{{$tdonate}} people Donate</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i>Objectives achieved {{$campaigns->target}}</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i>Received {{$total_money}} USD</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>{{$tdonate}} {{trans('campaign_view.i1')}}</a></li>
+                                    <li><a href="#"><i class="fas fa-money-bill-alt"></i>{{trans('campaign_view.i2')}} {{$campaigns->getTarget()}} $</a></li>
+                                    <li><a href="#"><i class="fas fa-money-bill-alt"></i>{{trans('campaign_view.i3')}} {{number_format($total_money,"0",",",".")}} $</a></li>
                                 </ul>
                             </div>
                         </article>
 
                         <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">Other Campaigns</h3>
+                            <h3 class="widget_title">{{trans('campaign_view.other')}}</h3>
                             @foreach($campaignt as $ct)
                             <div class="media post_item">
                                 <img style="width:20%" src="{{$ct->image}}" alt="post">
@@ -63,65 +63,65 @@
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget instagram_feeds">
-                            <h4 class="widget_title">Introduce</h4>
+                            <h4 class="widget_title">{{trans('campaign_view.info')}}</h4>
                             <ul style="color:black;">
-                                    <li><p><i class="fa fa-user"></i> {{$tdonate}} people Donate</li></p>
-                                    <li><p><i class="fa fa-comments"></i> Objectives achieved {{$campaigns->target}} USD</li></p>
-                                    <li><p><i class="fa fa-comments"></i> Received {{$total_money}} USD</li></p>
+                                    <li><p><i class="fa fa-user"></i> {{$tdonate}} {{trans('campaign_view.i1')}}</li></p>
+                                    <li><p><i class="fas fa-money-bill-alt"></i> {{trans('campaign_view.i2')}}  {{$campaigns->getTarget()}} $</li></p>
+                                    <li><p><i class="fas fa-money-bill-alt"></i> {{trans('campaign_view.i3')}} {{number_format($total_money,"0",",",".")}} $</li></p>
                                 </ul>
                         </aside>
 
                         <aside class="single_sidebar_widget search_widget">
                                 <div class="text-center">
-                                    <h3>Donate Now</h3>
+                                    <h3>{{trans('campaign_view.form_title')}}</h3>
                                 </div>
                                 <form class="form-group contact_form" action="{{url("donate-now/{$campaigns->id}")}}" method="post" id="donate-now" novalidate="novalidate">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input class="form-control valid" name="name" id="name" type="text" placeholder="{{__("Enter your name")}}" required>
+                                            <input class="form-control valid" name="name" id="name" type="text" placeholder="{{trans('campaign_view.form_name')}}" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input class="form-control valid" name="email" id="email" type="email" placeholder="{{__("Enter email address")}}" required>
+                                            <input class="form-control valid" name="email" id="email" type="email" placeholder="{{trans('campaign_view.form_email')}}" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="address" id="address" type="text" placeholder="{{__("Enter Address")}}" required>
+                                            <input class="form-control" name="address" id="address" type="text" placeholder="{{trans('campaign_view.form_address')}}" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="telephone" id="telephone" type="text"  placeholder="{{__("Enter Telephone")}}" required>
+                                            <input class="form-control" name="telephone" id="telephone" type="text"  placeholder="{{trans('campaign_view.form_telephone')}}" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input class="form-control valid" name="donate" id="money" type="number" placeholder="{{__("The amount you donate")}}" required>
+                                            <input class="form-control valid" name="donate" id="money" type="number" placeholder="{{trans('campaign_view.form_donate')}}" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <select class="form-control" name="payment_method">
-                                                <option selected  id="1" value="bank-transfer">Bank transfer</option>
-                                                <option selected id="2" value="post-office">Post office</option>
+                                                <option selected  id="1" value="bank-transfer">{{trans('campaign_view.form_method1')}}</option>
+                                                <option selected id="2" value="post-office">{{trans('campaign_view.form_method2')}}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <textarea class="form-control w-100" minlength="100" name="message" id="message" cols="30" rows="9" placeholder="{{__("Message")}}"></textarea>
+                                            <textarea class="form-control w-100" minlength="100" name="message" id="message" cols="30" rows="9" placeholder="{{trans('campaign_view.form_message')}}"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                    <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Donate</button>
+                                    <button id="button" class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">{{trans('campaign_view.form_button')}}</button>
                             </form>
                         </aside>
                         <aside class="single_sidebar_widget tag_cloud_widget">
-                            <h4 class="widget_title">Organizer</h4>
+                            <h4 class="widget_title">{{trans('campaign_view.organizer')}}</h4>
                             <ul class="list">
                                 <li>
                                     <a href="#">{{$campaigns->organizational_units}}</a>
@@ -129,11 +129,11 @@
                             </ul>
                         </aside>
 
-                        <div><h5>List People Donate</h5>
+                        <div><h5>{{trans('campaign_view.list')}}</h5>
                         <div>
                             <ul class="list-group list-group-flush" style="background-color: #eee;width: 100%;height: 200px;overflow: scroll;">
                                 @foreach($donatep as $d)
-                                <li class="list-group-item"><p>{{$d->id}}. {{$d->name}} - ${{$d->getDonate()}}</p></li>
+                                <li class="list-group-item"><p>{{$d->id}}. {{$d->name}} - {{$d->getDonate()}}$</p></li>
                                 @endforeach
                             </ul>
                         </div>

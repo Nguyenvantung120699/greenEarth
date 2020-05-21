@@ -8,7 +8,7 @@
               <div class="row">
                   <div class="col-xl-12">
                       <div class="hero-cap text-center">
-                          <h2>Evens</h2>
+                          <h2>{{trans('event.event')}}</h2>
                       </div>
                   </div>
               </div>
@@ -21,8 +21,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <span>Green Earth Event</span>
-                            <h2>Our Events</h2>
+                            <span>{{trans('event.title1')}}</span>
+                            <h2>{{trans('event.title2')}}</h2>
                         </div>
                     </div>
                 </div>
@@ -35,9 +35,9 @@
                                     <img src="{{$e->image}}" alt="">
                                 </div>
                                 <div class="blog-cap">
-                                    <p> |   Event</p>
+                                    <p> |   {{trans('event.event')}}</p>
                                     <h3><a href="{{url("sukien",["event_slug"=>$e->event_slug])}}">{{$e->event_name}}</a></h3>
-                                    <a href="{{url("sukien",["event_slug"=>$e->event_slug])}}" class="more-btn">Read more »</a>
+                                    <a href="{{url("sukien",["event_slug"=>$e->event_slug])}}" class="more-btn">{{trans('event.readmore')}}</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">

@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 use App\Mail\Donates;
+use App\Mail\JoinGroup;
+use App\Mail\Introduce;
 use App\Feedback;
 use App\Post;
 use App\Category;
@@ -46,8 +48,9 @@ class WebController extends Controller
         // $posts = Post::orderBy('id','desc')->take(1)->get();
         $like = Post::orderBy('count_like','desc')->take(4)->get();
         $campaigns = Campaign::orderBy('id','desc')->take(1)->get();
+        $campaignt = Campaign::orderBy('id','desc')->take(2)->get();
         $events = Event::orderBy('id','desc')->take(1)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt,'campaigns'=>$campaigns,'events'=>$events]);
+        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt,'campaigns'=>$campaigns,'events'=>$events,'campaignt'=> $campaignt]);
     }
 
     public function categoryPost($path){
@@ -135,7 +138,8 @@ class WebController extends Controller
               ]);
         }catch (\Throwable $th){
             throw $th;
-        }   
+        }
+        Mail::to($request->get("email"))->send(new Joingroup());   
         return response()->json([
             'message' => 'Register successfully.'
         ], 200);
@@ -165,6 +169,7 @@ class WebController extends Controller
 
         }catch (\Throwable $th){
         }
+        Mail::to($request->get("email"))->send(new Donates());
         return response()->json([
             'message' => 'Donate successfully.'
         ], 200);
@@ -191,6 +196,7 @@ class WebController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
+        Mail::to($request->get("email"))->send(new Introduce());
         return response()->json([
             'message' => 'Register successfully.'
         ], 200);
@@ -227,8 +233,6 @@ class WebController extends Controller
     }
 
     public function contact(){
-
-        Mail::to('tungnvth1903001@fpt.edu.vn')->send(new Donates());
         return view("themes.website.contact");
     }
 

@@ -20,7 +20,7 @@
 					@enderror
 				</div>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control password @error('password') is-invalid @enderror" name="password" placeholder='Password'
+					<input type="password" class="form-control password @error('password') is-invalid @enderror" name="password" placeholder='Password'
 						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
 						@error('password')
 						<span class="invalid-feedback" role="alert">

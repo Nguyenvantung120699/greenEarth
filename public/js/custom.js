@@ -54,7 +54,7 @@ $(function () {
                 data : $('#join-group').serialize(),
                 dataType : "json",
                 success : function () {
-                    form.trigger("reset");
+                    location.reload()
                     alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
                 }
             })
@@ -68,9 +68,9 @@ $(function () {
                     method : "post",
                     url : $('#donate-now').attr("action"),
                     data : $("#donate-now").serialize(),
-                    dataType : "json",
+                    dataType : "json",  
                     success :function (response) {
-                        form.trigger("reset");
+                        location.reload()
                         alert("Cảm ơn bạn đã tham gia ủng hộ hoạt động")
                     }
                 });

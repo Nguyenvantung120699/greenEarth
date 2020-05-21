@@ -19,7 +19,7 @@
    <div class="container">
       <div class="row">
       @foreach($campaign as $c)
-            <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="col-lg-4 mb-5 mb-lg-0">
                <div class="blog_left_sidebar">
                   <article class="blog_item">
                         <div class="blog_item_img">

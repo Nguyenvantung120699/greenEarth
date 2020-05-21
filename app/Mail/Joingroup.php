@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Donates extends Mailable
+class Joingroup extends Mailable
 {
     use Queueable, SerializesModels;
     // public $donate;
@@ -29,6 +29,6 @@ class Donates extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.donate');
+        return $this->markdown('email.joingroup');
     }
 }

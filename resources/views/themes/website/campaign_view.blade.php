@@ -37,7 +37,7 @@
                                 <p>{{$campaigns->content}}</p>
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-user"></i>{{$tdonate}} people Donate</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i>Need to Achieve 5000,000 USD</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i>Objectives achieved {{$campaigns->target}}</a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i>Received {{$total_money}} USD</a></li>
                                 </ul>
                             </div>
@@ -52,7 +52,7 @@
                                     <a href="{{url("chiendich",["campaign_slug"=>$ct->campaign_slug])}}">
                                         <h3>{{$ct->campaign_name}}</h3>
                                     </a>
-                                    <p><b>start :</b> {{$ct->start_date}}</p>
+                                    <p><b>{{$ct->organizational_units}}</b></p>
                                 </div>
                             </div>
                             @endforeach
@@ -117,8 +117,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" data-toggle="modal" data-target="#exampleModalCenter"
-                                    type="submit">Donate</button>
+                                    <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Donate</button>
                             </form>
                         </aside>
                         <aside class="single_sidebar_widget tag_cloud_widget">

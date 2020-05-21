@@ -159,6 +159,12 @@
                     <p>Tài khoản</p>
                 </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{url("/")}}">
+                    <i class="material-icons">home</i>
+                    <p>Back To Home</p>
+                </a>
+            </li>
 
         </ul>
     </div>

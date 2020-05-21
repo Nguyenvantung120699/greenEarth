@@ -165,7 +165,7 @@
                                     </div>
                                 </div>
                                 <div class="blog-cap">
-                                    <p> |   Campaign</p>
+                                    <p> |   {{$c->organizational_units}}</p>
                                     <h3><a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}">{{$c->campaign_name}}</a></h3>
                                     <a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}" class="more-btn">Read more »</a>
                                 </div>
@@ -205,8 +205,8 @@
                                     <h2>{{$e->event_name}}</h2>
                                 </a>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> 100 people donated</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>{{$e->target}} People join</a></li>
+                                    <li><a href="#"><i class="fa fa-map"></i>address : {{$e->address}}</a></li>
                                 </ul>
                             </div>
                         </article>
@@ -348,7 +348,7 @@
                     </div>
                 </div>
                 <div class="row">
-                @foreach($postt as $pt)
+                @foreach($campaignt as $pt)
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
@@ -356,9 +356,9 @@
                                     <img src="{{$pt->image}}" alt="">
                                 </div>
                                 <div class="blog-cap">
-                                    <p> |   {{$pt->Category->category_name}}</p>
-                                    <h3><a href="single-blog.html">{{$pt->title}}</a></h3>
-                                    <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}" class="more-btn">{{trans('home.remore')}}</a>
+                                    <p> |   {{$pt->organizational_units}}</p>
+                                    <h3><a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}">{{$pt->campaign_name}}</a></h3>
+                                    <a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}" class="more-btn">{{trans('home.remore')}}</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">

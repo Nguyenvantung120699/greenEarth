@@ -3,7 +3,7 @@
 
 
 @include('themes.website.html.head')
-<body>
+<body class="preloading">
 
 	<!-- Start Header Area -->
 @include('themes.website.html.header')

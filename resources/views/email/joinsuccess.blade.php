@@ -106,11 +106,15 @@
 																	<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
 																		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																			<tr>
-																				<td class="h2 pb20" style="color:#050505; font-family:'Roboto', Arial,sans-serif; font-size:28px; line-height:34px; text-align:left; padding-bottom:20px;"><multiline>Green Earth Donate</multiline></td>
+																				<td class="h2 pb20" style="color:#050505; font-family:'Roboto', Arial,sans-serif; font-size:28px; line-height:34px; text-align:left; padding-bottom:20px;"><multiline>Green Earth Join Group Success</multiline></td>
 																			</tr>
 																			<tr>
-																				<td class="text pb20" style="color:#666666; font-family:'Roboto', Arial,sans-serif; font-size:16px; line-height:28px; text-align:left; padding-bottom:20px;"><multiline>Cảm ơn {{$donate->name}} đã Ủng Hộ <b>{{$donate->getdonate()}} USD </b>vào chiến dịch : <b>"{{$donate->campaign->campaign_name}}"</b><br>
-																				Môi trường là nơi chúng ta gặp nhau, là nơi đem lại lợi ích cho mọi người, là điều mà tất cả chúng ta đều chia sẻ ! Thank
+																				<td class="text pb20" style="color:#666666; font-family:'Roboto', Arial,sans-serif; font-size:16px; line-height:28px; text-align:left; padding-bottom:20px;"><multiline>yêu cầu đã Tham Gia vào sự kiện : <b>"{{$member->event->event_name}}"</b> của {{$member->name}} đã được phê duyệt<br>
+																				<p>Thời Gian Bắt Đầu sự kiện : <b>{{$member->event->start_date}}</b></p>
+																				<p>Thời Gian Kết Thúc sự kiện : <b>{{$member->event->end_date}}</b></p>
+																				<p>Địa Điểm Tổ Chức : <b>{{$member->event->address}}</b></p>
+
+																				Vui lòng tham dự đúng thời gian ! Xin Cảm Ơn !
 																				</multiline></td>                                                    
 																			</tr>
 																			<!-- Button -->
@@ -135,7 +139,6 @@
 										</tr>
 									</table>
 								</layout>
-				
 			</td>
 		</tr>
 	</table>

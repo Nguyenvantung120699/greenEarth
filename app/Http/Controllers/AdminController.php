@@ -2,6 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Donates;
+use App\Mail\JoinGroup;
+use App\Mail\Introduce;
+use App\Mail\Joinsuccess;
+use App\Mail\Outgroup;
+
+
 use App\Campaign;
 use App\Category;
 use App\Comment;
@@ -114,8 +123,8 @@ class AdminController extends Controller
                 $file_name = time()."-".$file->getClientOriginalName();
                 $ext =$file->getClientOriginalExtension();
                 if (in_array($ext,$ext_allow)){
-                        $file->move("upload/post",$file_name);
-                        $image = "upload/post".$file_name;
+                        $file->move("upload/post/",$file_name);
+                        $image = "upload/post/".$file_name;
                 }
             }
             Post::create([
@@ -241,6 +250,10 @@ class AdminController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
+        if($member->status==0)
+        {
+            Mail::to($member->email)->send(new Outgroup($member)); 
+        }  
         return redirect()->to("admin/member");
     }
     public function restoreMember($id){
@@ -251,6 +264,10 @@ class AdminController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
+        if($member->status==1)
+        {
+            Mail::to($member->email)->send(new Joinsuccess($member)); 
+        }  
         return redirect()->to("admin/member/pending");
     }
 // {{--donate--}}

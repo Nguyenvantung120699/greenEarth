@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Member;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -10,16 +11,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Joingroup extends Mailable
 {
     use Queueable, SerializesModels;
-    // public $donate;
+    public $member;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Member $member)
     {
-        // $this->donate = $donate;
+        $this->member = $member;
+        $this->event = $member->Event()->get();
     }
 
     /**
@@ -29,6 +31,6 @@ class Joingroup extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.joingroup');
+        return $this->markdown('email.joingroup')->with(['member'=>$this->member,'event'=>$this->event]);
     }
 }

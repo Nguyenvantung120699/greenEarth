@@ -7,7 +7,7 @@
               <div class="row">
                   <div class="col-xl-12">
                       <div class="hero-cap text-center">
-                          <h2>{{trans('event_view.evens')}}</h2>
+                          <h2>{{trans('event_view.event')}}</h2>
                       </div>
                   </div>
               </div>
@@ -21,7 +21,7 @@
          <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6">
                <div class="support-location-img mb-50">
-                     <img src="{{$events->image}}" alt="">
+                     <img src="{{asset("$events->image")}}" alt="">
                      <div class="support-img-cap">
                         <span>Since 1992</span>
                      </div>
@@ -29,10 +29,19 @@
                <div class=" blog_right_sidebar" >
                            <aside class="single_sidebar_widget tag_cloud_widget">
                             <h4 class="widget_title">{{trans('event_view.sponsors')}}</h4>
-                            <ul class="list">
-                                <li>
-                                    <a href="#">{{$events->organizational_units}}</a>
-                                </li>
+                            <ul class="list col-lg-12">
+                            <div class="row">
+                            @foreach($eventdn as $ed)
+                                <div class="col-lg-6">
+                                    <li>
+                                        <a href="#">
+                                            <img style="width:40%" src="{{$ed->logo}}" alt="">
+                                            <b>{{$ed->name}}</b>
+                                        </a>
+                                    </li>
+                                </div>
+                            @endforeach
+                            </div>
                             </ul>
                         </aside>
                         </div>
@@ -41,7 +50,7 @@
                <div class="right-caption">
                      <!-- Section Tittle -->
                      <div class="section-tittle section-tittle2">
-                        <span>{{trans('event_view.evens')}}</span>
+                        <span>{{trans('event_view.event')}}</span>  
                         <h2>{{$events->event_name}}</h2><br>
                         <p><b>{{trans('event_view.time')}} </b> {{$events->start_date}}</p>
                         <p><b>{{trans('event_view.address')}} </b>{{$events->address}}</p>
@@ -56,6 +65,17 @@
                      </div>
                   </div>
                </div>
+            </div>
+            <div class="col-md-12" style="padding-top:5%">
+                <div><h5 class="border-bottom">{{trans('event_view.list')}}</h5>
+                    <div>
+                        <ul class="list-group list-group-flush" style="background-color: #eee;width: 100%;height: 200px;overflow: scroll;">
+                            @foreach($eventp as $d)
+                            <li class="list-group-item"><p>{{$d->id}}. {{$d->name}} - {{$d->email}} - {{$d->address}}</p></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
             </div>
            @if($pevent >= $events->target)
            <div class="comment-form">
@@ -126,16 +146,16 @@
                         </div>
                     </div>
                 </div>
-                @foreach($eventt as $et)
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                @foreach($eventt as $et)
+                    <div class="col-xl-4 col-lg-6 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="{{$et->image}}" alt="">
+                                <img src="{{asset("$et->image")}}" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3><a href="#">{{$et->event_name}}</a></h3>
+                                    <h3><a href="{{url("sukien",["event_slug"=>$et->event_slug])}}">{{$et->event_name}}</a></h3>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
@@ -147,6 +167,7 @@
                         </div>
                     </div>
                     @endforeach
+                    </div>
                 </div>
             </div>
         </div>

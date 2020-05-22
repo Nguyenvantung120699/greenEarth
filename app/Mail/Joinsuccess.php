@@ -2,27 +2,27 @@
 
 namespace App\Mail;
 
-use App\Donate;
+use App\Member;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Donates extends Mailable
+class Joinsuccess extends Mailable
 {
     use Queueable, SerializesModels;
-    public $donate;
+    public $member;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Donate $donate)
+    public function __construct(Member $member)
     {
-        $this->donate = $donate;
-        $this->campaign = $donate->Campaign()->get();
+        $this->member = $member;
+        $this->event = $member->Event()->get();
     }
 
     /**
@@ -32,6 +32,6 @@ class Donates extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.donate')->with(['donate'=>$this->donate,'campaign'=>$this->campaign]);
+        return $this->markdown('email.joinsuccess')->with(['member'=>$this->member,'event'=>$this->event]);
     }
 }

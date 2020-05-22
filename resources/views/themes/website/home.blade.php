@@ -179,20 +179,21 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6" style="height:365px">
                         <article class="blog_item">
+                        @foreach($event as $et)
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{asset("$event->image")}}" alt="">
+                                <img class="card-img rounded-0" src="{{asset("$et->image")}}" alt="">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <a href="#" class="blog_item_date" style="background-color:green">
                                                 <h3>Start</h3>
-                                                <p>{{$event->start_date}}</p>
+                                                <p>{{$et->start_date}}</p>
                                             </a>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="#" class="blog_item_date" style="background-color:red">
                                                 <h3>finish</h3>
-                                                <p>{{$event->end_date}}</p>
+                                                <p>{{$et->end_date}}</p>
                                             </a>
                                         </div>
                                     </div>
@@ -200,14 +201,15 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="{{url("sukien",["event_slug"=>$event->event_slug])}}">
-                                    <h2>{{$event->event_name}}</h2>
+                                <a class="d-inline-block" href="{{url("sukien",["event_slug"=>$et->event_slug])}}">
+                                    <h2>{{$et->event_name}}</h2>
                                 </a>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i>{{$event->target}} People join</a></li>
-                                    <li><a href="#"><i class="fa fa-map"></i>address : {{$event->address}}</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>{{$et->target}} People join</a></li>
+                                    <li><a href="#"><i class="fa fa-map"></i>address : {{$et->address}}</a></li>
                                 </ul>
                             </div>
+                            @endforeach
                         </article>
                     </div>
 

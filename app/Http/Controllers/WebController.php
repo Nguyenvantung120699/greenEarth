@@ -211,7 +211,7 @@ class WebController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
-        Mail::to($request->get("email"))->send(new Introduce());
+        Mail::to($request->get("email"))->send(new Introduce($introduction));
         return response()->json([
             'message' => 'Register successfully.'
         ], 200);

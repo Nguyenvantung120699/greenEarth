@@ -1,6 +1,6 @@
 <?php
 return[
-    "Evens"=>"Evens",
+    "event"=>"Event",
     "sponsors"=>"Sponsors",
     "time"=>"Time start :",
     "address"=>"Address : ",
@@ -15,4 +15,5 @@ return[
     "other1"=>"OTHER EVENTS",
     "other2"=>"Upcoming",
     "check_form"=>"Enough participants",
+    "list" => "List People Join Event"
 ];

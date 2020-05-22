@@ -2,6 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Donates;
+use App\Mail\JoinGroup;
+use App\Mail\Introduce;
+use App\Mail\Joinsuccess;
+use App\Mail\Outgroup;
+
+
 use App\Campaign;
 use App\Category;
 use App\Comment;
@@ -245,6 +254,10 @@ class AdminController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
+        if($member->status==0)
+        {
+            Mail::to($member->email)->send(new Outgroup($member)); 
+        }  
         return redirect()->to("admin/member");
     }
     public function restoreMember($id){
@@ -255,6 +268,10 @@ class AdminController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
+        if($member->status==1)
+        {
+            Mail::to($member->email)->send(new Joinsuccess($member)); 
+        }  
         return redirect()->to("admin/member/pending");
     }
 // {{--donate--}}

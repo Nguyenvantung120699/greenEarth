@@ -47,13 +47,14 @@ class WebController extends Controller
             $posts = Post::orderBy("created_at",'DESC')->take(3)->get();
             $campaign = Campaign::orderBy("created_at",'DESC')->first();
             $event = Event::orderBy("created_at",'DESC')->first();
+            $eventv = Event::where("status",1)->take(2)->get();
             $campaigns = Campaign::orderBy("created_at",'DESC')->take(2)->get();
 
 //            $post = $cache['post'];
 //            $campaign = $cache['campaign'];
 //            $event = $cache['event'];
 //            $campaigns = $cache['campaigns'];
-            return view('themes.website.home',compact('posts','campaigns','campaign','event'));
+            return view('themes.website.home',compact('posts','campaigns','campaign','event','eventv'));
 
 //            $views = view("themes.website.home",compact('post','campaign','event','campaigns'))->render();
 
@@ -153,7 +154,7 @@ class WebController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
-        Mail::to($request->get("email"))->send(new Joingroup());
+        Mail::to($request->get("email"))->send(new Joingroup($member));
         return response()->json([
             'message' => 'Register successfully.'
         ], 200);
@@ -183,7 +184,7 @@ class WebController extends Controller
 
         }catch (\Throwable $th){
         }
-        Mail::to($request->get("email"))->send(new Donates());
+        Mail::to($request->get("email"))->send(new Donates($donate));
         return response()->json([
             'message' => 'Donate successfully.'
         ], 200);
@@ -247,6 +248,9 @@ class WebController extends Controller
         $events = Event::where("event_slug",$event_slug)->first();
         $eventt = Event::orderBy('created_at','desc')->take(6)->get();
         $pevent = Member::where("event_id",$events->id)->count();
+        $eventdn = Donors::where('event_id',$events->id)->get();
+        $eventp = Member::where("event_id",$events->id)->get();
+        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent,"eventdn"=>$eventdn,"eventp"=>$eventp]);
         $title = "Sự kiện : ".$events->event_name."- Green Earth";
         return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent,'title'=>$title]);
     }

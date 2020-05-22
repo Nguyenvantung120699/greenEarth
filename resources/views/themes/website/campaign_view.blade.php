@@ -131,13 +131,13 @@
                         </aside>
 
                         <div><h5>{{trans('campaign_view.list')}}</h5>
-                        <div>
-                            <ul class="list-group list-group-flush" style="background-color: #eee;width: 100%;height: 200px;overflow: scroll;">
-                                @foreach($donatep as $d)
-                                <li class="list-group-item"><p>{{$d->id}}. {{$d->name}} - {{$d->getDonate()}}$</p></li>
-                                @endforeach
-                            </ul>
-                        </div>
+                            <div>
+                                <ul class="list-group list-group-flush" style="background-color: #eee;width: 100%;height: 200px;overflow: scroll;">
+                                    @foreach($donatep as $d)
+                                    <li class="list-group-item"><p>{{$d->id}}. {{$d->name}} - {{$d->getDonate()}}$</p></li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                             
                     </div>

@@ -180,7 +180,7 @@
                     <div class="col-xl-6 col-lg-6 col-md-6" style="height:365px">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{$event->image}}" alt="">
+                                <img class="card-img rounded-0" src="{{asset("$event->image")}}" alt="">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -347,7 +347,7 @@
                     </div>
                 </div>
                 <div class="row">
-                @foreach($campaigns as $pt)
+                @foreach($eventv as $pt)
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
@@ -356,8 +356,8 @@
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   {{$pt->organizational_units}}</p>
-                                    <h3><a href="{{url("chiendich",["campaign_slug"=>$pt->campaign_slug])}}">{{$pt->campaign_name}}</a></h3>
-                                    <a href="{{url("chiendich",["campaign_slug"=>$pt->campaign_slug])}}" class="more-btn">{{trans('home.remore')}}</a>
+                                    <h3><a href="{{url("sukien",["event_slug"=>$pt->event_slug])}}">{{$pt->event_name}}</a></h3>
+                                    <a href="{{url("sukien",["event_slug"=>$pt->event_slug])}}" class="more-btn">{{trans('home.remore')}}</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">

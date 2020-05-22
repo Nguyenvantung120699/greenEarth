@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Introduction;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -10,16 +11,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class Introduce extends Mailable
 {
     use Queueable, SerializesModels;
-    // public $donate;
+    public $introduction;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($introduction)
     {
-        // $this->donate = $donate;
+        $this->introduction = $introduction;
     }
 
     /**
@@ -29,6 +30,6 @@ class Introduce extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.introduce');
+        return $this->markdown('email.introduce')->with(['introduction'=>$this->introduction]);
     }
 }

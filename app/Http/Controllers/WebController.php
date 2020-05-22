@@ -46,7 +46,7 @@ class WebController extends Controller
 //            $cache = [];
             $posts = Post::orderBy("created_at",'DESC')->take(3)->get();
             $campaign = Campaign::orderBy("created_at",'DESC')->first();
-            $event = Event::orderBy("created_at",'DESC')->first();
+            $event = Event::orderBy("created_at",'DESC')->take(1)->get();
             $eventv = Event::where("status",1)->take(2)->get();
             $campaigns = Campaign::orderBy("created_at",'DESC')->take(2)->get();
 

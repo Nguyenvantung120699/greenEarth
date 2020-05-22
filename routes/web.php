@@ -1,5 +1,5 @@
 <?php
-Route::prefix("admin")->group(function (){
+Route::prefix("admin")->middleware(['auth',"checkAdmin"])->group(function (){
     include_once("admin.php");
 });
 

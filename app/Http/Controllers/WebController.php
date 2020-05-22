@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Mail\Donates;
 use App\Mail\JoinGroup;
 use App\Mail\Introduce;
-use App\Feedback;
+use App\Donors;
 use App\Post;
 use App\Category;
 use App\Comment;

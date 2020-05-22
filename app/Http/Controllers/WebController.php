@@ -250,9 +250,9 @@ class WebController extends Controller
         $pevent = Member::where("event_id",$events->id)->count();
         $eventdn = Donors::where('event_id',$events->id)->get();
         $eventp = Member::where("event_id",$events->id)->get();
-        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent,"eventdn"=>$eventdn,"eventp"=>$eventp]);
         $title = "Sự kiện : ".$events->event_name."- Green Earth";
-        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent,'title'=>$title]);
+        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent,"eventdn"=>$eventdn,"eventp"=>$eventp,'title'=>$title]);
+
     }
 
     public function contact(){

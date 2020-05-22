@@ -14,7 +14,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
+                            <a href="{{url("admin/category")}}" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
+                            <a href="{{url("admin/post")}}" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
+                            <a href="{{url("admin/event")}}" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
+                            <a href="{{url("admin/campaign")}}" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
+                            <a href="{{url("admin/donate")}}" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
+                            <a href="{{url("admin/account")}}" class="small-box-footer">More info <i class="fa fa_arrow"></i></a>
                         </div>
                     </div>
                 </div>

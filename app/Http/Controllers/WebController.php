@@ -26,7 +26,6 @@ use App\Category;
 use App\Comment;
 use App\User;
 use App\Campaign;
-use App\Donors;
 use App\Event;
 
 class WebController extends Controller
@@ -66,20 +65,21 @@ class WebController extends Controller
 //        return $views;
 //        Cache::forget('home');
 
+
     }
 
     public function categoryPost($path){
         $categories = Category::where("path","=",$path)->first();
 
         $posts = $categories->Posts()->paginate(5);
-        $title = "Chuyên mục - $categories->category_name";
+        $title = "Chuyên mục -" .$categories->category_name."- Green Earth";
         return view("themes.website.categoryPost",compact("categories","posts","title"));
     }
     public function viewPost($cat_path,$slug){
         $posts = Post::where("slug",$slug)->first();
         $post = Post::orderBy('created_at','desc')->take(6)->get();
         $comments = $posts->Comments->where('status',0);
-        $title = "Bài viết - $posts->title";
+        $title = "Bài viết -".$posts->title."- Green Earth";
 
         return view("themes.website.post_view",compact("posts","post","comments","title"));
     }
@@ -154,7 +154,7 @@ class WebController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
-        Mail::to($request->get("email"))->send(new Joingroup($member));   
+        Mail::to($request->get("email"))->send(new Joingroup($member));
         return response()->json([
             'message' => 'Register successfully.'
         ], 200);
@@ -211,7 +211,7 @@ class WebController extends Controller
         }catch (\Throwable $th){
             throw $th;
         }
-        Mail::to($request->get("email"))->send(new Introduce($introduction));
+        Mail::to($request->get("email"))->send(new Introduce());
         return response()->json([
             'message' => 'Register successfully.'
         ], 200);
@@ -224,13 +224,13 @@ class WebController extends Controller
 
     public function campaign(){
         $campaign = Campaign::all();
-        $title = "Chiến dịch";
+        $title = "Chiến dịch - Green Earth";
 
         return view("themes.website.campaign",compact('title','campaign'));
     }
     public function events(){
         $event = Event::all();
-        $title = "Sự kiện";
+        $title = "Sự kiện - Green Earth";
         return view("themes.website.events",compact('event','title'));
     }
 
@@ -241,7 +241,8 @@ class WebController extends Controller
         $donatep = Donate::where("campaign_id",$campaigns->id)->get();
         $tdonate = Donate::where("campaign_id",$campaigns->id)->count();
         $total_money = Donate::where("campaign_id",$campaigns->id)->sum('donate');
-         return view("themes.website.campaign_view",["campaigns"=>$campaigns,"campaignt"=>$campaignt,"donatep"=>$donatep,"tdonate"=>$tdonate,"total_money"=>$total_money]);
+        $title = "Chiến dịch : ".$campaigns->campaign_name." - Green Earth";
+         return view("themes.website.campaign_view",["campaigns"=>$campaigns,"campaignt"=>$campaignt,"donatep"=>$donatep,"tdonate"=>$tdonate,"total_money"=>$total_money,'title'=>$title]);
     }
     public function viewevents($event_slug){
         $events = Event::where("event_slug",$event_slug)->first();
@@ -249,7 +250,9 @@ class WebController extends Controller
         $pevent = Member::where("event_id",$events->id)->count();
         $eventdn = Donors::where('event_id',$events->id)->get();
         $eventp = Member::where("event_id",$events->id)->get();
-        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent,"eventdn"=>$eventdn,"eventp"=>$eventp]);
+        $title = "Sự kiện : ".$events->event_name."- Green Earth";
+        return view("themes.website.evens_view",["events"=>$events,"eventt"=>$eventt,"pevent"=>$pevent,"eventdn"=>$eventdn,"eventp"=>$eventp,'title'=>$title]);
+
     }
 
     public function contact(){

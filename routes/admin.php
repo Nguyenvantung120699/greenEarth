@@ -59,3 +59,5 @@ Route::post("donors/store","AdminController@storeDonors");
 Route::get("/donors/edit/{id}","AdminController@donorsEdit");
 Route::post("/donors/update/{id}","AdminController@donorsUpdate");
 Route::get("/donors/delete/{id}","AdminController@donorsDestroy");
+//{{--introduction--}}
+Route::get('introduction','AdminController@introduction');

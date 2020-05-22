@@ -29,12 +29,10 @@
                                         <div class="form-group ">
                                             <label  class="control-label mb-1">{{__("Chuyên đề")}}</label>
                                             <select class="form-group form-control" name="category_id" required>
-                                                @php
-                                                    $categories = \App\Category::all();
-                                                @endphp
+
                                                 <option selected value=""></option>
-                                                @foreach($categories as $c)
-                                                    <option value="{{$c->id}}">{{$c->category_name}}</option>
+                                                @foreach(\App\Category::all() as $c)
+                                                    <option  value="{{$c->id}}">{{$c->category_name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -43,15 +43,29 @@ class WebController extends Controller
 
 
     public function index(){
-        $categories = Category::all();
-        $post = Post::orderBy('count_views','desc')->take(6)->get();
-        $postt = Post::orderBy('id','desc')->take(2)->get();
-        // $posts = Post::orderBy('id','desc')->take(1)->get();
-        $like = Post::orderBy('count_like','desc')->take(4)->get();
-        $campaigns = Campaign::orderBy('id','desc')->take(1)->get();
-        $eventv = Event::where('status',1)->take(2)->get();
-        $events = Event::where('status',0)->take(1)->get();
-        return view("themes.website.home",['categories'=>$categories,'post'=>$post,'like'=>$like,'postt'=>$postt,'campaigns'=>$campaigns,'events'=>$events,'eventv'=> $eventv]);
+//        if (!Cache::has("home")){
+//            $cache = [];
+            $posts = Post::orderBy("created_at",'DESC')->take(3)->get();
+            $campaign = Campaign::orderBy("created_at",'DESC')->first();
+            $event = Event::orderBy("created_at",'DESC')->first();
+            $eventv = Event::where("status",1)->take(2)->get();
+            $campaigns = Campaign::orderBy("created_at",'DESC')->take(2)->get();
+
+//            $post = $cache['post'];
+//            $campaign = $cache['campaign'];
+//            $event = $cache['event'];
+//            $campaigns = $cache['campaigns'];
+            return view('themes.website.home',compact('posts','campaigns','campaign','event','eventv'));
+
+//            $views = view("themes.website.home",compact('post','campaign','event','campaigns'))->render();
+
+//            $now = Carbon::now();
+//            $exp_date = $now->addMinute(1);
+//            Cache::put('home',$views,$exp_date);
+
+//        return $views;
+//        Cache::forget('home');
+
     }
 
     public function categoryPost($path){
@@ -63,7 +77,7 @@ class WebController extends Controller
     }
     public function viewPost($cat_path,$slug){
         $posts = Post::where("slug",$slug)->first();
-        $post = Post::orderBy('count_views','desc')->take(6)->get();
+        $post = Post::orderBy('created_at','desc')->take(6)->get();
         $comments = $posts->Comments->where('status',0);
         $title = "Bài viết - $posts->title";
 
@@ -210,17 +224,20 @@ class WebController extends Controller
 
     public function campaign(){
         $campaign = Campaign::all();
-        return view("themes.website.campaign",["campaign"=>$campaign]);
+        $title = "Chiến dịch";
+
+        return view("themes.website.campaign",compact('title','campaign'));
     }
     public function events(){
         $event = Event::all();
-        return view("themes.website.events",["event"=>$event]);
+        $title = "Sự kiện";
+        return view("themes.website.events",compact('event','title'));
     }
 
     public function viewcampaign($campaign_slug){
         // $campaign = Campaign::find($id);
         $campaigns = Campaign::where("campaign_slug",$campaign_slug)->first();
-        $campaignt = Campaign::orderBy('id','desc')->take(6)->get();
+        $campaignt = Campaign::orderBy('created_at','desc')->take(6)->get();
         $donatep = Donate::where("campaign_id",$campaigns->id)->get();
         $tdonate = Donate::where("campaign_id",$campaigns->id)->count();
         $total_money = Donate::where("campaign_id",$campaigns->id)->sum('donate');
@@ -228,7 +245,7 @@ class WebController extends Controller
     }
     public function viewevents($event_slug){
         $events = Event::where("event_slug",$event_slug)->first();
-        $eventt = Event::orderBy('id','desc')->take(6)->get();
+        $eventt = Event::orderBy('created_at','desc')->take(6)->get();
         $pevent = Member::where("event_id",$events->id)->count();
         $eventdn = Donors::where('event_id',$events->id)->get();
         $eventp = Member::where("event_id",$events->id)->get();

@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "pusher/pusher-php-server": "^4.1",
         "snapappointments/bootstrap-select": "^1.13"
     },
     "require-dev": {
@@ -39,6 +40,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/helpers.php"
         ]
     },
     "autoload-dev": {

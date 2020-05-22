@@ -33,10 +33,10 @@
                             <div class="blog_details">
                                 <a class="d-inline-block" href="single-blog.html">
                                     <h2>{{$campaigns->campaign_name}}</h2>
-                                </a>
-                                <p>{{$campaigns->content}}</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i>{{$tdonate}} {{trans('campaign_view.i1')}}</a></li>
+                                        </a>
+                                        <p>{{$campaigns->content}}</p>
+                                        <ul class="blog-info-link">
+                                            <li><a href="#"><i class="fa fa-user"></i>{{$tdonate}} {{trans('campaign_view.i1')}}</a></li>
                                     <li><a href="#"><i class="fas fa-money-bill-alt"></i>{{trans('campaign_view.i2')}} {{$campaigns->getTarget()}} $</a></li>
                                     <li><a href="#"><i class="fas fa-money-bill-alt"></i>{{trans('campaign_view.i3')}} {{number_format($total_money,"0",",",".")}} $</a></li>
                                 </ul>

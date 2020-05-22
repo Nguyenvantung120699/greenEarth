@@ -1,4 +1,5 @@
-@extends('themes.website.layout.layout')  
+@extends('themes.website.layout.layout')
+@section('title',$title)
 @section('content')
 
 <div class="slider-area ">

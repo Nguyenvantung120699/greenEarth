@@ -17,6 +17,7 @@ use App\Comment;
 use App\Donate;
 use App\Donors;
 use App\Event;
+use App\Introduction;
 use App\Member;
 use App\Post;
 use App\User;
@@ -48,6 +49,8 @@ class AdminController extends Controller
                         "category_name"=>$request->get("category_name"),
                         "path"=>str_slug($request->get("category_name"))
                 ]);
+
+            notify('green',"category",["message"=>"Thêm danh mục mới :".$request->get("category_name")]);
         }catch (\Exception $e){
             return redirect()->back();
         }
@@ -136,6 +139,7 @@ class AdminController extends Controller
                 "short_desc"=>$request->get("short_desc"),
                 "content"=>$request->get("content")
             ]);
+            notify('posts',"post",["message"=>"Thêm bài viết mới :".$request->get("title")]);
         }catch (\Exception $e){
                 return redirect()->back();
         }
@@ -319,6 +323,7 @@ class AdminController extends Controller
                 "organizational_units"=>$request->get("organizational_units"),
                 "address"=>$request->get("address")
             ]);
+            notify('create',"event",["message"=>"Thêm sự kiện mới :".$request->get("event_name")]);
 
           }catch (\Exception $e){
                 return redirect()->back();
@@ -430,7 +435,7 @@ class AdminController extends Controller
                 "organizational_units"=>$request->get("organizational_units"),
 
             ]);
-
+            notify('campaigns',"campaign",["message"=>"Thêm chiến dịch mới :".$request->get("campaign_name")]);
         }catch (\Exception $e){
             return redirect()->back();
         }
@@ -580,5 +585,9 @@ class AdminController extends Controller
             return redirect()->back();
         }
         return redirect()->to("admin/donors");
+    }
+    public function introduction(){
+        $introduction = Introduction::all();
+        return view('themes.admin.introduction.index',compact('introduction'));
     }
 }

@@ -4,8 +4,8 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
-    <div class="logo"><a href="{{asset("admin/home")}}" class="simple-text logo-normal">
-          Admin
+    <div class="logo"><a href="{{asset("/")}}" class="simple-text logo-normal">
+            <i class="material-icons">home</i> Green Earth
         </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav nav-list">
@@ -132,13 +132,13 @@
                     <div class="dropdown-menu">
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{url("admin/post/create")}}" class="nav-link text-capitalize">
+                                <a href="{{url("admin/donors/create")}}" class="nav-link text-capitalize">
                                     <i class="fa fa-file"></i>
                                     <p>Thêm nhà tài trợ</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{url("admin/post")}}" class="nav-link text-capitalize">
+                                <a href="{{url("admin/donors")}}" class="nav-link text-capitalize">
                                     <i class="fa fa-th-list"></i>
                                     <p>Tất cả nhà tài trợ</p>
                                 </a>
@@ -177,10 +177,10 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="{{url("/")}}">
-                    <i class="material-icons">home</i>
-                    <p>Back To Home</p>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url("admin/introduction")}}">
+                    <i class="fa fa-users"></i>
+                    <p>Quản lý nhân viên</p>
                 </a>
             </li>
 

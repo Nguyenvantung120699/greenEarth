@@ -54,12 +54,12 @@ $(function () {
                 data : $('#join-group').serialize(),
                 dataType : "json",
                 success : function () {
-                    location.reload()
+                    form.trigger("reset");
                     alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
                 }
             })
     })
-})
+});
 $(function () {
         $("#donate-now").submit(function (e) {
             let form = $('#donate-now');
@@ -69,31 +69,58 @@ $(function () {
                     url : $('#donate-now').attr("action"),
                     data : $("#donate-now").serialize(),
                     dataType : "json",  
-                    success :function (response) {
-                        location.reload()
+                    success :function () {
+                       form.trigger('reset');
                         alert("Cảm ơn bạn đã tham gia ủng hộ hoạt động")
                     }
                 });
         })
-})
+});
 $(function () {
         $("#introduction").submit(function (e) {
                 let form = $('#introduction');
                 e.preventDefault();
                 $.ajax({
                     method : "post",
-                    url : $("#introduction").attr("action"),    
+                    url : $("#introduction").attr("action"),
                     data : $("#introduction").serialize(),
                     dataType : "json",
-                    success : function (res) {
-                            form.trigger("reset")
-                            alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
-                            // $("#ignismyModal").show();
-                            // alert($("#ignismyModal"))
-                    },
-                    error : function () {
-                            alert("đăng kí thất bại")
+                    success : function () {
+                        form.trigger('reset');
+                        alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi");
+
                     }
+                    // success : function () {
+                    //         form.trigger("reset");
+                    //         alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
+                    //
+                    // },
+
                 })
         })
-})
+});
+
+
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+
+var pusher = new Pusher('778a3330b825a9715331', {
+    cluster: 'ap1'
+});
+
+var channel_category = pusher.subscribe('green');
+channel_category.bind('category', function(data) {
+    alert(JSON.stringify(data));
+});
+var channel_event = pusher.subscribe('create');
+channel_event.bind('event', function(data) {
+    alert(JSON.stringify(data));
+});
+var channel_campaign = pusher.subscribe('campaigns');
+channel_campaign.bind('campaign', function(data) {
+    alert(JSON.stringify(data));
+});
+var chanel_post = pusher.subscribe('posts');
+chanel_post.bind('post', function(data) {
+    alert(JSON.stringify(data));
+});

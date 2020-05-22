@@ -21,11 +21,7 @@
                                 <tr class="tr-shadow">
                                     <td>
                                         <div class="table-data-feature">
-                                            <form action="{{url("admin/post/edit",['id'=>$user->id])}}">
-                                                <button class="btn btn-default" title="edit" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                    <i class="material-icons">create</i>
-                                                </button>
-                                            </form>
+
                                             <form action="{{url("admin/account/delete",['id'=>$user->id])}}">
                                                 <button onclick="return confirm('Xóa tài khoản ?')" title="delete" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
                                                     <i class="material-icons">delete</i>

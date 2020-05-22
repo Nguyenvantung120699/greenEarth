@@ -94,26 +94,26 @@
                 </div>
             </div>
             <div class="row">
-            @foreach($post as $p)
+                @foreach($posts as $post)
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single-place mb-30">
                         <div class="place-img">
-                            <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><img src="{{$p->image}}" alt=""></a>
+                            <a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><img src="{{$post->image}}" alt=""></a>
                         </div>
                         <div class="place-cap">
                             <div class="place-cap-top">
-                                <h3><a href="{{url("/chuyenmuc",["path"=>$p->Category->path])}}">{{$p->Category->category_name}}</a></h3>
-                                <a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p class="dolor">{{$p->title}}</p></a>
+                                <h3><a href="{{url("/chuyenmuc",["path"=>$post->Category->path])}}">{{$post->Category->category_name}}</a></h3>
+                                <a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><p class="dolor">{{$post->title}}</p></a>
                             </div>
                             <div class="place-cap-bottom">
                                 <ul>
-                                    <li class="text-black"><a href="{{url("baiviet",["cat_path"=>$p->Category->path,"slug"=>$p->slug])}}"><p><i class="fa fa-eye"></i>{{trans('home.see')}}</p></a></li>
+                                    <li class="text-black"><a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><p><i class="fa fa-eye"></i>{{trans('home.see')}}</p></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @endforeach
             </div>
         </div>
 
@@ -129,11 +129,11 @@
                     </div>
                 </div>
                 <div class="row">
-                @foreach($campaigns as $c)
+
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
-                                <div class="blog-img" style="height:365px" data-background="{{$c->image}}">
+                                <div class="blog-img" style="height:365px" data-background="{{$campaign->image}}">
                                     <div class="col-md-12" style="padding-top:20%">
                                     <h1 class="text-center text-white" id="demo">Sự Kiện Sắp Diễn Ra</h1>
                                         <div class="row">
@@ -165,9 +165,9 @@
                                     </div>
                                 </div>
                                 <div class="blog-cap">
-                                    <p> |   {{$c->organizational_units}}</p>
-                                    <h3><a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}">{{$c->campaign_name}}</a></h3>
-                                    <a href="{{url("chiendich",["campaign_slug"=>$c->campaign_slug])}}" class="more-btn">Read more »</a>
+                                    <p> |   {{$campaign->organizational_units}}</p>
+                                    <h3><a href="{{url("chiendich",["campaign_slug"=>$campaign->campaign_slug])}}">{{$campaign->campaign_name}}</a></h3>
+                                    <a href="{{url("chiendich",["campaign_slug"=>$campaign->campaign_slug])}}" class="more-btn">Read more »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">
@@ -176,24 +176,23 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                    @foreach($events as $e)
+
                     <div class="col-xl-6 col-lg-6 col-md-6" style="height:365px">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{$e->image}}" alt="">
+                                <img class="card-img rounded-0" src="{{$event->image}}" alt="">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <a href="#" class="blog_item_date" style="background-color:green">
                                                 <h3>Start</h3>
-                                                <p>{{$e->start_date}}</p>
+                                                <p>{{$event->start_date}}</p>
                                             </a>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="#" class="blog_item_date" style="background-color:red">
                                                 <h3>finish</h3>
-                                                <p>{{$e->end_date}}</p>
+                                                <p>{{$event->end_date}}</p>
                                             </a>
                                         </div>
                                     </div>
@@ -201,17 +200,17 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="{{url("sukien",["event_slug"=>$e->event_slug])}}")}}">
-                                    <h2>{{$e->event_name}}</h2>
+                                <a class="d-inline-block" href="{{url("sukien",["event_slug"=>$event->event_slug])}}">
+                                    <h2>{{$event->event_name}}</h2>
                                 </a>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i>{{$e->target}} People join</a></li>
-                                    <li><a href="#"><i class="fa fa-map"></i>address : {{$e->address}}</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>{{$event->target}} People join</a></li>
+                                    <li><a href="#"><i class="fa fa-map"></i>address : {{$event->address}}</a></li>
                                 </ul>
                             </div>
                         </article>
                     </div>
-                    @endforeach
+
                 </div>
             </div>
         </div>

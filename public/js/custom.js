@@ -59,7 +59,7 @@ $(function () {
                 }
             })
     })
-})
+});
 $(function () {
         $("#donate-now").submit(function (e) {
             let form = $('#donate-now');
@@ -75,7 +75,7 @@ $(function () {
                     }
                 });
         })
-})
+});
 $(function () {
         $("#introduction").submit(function (e) {
                 let form = $('#introduction');
@@ -86,19 +86,19 @@ $(function () {
                     data : $("#introduction").serialize(),
                     dataType : "json",
                     success : function () {
-                            form.trigger("reset");
-                            alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
-                            // $("#ignismyModal").show();
-                            // alert($("#ignismyModal"))
-                    },
-                    error : function (res) {
                         form.trigger('reset');
-                            alert(res.message)
+                        alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi");
 
                     }
+                    // success : function () {
+                    //         form.trigger("reset");
+                    //         alert("Chúc mừng bạn đã đăng kí thành viên ! Vui lòng đợi mail phản hồi")
+                    //
+                    // },
+
                 })
         })
-})
+});
 
 
 // Enable pusher logging - don't include this in production
@@ -120,7 +120,7 @@ var channel_campaign = pusher.subscribe('campaigns');
 channel_campaign.bind('campaign', function(data) {
     alert(JSON.stringify(data));
 });
-var channel_campaign = pusher.subscribe('posts');
-channel_campaign.bind('post', function(data) {
+var chanel_post = pusher.subscribe('posts');
+chanel_post.bind('post', function(data) {
     alert(JSON.stringify(data));
 });

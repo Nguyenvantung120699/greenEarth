@@ -5,7 +5,7 @@
       Tip 2: you can also add an image using data-image tag
   -->
     <div class="logo"><a href="{{asset("/")}}" class="simple-text logo-normal">
-          Green Earth
+            <i class="material-icons">home</i> Green Earth
         </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav nav-list">
@@ -177,10 +177,10 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="{{url("/")}}">
-                    <i class="material-icons">home</i>
-                    <p>Back To Home</p>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url("admin/introduction")}}">
+                    <i class="fa fa-users"></i>
+                    <p>Quản lý nhân viên</p>
                 </a>
             </li>
 

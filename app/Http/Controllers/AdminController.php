@@ -8,6 +8,7 @@ use App\Comment;
 use App\Donate;
 use App\Donors;
 use App\Event;
+use App\Introduction;
 use App\Member;
 use App\Post;
 use App\User;
@@ -567,5 +568,9 @@ class AdminController extends Controller
             return redirect()->back();
         }
         return redirect()->to("admin/donors");
+    }
+    public function introduction(){
+        $introduction = Introduction::all();
+        return view('themes.admin.introduction.index',compact('introduction'));
     }
 }

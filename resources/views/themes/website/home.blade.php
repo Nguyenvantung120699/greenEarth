@@ -94,26 +94,26 @@
                 </div>
             </div>
             <div class="row">
-
-{{--                <div class="col-xl-4 col-lg-4 col-md-6">--}}
-{{--                    <div class="single-place mb-30">--}}
-{{--                        <div class="place-img">--}}
-{{--                            <a href="{{url("baiviet")}}"><img src="{{$post->image}}" alt=""></a>--}}
-{{--                        </div>--}}
-{{--                        <div class="place-cap">--}}
-{{--                            <div class="place-cap-top">--}}
-{{--                                <h3><a href="{{url("/chuyenmuc",["path"=>$post->Category->path])}}">{{$post->Category->category_name}}</a></h3>--}}
-{{--                                <a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><p class="dolor">{{$post->title}}</p></a>--}}
-{{--                            </div>--}}
-{{--                            <div class="place-cap-bottom">--}}
-{{--                                <ul>--}}
-{{--                                    <li class="text-black"><a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><p><i class="fa fa-eye"></i>{{trans('home.see')}}</p></a></li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
+                @foreach($posts as $post)
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-place mb-30">
+                        <div class="place-img">
+                            <a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><img src="{{$post->image}}" alt=""></a>
+                        </div>
+                        <div class="place-cap">
+                            <div class="place-cap-top">
+                                <h3><a href="{{url("/chuyenmuc",["path"=>$post->Category->path])}}">{{$post->Category->category_name}}</a></h3>
+                                <a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><p class="dolor">{{$post->title}}</p></a>
+                            </div>
+                            <div class="place-cap-bottom">
+                                <ul>
+                                    <li class="text-black"><a href="{{url("baiviet",["cat_path"=>$post->Category->path,"slug"=>$post->slug])}}"><p><i class="fa fa-eye"></i>{{trans('home.see')}}</p></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
 

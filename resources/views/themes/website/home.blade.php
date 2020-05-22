@@ -180,7 +180,7 @@
                     <div class="col-xl-6 col-lg-6 col-md-6" style="height:365px">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{$event->image}}" alt="">
+                                <img class="card-img rounded-0" src="{{asset("$event->image")}}" alt="">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
